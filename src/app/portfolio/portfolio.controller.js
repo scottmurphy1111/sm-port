@@ -3,37 +3,70 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', PortfolioController);
+    .controller('PortfolioController', function($timeout, $log) {
+      var portfolio = this;
+        
+      portfolio.loadMainContent = false;
 
-  /** @ngInject */
-  function PortfolioController($timeout, webDevTec, toastr) {
-    var vm = this;
+      portfolio.setUpPage = function() {
+        $timeout(function() {
+          portfolio.loadMainContent = true;
+        }, 200);
+        
+      }
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1445875856093;
-    vm.showToastr = showToastr;
+      portfolio.enterClicked1 = false;
+      portfolio.enterClicked2 = false;
+      portfolio.enterClicked3 = false;
 
-    activate();
+      portfolio.slideTopPanel1 = function() {
+        portfolio.enterClicked1 = true;
+        //$log.debug(angular.element('.enter'));
+      };
 
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
+      portfolio.slideTopPanel2 = function() {
+        portfolio.enterClicked2 = true;
+        portfolio.enterClicked1 = false;
+      };
 
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
+      portfolio.slideTopPanel3 = function() {
+        portfolio.enterClicked3 = true;
+        portfolio.enterClicked2 = false;
+      };
+    })
 
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
+  .directive('continueButton', function($log) {
+  
+      var linkFunction = function(scope, element, attr) {
+        element.bind('click', function() {
+          var correctEl;
+          var myEl = element.parent().next().children();
+          $log.debug(myEl);
 
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
-  }
+          for (var i = 0; i < myEl.length; i++) {
+              if (myEl[i].className == 'enter') {
+                myEl[i].classList.add('load-icon');
+                break;
+              }        
+          }
+
+          element.removeClass('load-icon');
+          element.addClass('next1');
+          element.parent().removeClass('load-content show').addClass('hide');
+          element.parent().next().addClass('show');
+          
+          scope.slideTopPanel1 = function() {
+            scope.enterClicked1 = true;
+            //$log.debug(angular.element('.enter'));
+          };
+
+          scope.slideTopPanel1();
+        });
+      };
+
+      return {
+        restrict: 'A',
+        link: linkFunction
+      };
+    });
 })();

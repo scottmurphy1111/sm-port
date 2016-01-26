@@ -1,47 +1,106 @@
-<div class="container">
+<div class="container" ng-init="portfolio.setUpPage()">
+  <!-- <div class="nav-container">
+    <span>X</span>
+    <ul>
+      <li>first item</li>
+      <li>first item</li>
+      <li>first item</li>
+      <li>first item</li>
+    </ul>
+  </div> -->
+  <div class="panel">
+    <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}">
+      <section class="top-panel sliding-panel" ng-class="{'hide': portfolio.enterClicked1 || portfolio.enterClicked2}">
+        <div class="header">
+          <div class="who" ng-class="{'load-content': portfolio.loadMainContent}">
+            <h1><span class="logo" ng-include="'../assets/images/portfolio/logoalt.svg'"></span>SCOTT MURPHY <span class="title">WEB DEVELOPER</span></h1>
+    	      
+    	      <p class="tagline">Front-End and User Interface Design Execution Specialist</p>
+    	    </div>
+        </div>
+        <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}"><span class="text">Continue</span><br /><span class="icon" ng-include="'../assets/images/portfolio/enter.svg'"></span></p>
 
-  <section class="panel top-panel">
-    <div class="header">
-      <div class="who">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 22.2 22.2" style="enable-background:new 0 0 22.2 22.2;" xml:space="preserve">
+        <!-- <p class="enter" ng-class="{'next1': portfolio.enterClicked1, 'load-icon': portfolio.loadMainContent}" ng-click="portfolio.slideTopPanel1()"><span class="text">Continue</span><br /><span class="icon" ng-include="'../assets/images/portfolio/enter.svg'"></span></p>
+         -->
+      </section>
 
-<circle id="XMLID_27_" class="logo-circle" cx="11.1" cy="11.1" r="7.8"/>
-<g id="XMLID_35_">
-	<line id="XMLID_28_" class="logo-lines" x1="10.8" y1="13.9" x2="11.8" y2="8.4"/>
-	<path id="XMLID_33_" class="logo-lines" d="M8.3,9.2C7.7,9.8,7,10.5,6.4,11.1l1.9,1.7"/>
-	<path id="XMLID_34_" class="logo-lines" d="M13.9,12.9c0.6-0.6,1.3-1.3,1.9-1.9l-1.9-1.7"/>
-</g>
-</svg>
+      
 
-	      <h1>SCOTT MURPHY</h1>
-	      <h2>Web Developer</h2>
-	    </div>
-	    <div class="nav">
+      <section class="second-panel sliding-panel" ng-class="{'show': portfolio.enterClicked1, 'hide': portfolio.enterClicked2}">
+        <h2 class="category-title"><span class="logo" ng-include="'../assets/images/portfolio/logoalt.svg'"></span>About Scott</h2>
+        <div class="bios">
+<!--           <h3>Biography</h3> -->
+          <ul>
+            <li>
+              <div class="initial">Hometown</div>
+              <div class="reveal">Richmond, VA</div>
+            </li>
+            <li>
+              <div class="initial">Education</div>
+              <div class="reveal">Appalachain State University</div>
+            </li>
+            <li>
+              <div class="initial">Experience</div>
+              <div class="reveal">7 years+</div>
+            </li>
+            <li>
+              <div class="initial">Nickname</div>
+              <div class="reveal">Murph</div>
+            </li>
+          </ul>
+          <!-- <h3>Personality</h3> -->
+          <ul>
+            <li>
+              <div class="initial">Work Ethic</div>
+              <div class="reveal">Team Player, Gets Hands Dirty</div>
+            </li>
+            <li>
+              <div class="initial">Fav Quote</div>
+              <div class="reveal">"All work and no play..."</div>
+            </li>
+            <li>
+              <div class="initial">Myers-Briggs</div>
+              <div class="reveal">INTP</div>
+            </li>
+            <li>
+              <div class="initial">Hobbies</div>
+              <div class="reveal">Playing Music, Golf</div>
+            </li>
+          </ul>
+        </div>
+        <div class="work-exp">
+          <p>Work Exp</p>
+        </div>
+        <!-- <p continue-button class="enter" ng-class="{'next2': portfolio.enterClicked2}" ng-click="portfolio.slideTopPanel2()">Continue<br /><span ng-include="'../assets/images/portfolio/enter.svg'"></span></p> -->
+        <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'../assets/images/portfolio/enter.svg'"></span></p>
+      </section>
 
-	    </div>
-	    <div class="tagline">
-	    	<span>Kick ass ui components and interaction development</span>
-	    </div>
+      
+
+      <section class="third-panel sliding-panel" ng-class="{'show': portfolio.enterClicked2, 'hide': portfolio.enterClicked3}">
+        <h2 class="category-title"><span class="logo" ng-include="'../assets/images/portfolio/logoalt.svg'"></span>Skills</h2>
+        <div class="skills">
+          <ul>
+            <li>
+              <div class="initial">HTML/CSS</div>
+              <div class="reveal">more about this skill</div>
+            </li>
+            <li>
+              <div class="initial">Javascript/jQuery/Angular</div>
+              <div class="reveal">more about this skill</div>
+            </li>
+            <li>
+              <div class="initial">UI and Visual Design</div>
+              <div class="reveal">more about this skill</div>
+            </li>
+            <li>
+              <div class="initial">Github</div>
+              <div class="reveal">more about this skill</div>
+            </li>
+          </ul>
+        </div>
+        <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'../assets/images/portfolio/enter.svg'"></span></p>
+      </section>
     </div>
-  </section>
-
-  <section class="panel second-panel">
-    <div class="why">
-      <ul>
-        <li>Custom Websites</li>
-	      <li>Highly Interactive</li>
-	      <li>Highly Interactive</li>
-	      <li>Highly Interactive</li>
-	      
-	    </ul>
-	    <div class="nav">
-
-	    </div>
-	    <div class="tagline">
-	    	<span>Kick ass ui components and interaction development</span>
-	    </div>
-    </div>
-  </section>
-
+  </div>
 </div>

@@ -49,3 +49,28 @@
     @content;
   }
 }
+
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  -ms-box-sizing: $box-model;
+  box-sizing: $box-model;
+}

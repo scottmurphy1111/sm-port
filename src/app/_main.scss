@@ -1,4 +1,8 @@
 /*main*/
+* {
+  box-sizing: border-box;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -11,9 +15,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: source-sans-pro-light, sans-serif;
-  font-weight: 300;
-  
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -119,4 +121,19 @@ a {
 
 hr {
   clear: both;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../assets/fonts/SourceSansPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro Light';
+  src: url('../assets/fonts/SourceSansPro-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro ExtraLight';
+  src: url('../assets/fonts/SourceSansPro-ExtraLight.ttf') format('truetype');
 }

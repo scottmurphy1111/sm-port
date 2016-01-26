@@ -21,7 +21,7 @@
         controllerAs: 'portfolio'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/portfolio');
   }
 
 })();
