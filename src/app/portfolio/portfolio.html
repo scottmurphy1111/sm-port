@@ -9,98 +9,116 @@
     </ul>
   </div> -->
   <div class="panel">
-    <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}">
-      <section class="top-panel sliding-panel" ng-class="{'hide': portfolio.enterClicked1 || portfolio.enterClicked2}">
-        <div class="header">
-          <div class="who" ng-class="{'load-content': portfolio.loadMainContent}">
-            <h1><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>SCOTT MURPHY <span class="title">WEB DEVELOPER</span></h1>
-    	      
-    	      <p class="tagline">Front-End and User Interface Design Execution Specialist</p>
-    	    </div>
-        </div>
-        <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
+    <section class="top-panel sliding-panel" ng-class="{'hide': portfolio.enterClicked1 || portfolio.enterClicked2}">
+      <div class="header">
+        <div class="who" ng-class="{'load-content': portfolio.loadMainContent}">
+          <h1><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>SCOTT MURPHY <span class="title">WEB DEVELOPER</span></h1>
+  	      
+  	      <p class="tagline">Front-End and User Interface Design Execution Specialist</p>
+  	    </div>
+      </div>
+      <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
+        <span class="text">Continue</span><br />
+        <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
+      </p>
 
-        <!-- <p class="enter" ng-class="{'next1': portfolio.enterClicked1, 'load-icon': portfolio.loadMainContent}" ng-click="portfolio.slideTopPanel1()"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
-         -->
-      </section>
-
-      
-
-      <section class="second-panel sliding-panel" ng-class="{'show': portfolio.enterClicked1, 'hide': portfolio.enterClicked2}">
+      <!-- <p class="enter" ng-class="{'next1': portfolio.enterClicked1, 'load-icon': portfolio.loadMainContent}" ng-click="portfolio.slideTopPanel1()"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
+       -->
+    </section>
+    <section class="second-panel sliding-panel" ng-class="{'show': portfolio.enterClicked1, 'hide': portfolio.enterClicked2}">
+      <div class="panel-wrapper">
         <h2 class="category-title"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>About Scott</h2>
         <div class="bios">
-<!--           <h3>Biography</h3> -->
+  <!--           <h3>Biography</h3> -->
           <ul>
             <li>
-              <div class="initial">Hometown</div>
-              <div class="reveal">Richmond, VA</div>
+              <div class="inner-box">
+                <div class="initial">Hometown</div>
+                <div class="reveal">Richmond, VA</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Education</div>
-              <div class="reveal">Appalachain State University</div>
+              <div class="inner-box">
+                <div class="initial">Education</div>
+                <div class="reveal">Appalachain State</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Experience</div>
-              <div class="reveal">7 years+</div>
+              <div class="inner-box">
+                <div class="initial">Experience</div>
+                <div class="reveal">7 years+</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Nickname</div>
-              <div class="reveal">Murph</div>
+              <div class="inner-box">
+                <div class="initial">Nickname</div>
+                <div class="reveal">Murph</div>
+              </div>
             </li>
           </ul>
           <!-- <h3>Personality</h3> -->
           <ul>
             <li>
-              <div class="initial">Work Ethic</div>
-              <div class="reveal">Team Player, Gets Hands Dirty</div>
+              <div class="inner-box">
+                <div class="initial">Work Ethic</div>
+                <div class="reveal">Gets Hands Dirty</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Fav Quote</div>
-              <div class="reveal">"All work and no play..."</div>
+              <div class="inner-box">
+                <div class="initial">Fav Quote</div>
+                <div class="reveal">"All work and no play"</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Myers-Briggs</div>
-              <div class="reveal">INTP</div>
+              <div class="inner-box">
+                <div class="initial">Myers-Briggs</div>
+                <div class="reveal">INTP</div>
+              </div>
             </li>
             <li>
-              <div class="initial">Hobbies</div>
-              <div class="reveal">Playing Music, Golf</div>
+              <div class="inner-box">
+                <div class="initial">Hobbies</div>
+                <div class="reveal">Music, Golf</div>
+              </div>
             </li>
           </ul>
         </div>
         <div class="work-exp">
           <p>Work Exp</p>
         </div>
-        <!-- <p continue-button class="enter" ng-class="{'next2': portfolio.enterClicked2}" ng-click="portfolio.slideTopPanel2()">Continue<br /><span ng-include="'assets/images/portfolio/enter.svg'"></span></p> -->
-        <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
-      </section>
+      </div>
+      <!-- <p continue-button class="enter" ng-class="{'next2': portfolio.enterClicked2}" ng-click="portfolio.slideTopPanel2()">Continue<br /><span ng-include="'assets/images/portfolio/enter.svg'"></span></p> -->
+      <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
+    </section>
 
-      
+    
 
-      <section class="third-panel sliding-panel" ng-class="{'show': portfolio.enterClicked2, 'hide': portfolio.enterClicked3}">
-        <h2 class="category-title"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>Skills</h2>
-        <div class="skills">
-          <ul>
-            <li>
-              <div class="initial">HTML/CSS</div>
-              <div class="reveal">more about this skill</div>
-            </li>
-            <li>
-              <div class="initial">Javascript/jQuery/Angular</div>
-              <div class="reveal">more about this skill</div>
-            </li>
-            <li>
-              <div class="initial">UI and Visual Design</div>
-              <div class="reveal">more about this skill</div>
-            </li>
-            <li>
-              <div class="initial">Github</div>
-              <div class="reveal">more about this skill</div>
-            </li>
-          </ul>
-        </div>
-        <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
-      </section>
-    </div>
+    <section class="third-panel sliding-panel" ng-class="{'show': portfolio.enterClicked2, 'hide': portfolio.enterClicked3}">
+      <h2 class="category-title"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>Skills</h2>
+      <div class="skills">
+        <ul>
+          <li>
+            <div class="initial">HTML/CSS</div>
+            <div class="reveal">more about this skill</div>
+          </li>
+          <li>
+            <div class="initial">Javascript/jQuery/Angular</div>
+            <div class="reveal">more about this skill</div>
+          </li>
+          <li>
+            <div class="initial">UI and Visual Design</div>
+            <div class="reveal">more about this skill</div>
+          </li>
+          <li>
+            <div class="initial">Github</div>
+            <div class="reveal">more about this skill</div>
+          </li>
+        </ul>
+      </div>
+      <p continue-button class="enter"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
+    </section>
+    <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}"></div>
   </div>
+  
 </div>

@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $log) {
+    .controller('PortfolioController', function($timeout) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -13,7 +13,7 @@
           portfolio.loadMainContent = true;
         }, 200);
         
-      }
+      };
 
       portfolio.enterClicked1 = false;
       portfolio.enterClicked2 = false;
@@ -35,16 +35,14 @@
       };
     })
 
-  .directive('continueButton', function($log) {
+  .directive('continueButton', function() {
   
-      var linkFunction = function(scope, element, attr) {
+      var linkFunction = function(scope, element) {
         element.bind('click', function() {
-          var correctEl;
           var myEl = element.parent().next().children();
-          $log.debug(myEl);
 
           for (var i = 0; i < myEl.length; i++) {
-              if (myEl[i].className == 'enter') {
+              if (myEl[i].className === 'enter') {
                 myEl[i].classList.add('load-icon');
                 break;
               }        
@@ -55,12 +53,12 @@
           element.parent().removeClass('load-content show').addClass('hide');
           element.parent().next().addClass('show');
           
-          scope.slideTopPanel1 = function() {
-            scope.enterClicked1 = true;
-            //$log.debug(angular.element('.enter'));
-          };
+          // scope.slideTopPanel1 = function() {
+          //   scope.enterClicked1 = true;
+          //   //$log.debug(angular.element('.enter'));
+          // };
 
-          scope.slideTopPanel1();
+          // scope.slideTopPanel1();
         });
       };
 

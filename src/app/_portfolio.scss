@@ -1,7 +1,16 @@
 /*portfolio*/
+$varW:25%;
+$varH:24vh;
+$space:2px;
 
 .container {
 	position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+	@include mobile {
+		overflow-x: hidden;
+	}
 }
 
 .nav-container {
@@ -28,12 +37,32 @@
 	height: 100vh;
 	width: 100%;
 	overflow: hidden;
-	display: block;
-	padding: 0 20px;
+	display: inline-block;
 	background-color: $primaryColor;
+	position: relative;
+}
+
+.sliding-panel {
+	padding: 0 20px;
 
 	@include mobile {
 		padding: 0;
+	}
+
+
+	.panel-wrapper {
+		position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 100vh;
+
+		@include mobile {
+			overflow-x: hidden;
+			overflow-y: scroll;
+			height: auto;
+		}
+
 	}
 }
 
@@ -62,6 +91,10 @@
 	@include mobile {
 		background: url(../assets/images/me.png) 50% 100% no-repeat transparent;
 		background-size: 100%;
+	}
+
+	@media screen and (orientation:landscape) {
+		background-size: 60%;
 	}
 }
 
@@ -118,6 +151,10 @@
 		h1 {
 			font-size: 2.25em;
 			margin: 0;
+
+			@include mobile {
+				font-size: 2em;
+			}
 		}
 
 		.title {
@@ -125,12 +162,20 @@
 			font-family: 'Source Sans Pro ExtraLight', sans-serif;
 			margin: 0;
 			display: inline-block;
+
+			@include mobile {
+				font-size: 0.7em;	
+			}
 		}
 
 		.tagline {
 			font-size: 1.2em;
 			margin: 0.6em auto;
 			font-family: 'Source Sans Pro Light', sans-serif;
+
+			@include mobile {
+				font-size: 1.1em;	
+			}
 		}
 	}
 
@@ -138,7 +183,7 @@
 
 .enter {
 	width: 100px;
-	position: absolute;
+	position: fixed;
 	z-index: 2;
 	left: 0;
 	right: 0;
@@ -149,6 +194,7 @@
 	visibility: hidden;
 	opacity: 0;
 	transform: scale(0,0);
+	overflow: hidden;
 
 	&.load-icon {
 		visibility: visible;
@@ -162,6 +208,8 @@
 		span.text {
 			visibility: visible;
 			opacity: 1;
+			top: 0;
+			transform: scale(1,1);
 		}
 
 		span.icon {
@@ -174,8 +222,11 @@
 		text-align: center;
 		font-size: 1.1em;
 		transition: all .25s ease-out;
-		visibility: none;
+		visibility: hidden;
 		opacity: 0;
+		position: relative;
+		top: -10px;
+		transform: scale(0,0);
 	}	
 
 	span.icon {
@@ -186,8 +237,6 @@
 		transform:translateY(0px);
 		animation: bounce 3s infinite;
 		@include hacks();
-
-		
 	}
 
 	&.next1 {
@@ -212,6 +261,18 @@
 		opacity: 1;
 		transform: scale(1,1);
 		transition: bottom .4s ease-out;
+	}
+
+	@include mobile {
+		bottom: 25px;
+		
+		span.text {
+			transform: scale(1,1);
+			opacity: 1;
+			visibility: visible;
+			top: 0;
+		}
+			
 	}
 }
 
@@ -240,10 +301,17 @@
 	position: absolute;
 	top: 100vh;
 	left: 0;
+	right: 0;
 	transition: all 0.35s ease-out;
 	transition-delay: 0.5s;
 	z-index: 1;
+	display: inline-block;
 	overflow: hidden;
+
+	@include mobile {
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
 
 	&.hide {
 		top: -100vh;
@@ -279,8 +347,11 @@
     }
 
     @include mobile {
-    	height: 100%;
+    	height: auto;
     	position: relative;
+    	margin-bottom: 124px;
+    	top: 0;
+    	transform: translateY(0%);
     }
 
     
@@ -291,24 +362,84 @@
 			display: block;
 			width: 100%;
 
+			&:last-child {
+
+				li {
+					&:first-child {
+						border-top-left-radius: 0px;
+						border-bottom-left-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+					&:last-child {
+						border-top-right-radius: 0px;
+						border-bottom-right-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+				}
+			}
+
 			li {
 				display: inline-block;
 				height: 24vh;
+				height:unquote("calc( #{$varH} - #{$space} )");
 				float: left;
-				background: rgba(0,90,120, 0.925);
+				background: rgba(0,90,120, 0.75);
 				transition: all 0.3s ease-out .2s;
-				width: 23.875%;
-    		margin: 0 0.75% 15px;
+				//width: calc(25%-2px);
+				width: unquote("calc( #{$varW} - #{$space} )");
+    		margin: 0 1px 2px;
 				color: #fff;
 				padding: 0 0px;
 				vertical-align: middle;
 				line-height: 24vh;
 				position: relative;
 				overflow: hidden;
-				border-radius: 8px;
+				-webkit-tap-highlight-color: transparent;
+
+				@include tablet {
+					height: 20vh;
+					height:unquote("calc( 20vh - #{$space} )");
+					line-height: 20vh;
+				}
 
 				@include mobile {
-					width: 100%;
+					width: 50%;
+					margin: 0 1px 2px;
+					transition: all 0s ease-out 0s;
+					height:unquote("calc( #{$varH} - #{$space} )");
+					width:unquote("calc( 50% - 1px )");
+
+					&:nth-child(odd) {
+						margin-left: 0;
+					}
+
+					&:nth-child(even) {
+						margin-right: 0;
+					}
+
+				}
+
+				@media screen and (orientation:landscape) {
+					line-height: 40vh;
+					height:unquote("calc( 40vh - #{$space} )");
+				}
+				
+				.inner-box {
+					position: relative;
+			    overflow: hidden;
+			    width: 100%;
+			    display: inline-block;
+			    height: 20vh;
+			    vertical-align: middle;
+			    line-height: 20vh;
 				}
 
 				.initial {
@@ -317,56 +448,82 @@
 					left: 0;
 					width: 100%;
 					display: inline-block;
-					transition: all 0.1s ease-out;
+					transition: all 0.15s ease-out;
 					transition-delay: 0.2s;
 					@include hacks();
 					transform: translateY(0px);
-  				//transform: translateZ(24vh);
+					opacity: 1;
+					visibility: visible;
+					transform: scale(1,1);
+
+					@include mobile {
+						transition: all 0s ease-out 0s;
+					}
 
 				}
 
 				.reveal {
 					position: absolute;
-					top: 12vh;
+					top: -12vh;
 					left: 0;
 					width: 100%;
 					display: inline-block;
 					//background: rgba(0,90,120, 0.95);
-					transition: all 0.1s ease-in;
+					transition: all 0.15s ease-out;
 					transition-delay: 0.1s;
 					@include hacks();
-					transform: translateY(12vh);
+					transform: translateY(-12vh);
 					visibility: hidden;
 					opacity: 0;
+					transform: scale(0,0);
+
+					@include mobile {
+						transition: all 0s ease-out 0s;
+					}
 				}
 
 				&:hover {
-					background: rgba(0,90,120, 0.75);
-					transition: all 0.3s ease-in 0;
+					cursor: pointer;
+					background: rgba(0,90,120, 0.925);
+					transition: all 0.3s ease-out 0;
 
 					.initial {
-						top: -12vh;
-						transform: translateY(-12vh);
-						transition: all 0.25s ease-out;
+						top: 12vh;
+						transform: translateY(12vh);
+						transition: all 0.15s ease-out;
 						transition-delay: 0s;
+						opacity: 0;
+						visibility: hidden;
+						transform: scale(0,0);
 					}
 
 					.reveal {
-						transition: all 0.25s ease-out;
+						transition: all 0.15s ease-out;
 						transition-delay: 0.1s;
 						top: 0;
 						transform: translateY(0);
 						visibility: visible;
 						opacity: 1;
+						transform: scale(1,1);
 					}
 				}
 
 				&:first-child {
 					margin-left: 0;
+					border-top-left-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
 				}
 
 				&:last-child {
 					margin-right: 0;
+					border-top-right-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
 				}
 			}
 		}
@@ -539,24 +696,24 @@
 }
 
 span.logo {
-			display: inline-block;
-	    width: 45px;
-	    position: relative;
-	    top: 10px;
-	    margin-right: 8px;
+	display: inline-block;
+  width: 45px;
+  position: relative;
+  top: 10px;
+  margin-right: 8px;
 
-	    @include mobile {
-	    	top: 6px;
-	    	width: 30px;
-	    }
-		}
+  @include mobile {
+  	top: 8px;
+  	width: 30px;
+  }
+ }
 
-		.logo-circle{
-		fill:none;
-		stroke:#FFFFFF;
-		stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
+.logo-circle {
+	fill:none;
+	stroke:#FFFFFF;
+	stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
 
-	.logo-lines{fill:none;stroke:#FFFFFF;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.logo-lines {fill:none;stroke:#FFFFFF;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 @media only screen and (min-width: 768px)  {
 	.top-panel {
