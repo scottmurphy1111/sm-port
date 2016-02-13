@@ -25,9 +25,9 @@
       <!-- <p class="enter" ng-class="{'next1': portfolio.enterClicked1, 'load-icon': portfolio.loadMainContent}" ng-click="portfolio.slideTopPanel1()"><span class="text">Continue</span><br /><span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span></p>
        -->
     </section>
-    <section class="second-panel sliding-panel" ng-class="{'show': portfolio.enterClicked1, 'hide': portfolio.enterClicked2}">
+    <section class="second-panel sliding-panel" ng-class="{'show': portfolio.enterClicked1, 'hide': portfolio.enterClicked2}" show-on-scroll>
       <div class="panel-wrapper">
-        <h2 class="category-title"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>About Scott</h2>
+        <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>About Scott</h2>
         <div class="bios">
   <!--           <h3>Biography</h3> -->
           <ul>
@@ -95,7 +95,7 @@
     
 
     <section class="third-panel sliding-panel" ng-class="{'show': portfolio.enterClicked2, 'hide': portfolio.enterClicked3}">
-      <h2 class="category-title"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>Skills</h2>
+      <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>Skillset</h2>
       <div class="skills">
         <ul>
           <li>
