@@ -1,4 +1,23 @@
 /*portfolio*/
+span.logo {
+	display: inline-block;
+  width: 45px;
+  position: relative;
+  top: 10px;
+  margin-right: 8px;
+
+  @include mobile {
+  	top: 8px;
+  	width: 30px;
+  }
+ }
+
+.logo-circle {
+	fill:none;
+	stroke:#FFFFFF;
+	stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
+
+.logo-lines {fill:none;stroke:#FFFFFF;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 .container {
 	position: relative;
@@ -22,7 +41,7 @@
 		width: 35px;
 		height: 35px;
 		display: inline-block;
-		font-family: "source sans pro extralight";
+		font-family: $font-extralight;
 	}
 
 	ul {
@@ -62,9 +81,25 @@
 
 	}
 
-	h2 {
+	.category-title {
+		color: #fff;
+	  padding: 0;
+	  position: relative;
+	  display: block;
+	  line-height: 20vh;
+	  width: 224px;
+	  margin: 0 auto;
+	  height: 20vh;
 		cursor: pointer;
+		font-family: $font-regular;
+		
+		span.logo {
+			width: 35px;
+	    float: left;
+	    top: 10px;	
+		}
 	}
+	
 }
 
 .bg-image {
@@ -132,9 +167,13 @@
     right: 0;
     text-align: center;
     margin: 0 auto;
-    font-size: 12px;
+    font-size: 16px;
     overflow: hidden;
     padding-top: 0px;
+
+    @include mobile {
+    	font-size: 12px;
+    }
 	}
 
 	.who {
@@ -150,6 +189,7 @@
 		}
 
 		h1 {
+			font-family: $font-regular;
 			font-size: 2.25em;
 			margin: 0;
 
@@ -160,7 +200,7 @@
 
 		.title {
 			font-size: 0.75em;
-			font-family: 'Source Sans Pro ExtraLight', sans-serif;
+			font-family: $font-extralight;
 			margin: 0;
 			display: inline-block;
 
@@ -172,7 +212,7 @@
 		.tagline {
 			font-size: 1.2em;
 			margin: 0.6em auto;
-			font-family: 'Source Sans Pro Light', sans-serif;
+			font-family: $font-light;
 
 			@include mobile {
 				font-size: 1.1em;	
@@ -183,7 +223,7 @@
 }
 
 .enter {
-	width: 100px;
+	width: 200px;
 	position: fixed;
 	z-index: 2;
 	left: 0;
@@ -281,23 +321,6 @@
 	}
 }
 
-.category-title {
-	color: #fff;
-  padding: 0;
-  position: relative;
-  display: block;
-  line-height: 20vh;
-  width: 224px;
-  margin: 0 auto;
-  height: 20vh;
-	
-	span.logo {
-		width: 35px;
-    float: left;
-    top: 10px;	
-	}
-}
-
 .second-panel {
 	// background: url('../assets/images/portfolio/cityscape.png') no-repeat;
 	// background-size: cover;
@@ -391,17 +414,15 @@
 				}
 			}
 
-			$varW:25%;
-			$varH:24vh;
-			$space:2px;
-
 			li {
 				display: inline-block;
+				opacity: 0;
+				visibility: hidden;
 				height: 24vh;
 				height:unquote("calc( #{$varH} - #{$space} )");
 				float: left;
 				background: rgba(0,90,120, 0.75);
-				transition: 0.1s all ease-out;
+				transition: 0.1s all ease-out 0s;
 				width: unquote("calc( #{$varW} - #{$space} )");
     		margin: 0 1px 2px;
 				color: #fff;
@@ -411,6 +432,14 @@
 				position: relative;
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
+				top: 200px;
+
+				&.show-li {
+					opacity: 1;
+					visibility: visible;
+					top: 0;
+					transition: 0.41s all ease-out 0s;
+				}
 
 				@include tablet {
 					height: 20vh;
@@ -424,6 +453,7 @@
 					transition: all 0s ease-out 0s;
 					height:unquote("calc( #{$varH} - #{$space} )");
 					width:unquote("calc( 50% - 1px )");
+					
 
 					&:nth-child(odd) {
 						margin-left: 0;
@@ -495,7 +525,8 @@
 				&:hover {
 					cursor: pointer;
 					background: rgba(0,90,120, 0.925);
-					transition: 0.1s all ease-out;
+					transition: all 0.1s ease-out 0; 
+
 
 					.initial {
 						top: 1px;
@@ -585,9 +616,13 @@
 		top: 0vh;
 	}
 
-	.skills {
+	.category-title {
+		width: 122px;
+	}
+
+	.what-is-front-end-development {
 		width: 100%;
-		max-width: 900px;
+		max-width: 1000px;
 		display: inline-block;
 		position: absolute;
 		top: 50%;
@@ -603,134 +638,125 @@
     	position: relative;
     }
 
-    .category-title {
-			color: #fff;
-	    padding: 0;
-	    position: relative;
-	    display: block;
-	    line-height: 55px;
-	    width: 224px;
-	    margin: 0 auto;
-	    height: 84px;
-			
-			span.logo {
-				width: 35px;
-		    float: left;
-		    top: 10px;	
-			}
-		}
+    h3 {
+    	color: #fff;
+    	font-size: 1.25em;
+
+    }
+
+    p.definition {
+    	color: #fff;
+    	font-size: 1.1em;
+    	padding: 0 150px;
+    }
 
 		ul {
-			margin: 0 auto;
+			margin: 50px auto 0;
 			padding: 0;
 			display: block;
 			width: 100%;
 
+			&:last-child {
+
+				li {
+					&:first-child {
+						border-top-left-radius: 0px;
+						border-bottom-left-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+					&:last-child {
+						border-top-right-radius: 0px;
+						border-bottom-right-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+				}
+			}
+
 			li {
 				display: inline-block;
-				height: 24vh;
+				opacity: 0;
+				visibility: hidden;
+				height: 12vh;
+				height:unquote("calc( 12vh - #{$space} )");
 				float: left;
-				background: rgba(0,90,120, 0.85);
-				width: 25%;
-    		margin: 0%;
+				background: rgba(0,90,120, 0.75);
+				transition: 0.1s all ease-out 0s;
+				width: unquote("calc( #{$varW} - #{$space} )");
+    		margin: 0 1px 2px;
 				color: #fff;
-				padding: 0 3px;
+				padding: 0 0px;
 				vertical-align: middle;
-				line-height: 24vh;
+				line-height: 12vh;
 				position: relative;
+				overflow: hidden;
+				-webkit-tap-highlight-color: transparent;
+				top: 200px;
+
+				&.show-li {
+					opacity: 1;
+					visibility: visible;
+					top: 0;
+					transition: 0.41s all ease-out 0s;
+				}
+
+				@include tablet {
+					height: 20vh;
+					height:unquote("calc( 20vh - #{$space} )");
+					line-height: 20vh;
+				}
 
 				@include mobile {
-					width: 100%;
-				}
+					width: 50%;
+					margin: 0 1px 2px;
+					transition: all 0s ease-out 0s;
+					height:unquote("calc( #{$varH} - #{$space} )");
+					width:unquote("calc( 50% - 1px )");
+					
 
-				.initial {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					display: inline-block;
-					overflow: hidden;
-					transition: all 0.4s ease-out;
-					transition-delay: 0.1s;
-					@include hacks();
-					transform: translateY(0px);
-  				//transform: translateZ(24vh);
-
-				}
-
-				.reveal {
-					position: absolute;
-					top: 75px;
-					left: 0;
-					width: 100%;
-					display: inline-block;
-					//background: rgba(0,90,120, 0.95);
-					transition: all 0.4s ease-out;
-					transition-delay: 0s;
-					@include hacks();
-					transform: translateY(75px);
-					visibility: hidden;
-					opacity: 0;
-				}
-
-				&:hover {
-
-					.initial {
-						top: -30px;
-						transform: translateY(-30px);
-						transition: all 0.4s ease-out;
-						transition-delay: 0s;
+					&:nth-child(odd) {
+						margin-left: 0;
 					}
 
-					.reveal {
-						transition: all 0.4s ease-out;
-						transition-delay: 0.1s;
-						top: 30px;
-						transform: translateY(30px);
-						visibility: visible;
-						opacity: 1;
+					&:nth-child(even) {
+						margin-right: 0;
 					}
+
+				}
+
+				@include landscape {
+					line-height: 40vh;
+					height:unquote("calc( 40vh - #{$space} )");
 				}
 
 				&:first-child {
 					margin-left: 0;
+					border-top-left-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
 				}
 
 				&:last-child {
 					margin-right: 0;
+					border-top-right-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
 				}
 			}
 		}
 	}
 
-}
-
-span.logo {
-	display: inline-block;
-  width: 45px;
-  position: relative;
-  top: 10px;
-  margin-right: 8px;
-
-  @include mobile {
-  	top: 8px;
-  	width: 30px;
-  }
- }
-
-.logo-circle {
-	fill:none;
-	stroke:#FFFFFF;
-	stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
-
-.logo-lines {fill:none;stroke:#FFFFFF;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-
-@media only screen and (min-width: 768px)  {
-	.top-panel {
-		.header {
-			font-size: 16px;
-		}
-	}
 }
 
 @keyframes bounce {
