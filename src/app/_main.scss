@@ -16,7 +16,11 @@ html, body {
 
 body {
   margin: 0;
-  font-family: $font-light;
+  font: 16px $font-light;
+
+  @include mobile {
+    font: 13px $font-light;    
+  }
 }
 
 a {
@@ -122,6 +126,14 @@ a {
 
 hr {
   clear: both;
+}
+
+.mobile-only {
+  display: none;
+  
+  @include mobile {
+    display: inline-block;
+  }
 }
 
 @font-face {

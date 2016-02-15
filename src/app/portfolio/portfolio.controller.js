@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state) {
+    .controller('PortfolioController', function($timeout, $state, $window) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -15,7 +15,7 @@
       };
 
       portfolio.reloadPage = function() {
-        $state.reload();
+        $window.location.reload();
       };
 
       // portfolio.enterClicked1 = false;
@@ -46,7 +46,7 @@
           var myEl = element.parent().next().children(),
           panelClass = element.parent().next(),
           bios = document.querySelectorAll('.bios li'),
-          skills = document.querySelectorAll('.what-is-front-end-development li'),
+          skills = document.querySelectorAll('.skills li'),
           panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth;
 
           //$log.debug(element.parent().next().hasClass('second-panel'));
@@ -94,6 +94,19 @@
                   })(j);
                 }
               }, 400);
+
+          }
+
+          if(panelClass.hasClass('fourth-panel')) {
+            var panelChildren = element.parent().next().children();
+
+            for (var k = 0; k < panelChildren.length; k++) {
+              if (panelChildren[k].className === 'enter') {
+                panelChildren[k].classList.add('load-icon');
+                break;
+              }
+
+            }
           }
 
           element.removeClass('load-icon');

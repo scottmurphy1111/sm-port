@@ -1,14 +1,16 @@
 /*portfolio*/
 span.logo {
 	display: inline-block;
-  width: 45px;
+  width: 30px;
+  height: 30px;
   position: relative;
-  top: 10px;
+  top: 5px;
   margin-right: 8px;
 
   @include mobile {
-  	top: 8px;
-  	width: 30px;
+  	top: 7px;
+    width: 30px;
+    height: 30px;
   }
  }
 
@@ -60,11 +62,13 @@ span.logo {
 
 .sliding-panel {
 	padding: 0 20px;
+	overflow: hidden;
 
 	@include mobile {
 		padding: 0;
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
-
 
 	.panel-wrapper {
 		position: relative;
@@ -84,18 +88,19 @@ span.logo {
 	.category-title {
 		color: #fff;
 	  padding: 0;
-	  position: relative;
-	  display: block;
+	  //position: relative;
+	  //display: block;
 	  line-height: 20vh;
-	  width: 224px;
+	  //width: 224px;
 	  margin: 0 auto;
 	  height: 20vh;
 		cursor: pointer;
 		font-family: $font-regular;
+		text-align: center;
 		
 		span.logo {
-			width: 35px;
-	    float: left;
+			width: 30px;
+	    //float: left;
 	    top: 10px;	
 		}
 	}
@@ -172,7 +177,7 @@ span.logo {
     padding-top: 0px;
 
     @include mobile {
-    	font-size: 12px;
+    	font-size: 13px;
     }
 	}
 
@@ -190,32 +195,28 @@ span.logo {
 
 		h1 {
 			font-family: $font-regular;
-			font-size: 2.25em;
+			font-size: 2em;
 			margin: 0;
 
 			@include mobile {
-				font-size: 2em;
+    		line-height: 1em;
+    		padding: 0px 10px 5px;
 			}
 		}
 
 		.title {
-			font-size: 0.75em;
-			font-family: $font-extralight;
+			font: 0.75em $font-extralight;
 			margin: 0;
 			display: inline-block;
-
-			@include mobile {
-				font-size: 0.7em;	
-			}
 		}
 
 		.tagline {
-			font-size: 1.2em;
-			margin: 0.6em auto;
-			font-family: $font-light;
+			font: 1.1em $font-light;
+			margin: 0em auto;
 
 			@include mobile {
-				font-size: 1.1em;	
+				font: 1.25em $font-light;
+				margin: 0.5em auto;
 			}
 		}
 	}
@@ -237,6 +238,11 @@ span.logo {
 	transform: scale(0,0);
 	overflow: hidden;
 	transition: .4s all ease-out;
+	font-family: $font-regular;
+
+	@include mobile {
+		font-size: 1.1em;
+	}
 
 	&.load-icon {
 		visibility: visible;
@@ -280,8 +286,8 @@ span.logo {
 	}	
 
 	span.icon {
-		width: 32px;
-		height: 32px;
+		width: 30px;
+		height: 30px;
 		display: inline-block;
 		margin-top: 10px;
 		transform:translateY(0px);
@@ -299,10 +305,6 @@ span.logo {
 
 
 	@include mobile {
-		bottom: 25px;
-		// opacity: 0;
-		// visibility: hidden;
-		// transform: scale(0,0);
 
 		&.show {
 			bottom: 25px;
@@ -334,12 +336,6 @@ span.logo {
 	transition-delay: 0.5s;
 	z-index: 1;
 	display: inline-block;
-	overflow: hidden;
-
-	@include mobile {
-		overflow-x: hidden;
-		overflow-y: scroll;
-	}
 
 	&.hide {
 		top: -100vh;
@@ -349,9 +345,9 @@ span.logo {
 		top: 0vh;
 	}
 
-	.category-title {
-		width: 164px;
-	}
+	// .category-title {
+	// 	width: 164px;
+	// }
 
 	.bios {
 		width: 100%;
@@ -380,9 +376,8 @@ span.logo {
     	margin-bottom: 124px;
     	top: 0;
     	transform: translateY(0%);
-    }
-
-    
+    	font-size: 13px;
+    } 
 
 		ul {
 			margin: 0 auto;
@@ -428,11 +423,13 @@ span.logo {
 				color: #fff;
 				padding: 0 0px;
 				vertical-align: middle;
-				line-height: 24vh;
+				line-height: unquote("calc( #{$varH} - #{$space} )");
 				position: relative;
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
 				top: 200px;
+				@include hacks();
+				font-size: 1.1em;
 
 				&.show-li {
 					opacity: 1;
@@ -449,6 +446,7 @@ span.logo {
 
 				@include mobile {
 					width: 50%;
+					font-size: 1.25em;
 					margin: 0 1px 2px;
 					transition: all 0s ease-out 0s;
 					height:unquote("calc( #{$varH} - #{$space} )");
@@ -475,9 +473,9 @@ span.logo {
 			    overflow: hidden;
 			    width: 100%;
 			    display: inline-block;
-			    height: 20vh;
+			    height:unquote("calc( #{$varH} - #{$space} )");
 			    vertical-align: middle;
-			    line-height: 20vh;
+			    line-height:unquote("calc( #{$varH} - #{$space} )");
 				}
 
 				.initial {
@@ -606,7 +604,6 @@ span.logo {
 	transition: all 0.35s ease-out;
 	transition-delay: 0.5s;
 	z-index: 1;
-	overflow: hidden;
 
 	&.hide {
 		top: -100vh;
@@ -616,17 +613,17 @@ span.logo {
 		top: 0vh;
 	}
 
-	.category-title {
-		width: 122px;
-	}
+	// .category-title {
+	// 	width: 122px;
+	// }
 
 	.what-is-front-end-development {
 		width: 100%;
 		max-width: 1000px;
 		display: inline-block;
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 22.5%;
+		transform: translateY(-22.5%);
 		left: 0;
     right: 0;
     text-align: center;
@@ -636,25 +633,66 @@ span.logo {
     @include mobile {
     	height: 100%;
     	position: relative;
+    	top: 0;
+    	transform: translateY(0);
+    	font-size: 13px;
     }
 
     h3 {
     	color: #fff;
     	font-size: 1.25em;
+    	font-family: $font-light;
+    	margin-top: 10px;
 
+    	@include mobile {
+    		margin-top: 0;
+    	}
     }
 
     p.definition {
     	color: #fff;
     	font-size: 1.1em;
-    	padding: 0 150px;
+    	padding: 5px 150px 10px;
+
+    	@include mobile {
+    		padding: 5px 20px 10px;
+    	}
     }
+  }
+
+  .skills {
+  	width: 100%;
+		max-width: 1000px;
+		display: inline-block;
+		position: absolute;
+		top: 67%;
+		transform: translateY(-67%);
+		left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+
+    @include mobile {
+    	height: auto;
+    	position: relative;
+    	margin-bottom: 124px;
+    	top: 0;
+    	transform: translateY(0%);
+    	font-size: 13px;
+    }
+
+
 
 		ul {
 			margin: 50px auto 0;
 			padding: 0;
 			display: block;
 			width: 100%;
+
+			@include mobile {
+				margin: 20px auto 0;
+			}
 
 			&:last-child {
 
@@ -699,6 +737,8 @@ span.logo {
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
 				top: 200px;
+				@include hacks();
+				font-size: 1.1em;
 
 				&.show-li {
 					opacity: 1;
@@ -708,16 +748,16 @@ span.logo {
 				}
 
 				@include tablet {
-					height: 20vh;
-					height:unquote("calc( 20vh - #{$space} )");
-					line-height: 20vh;
+					height: 12vh;
+					height:unquote("calc( 12vh - #{$space} )");
+					line-height: 12vh;
 				}
 
 				@include mobile {
 					width: 50%;
 					margin: 0 1px 2px;
 					transition: all 0s ease-out 0s;
-					height:unquote("calc( #{$varH} - #{$space} )");
+					height:unquote("calc( 12vh - #{$space} )");
 					width:unquote("calc( 50% - 1px )");
 					
 
@@ -732,8 +772,217 @@ span.logo {
 				}
 
 				@include landscape {
-					line-height: 40vh;
-					height:unquote("calc( 40vh - #{$space} )");
+					line-height: 24vh;
+					height:unquote("calc( 24vh - #{$space} )");
+				}
+
+				&:first-child {
+					margin-left: 0;
+					border-top-left-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
+				}
+
+				&:last-child {
+					margin-right: 0;
+					border-top-right-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+.fourth-panel {
+	// background: url('../assets/images/portfolio/cityscape.png') no-repeat;
+	// background-size: cover;
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 100vh;
+	left: 0;
+	transition: all 0.35s ease-out;
+	transition-delay: 0.5s;
+	z-index: 1;
+
+	&.hide {
+		top: -100vh;
+	}
+
+	&.show {
+		top: 0vh;
+	}
+
+	// .category-title {
+	// 	width: 172px;
+	// }
+
+	.contact {
+		width: 100%;
+		max-width: 1000px;
+		display: inline-block;
+		position: absolute;
+		top: 22.5%;
+		transform: translateY(-22.5%);
+		left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+
+    @include mobile {
+    	height: 100%;
+    	position: relative;
+    	top: 0;
+    	transform: translateY(0);
+    	font-size: 13px;
+    }
+
+    h3 {
+    	color: #fff;
+    	font-size: 1.25em;
+    	font-family: $font-light;
+    	margin-top: 10px;
+
+    	@include mobile {
+    		margin-top: 0;
+    	}
+    }
+
+    p.definition {
+    	color: #fff;
+    	font-size: 1.1em;
+    	padding: 5px 150px;
+
+    	@include mobile {
+    		padding: 5px 20px;
+    	}
+
+    	.clickable {
+    		font: 1.1em $font-regular;
+    	}
+    }
+  }
+
+  .skills {
+  	width: 100%;
+		max-width: 1000px;
+		display: inline-block;
+		position: absolute;
+		top: 67%;
+		transform: translateY(-67%);
+		left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+
+    @include mobile {
+    	height: auto;
+    	position: relative;
+    	margin-bottom: 124px;
+    	top: 0;
+    	transform: translateY(0%);
+    	font-size: 13px;
+    }
+
+
+
+		ul {
+			margin: 50px auto 0;
+			padding: 0;
+			display: block;
+			width: 100%;
+
+			@include mobile {
+				margin: 20px auto 0;
+			}
+
+			&:last-child {
+
+				li {
+					&:first-child {
+						border-top-left-radius: 0px;
+						border-bottom-left-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+					&:last-child {
+						border-top-right-radius: 0px;
+						border-bottom-right-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+				}
+			}
+
+			li {
+				display: inline-block;
+				opacity: 0;
+				visibility: hidden;
+				height: 12vh;
+				height:unquote("calc( 12vh - #{$space} )");
+				float: left;
+				background: rgba(0,90,120, 0.75);
+				transition: 0.1s all ease-out 0s;
+				width: unquote("calc( #{$varW} - #{$space} )");
+    		margin: 0 1px 2px;
+				color: #fff;
+				padding: 0 0px;
+				vertical-align: middle;
+				line-height: 12vh;
+				position: relative;
+				overflow: hidden;
+				-webkit-tap-highlight-color: transparent;
+				top: 200px;
+				@include hacks();
+
+				&.show-li {
+					opacity: 1;
+					visibility: visible;
+					top: 0;
+					transition: 0.41s all ease-out 0s;
+				}
+
+				@include tablet {
+					height: 12vh;
+					height:unquote("calc( 12vh - #{$space} )");
+					line-height: 12vh;
+				}
+
+				@include mobile {
+					width: 50%;
+					margin: 0 1px 2px;
+					transition: all 0s ease-out 0s;
+					height:unquote("calc( 12vh - #{$space} )");
+					width:unquote("calc( 50% - 1px )");
+					
+
+					&:nth-child(odd) {
+						margin-left: 0;
+					}
+
+					&:nth-child(even) {
+						margin-right: 0;
+					}
+
+				}
+
+				@include landscape {
+					line-height: 24vh;
+					height:unquote("calc( 24vh - #{$space} )");
 				}
 
 				&:first-child {
