@@ -1,0 +1,303 @@
+body {
+  margin: 0;
+  font: 16px $font-light;
+
+  @include mobile {
+    font: 14px $font-light;    
+  }
+}
+
+.container {
+	position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+	@include mobile {
+		overflow-x: hidden;
+	}
+}
+
+.panel {
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	display: inline-block;
+	background-color: $primaryColor;
+	position: relative;
+}
+
+.sliding-panel {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	color: #fff;
+	z-index: 1;
+	transition: all 0.35s ease-out;
+	transition-delay: .5s;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+	overflow: hidden;
+	display: inline-block;
+
+	@include mobile {
+		padding: 0;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	&.hide {
+		top: -100vh;
+	}
+
+	&.show {
+		top: 0vh;
+	}
+}
+
+.panel-static {
+	width: 100%;
+	height: auto;
+	max-width: 900px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 0px;
+
+  @include mobile {
+
+  }
+
+  .static-inner {
+		position: relative;
+		transform: scale(0,0);
+
+		&.load-content {
+			transform: scale(1,1);
+			transition: all 0.4s cubic-bezier(0.25,1.6,.75,1);
+			transition-delay: 1s; 
+		}
+	}
+}
+
+.panel-wrapper {
+	position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  height: 100vh;
+
+	@include mobile {
+		height: auto;
+	}
+
+}
+
+span.logo {
+	display: inline-block;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  top: 3px;
+  margin-right: 6px;
+
+  @include mobile {
+  	top: 5px;
+  }
+ }
+
+.logo-circle {
+	fill:none;
+	stroke:#FFFFFF;
+	stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;
+}
+
+.logo-lines {
+	fill:none;
+	stroke:#FFFFFF;
+	stroke-width:1.5;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+}
+
+.category-title {
+	color: #fff;
+  padding: 0;
+  line-height: 20vh !important;
+  margin: 0 auto;
+  height: 20vh;
+	cursor: pointer;
+	font: 1.5em $font-light;
+	text-align: center;
+	font-weight: bold;
+	
+	span.logo {
+		width: 28px;
+		height: 28px;
+    top: 8px;	
+	}
+}
+
+.bg-image {
+	background: url(../assets/images/me.png) 50% 100% no-repeat transparent;
+	background-size: 60%;
+	@include hacks();
+	height: 100vh;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: fixed;
+	overflow: hidden;
+	top: 100vh;
+	left: 0;
+	right:0;
+	margin: 0 auto;
+	transition: transform .3s cubic-bezier(0.25, 1.1, .75, 1), top .3s ease-out .05s;
+	transform: scale(0,0);
+
+	&.load-image {
+		transform: scale(1,1);
+		top: 0;
+	}
+
+	@include mobile {
+		background: url(../assets/images/me.png) 50% 100% no-repeat transparent;
+		background-size: 100%;
+	}
+
+	@include landscape {
+		background-size: 60%;
+	}
+}
+
+.enter {
+	width: 200px;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	cursor: pointer;
+	bottom: 15px;
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0,0);
+	overflow: hidden;
+	transition: .4s all ease-out;
+	font: 1em $font-light;
+
+	&.load-icon {
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1,1);
+		transition: .4s all cubic-bezier(.25,1.5,.5, 1) 1.8s;
+	
+
+		&.mobile {
+			visibility: visible;
+			opacity: 1;
+			transform: scale(1,1);
+			transition-delay: 0s;
+		}
+	}
+
+	&:hover {
+
+		span.text {
+			visibility: visible;
+			opacity: 1;
+			top: 0;
+			transform: scale(1,1);
+		}
+
+		span.icon {
+			animation: none;
+		}
+	}
+
+	span.text {
+		color: #fff;	
+		text-align: center;
+		transition: all .4s ease-out !important;
+		visibility: hidden;
+		opacity: 0;
+		position: relative;
+		top: -8px;
+		transform: scale(0,0);
+	}	
+
+	span.icon {
+		width: 28px;
+		height: 28px;
+		display: inline-block;
+		margin-top: 10px;
+		transform:translateY(0px);
+		animation: bounce 3s infinite;
+		@include hacks();
+	}
+
+	&.hide {
+		bottom: -200px;
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1,1);
+	}
+
+	@include mobile {
+
+		&.show {
+			bottom: 25px;
+			visibility: visible;
+			opacity: 1;
+			transform: scale(1,1);
+		}
+		
+		span.text {
+			transform: scale(1,1);
+			opacity: 1;
+			visibility: visible;
+			top: 0;
+		}
+			
+	}
+}
+
+.mobile-only {
+  display: none;
+
+  @include mobile {
+    display: inline-block;
+  }
+}
+
+@keyframes bounce {
+	20% {
+  	transform:translateY(0px);
+  }
+  25% {
+  	transform:translateY(-15px);
+  }
+  30% {
+  	transform:translateY(-2px);
+  }
+  35% {
+  	transform:translateY(-12px);
+  }
+  40% {
+  	transform:translateY(-2px);
+  }
+  45% {
+  	transform:translateY(-8px);
+  }
+  55% {
+  	transform:translateY(0px);
+  }
+}

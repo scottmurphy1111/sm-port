@@ -1,0 +1,30 @@
+.top-panel {
+	top: 0;
+
+	h1 {
+		font-family: $font-light;
+		font-size: 2em;
+		margin: 0;
+
+		@include mobile {
+  		line-height: 1em;
+  		padding: 0px 10px 5px;
+		}
+	}
+
+	.title {
+		font: 0.75em $font-extralight;
+		margin: 0;
+		display: inline-block;
+	}
+
+	.tagline {
+		font: 1em $font-light;
+		margin: 0em auto;
+		text-transform: uppercase;
+
+		@include mobile {
+			margin: 0.5em auto;
+		}
+	}
+}

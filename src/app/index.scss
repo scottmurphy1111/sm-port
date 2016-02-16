@@ -2,12 +2,17 @@
    sass dependencies when defined in the bower.json of your dependencies */
 // bower:scss
 // endbower
-@import "hacks";
-@import "mixins";
-@import "options";
-@import "vars";
-@import "main";
-@import "portfolio";
+
+@import "styles/hacks";
+@import "styles/mixins";
+@import "styles/options";
+@import "styles/vars";
+@import "styles/main";
+@import "styles/common";
+@import "styles/top-panel";
+@import "styles/second-panel";
+@import "styles/third-panel";
+@import "styles/fourth-panel";
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */

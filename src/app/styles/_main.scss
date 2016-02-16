@@ -14,15 +14,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  font: 16px $font-light;
-
-  @include mobile {
-    font: 13px $font-light;    
-  }
-}
-
 a {
   text-decoration: none;
 }
@@ -128,13 +119,7 @@ hr {
   clear: both;
 }
 
-.mobile-only {
-  display: none;
-  
-  @include mobile {
-    display: inline-block;
-  }
-}
+
 
 @font-face {
   font-family: 'Source Sans Pro';
