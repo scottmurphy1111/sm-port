@@ -1,5 +1,20 @@
 .second-panel {
 	top: 100vh;
+	background:  url(../assets/images/bg-image2.png) 50% 100% no-repeat transparent;
+	background-size: cover;
+	color: $primaryColor;
+
+	.logo-circle {
+		stroke: #fff;
+	}
+	.logo-lines {
+		stroke: #fff;
+	}
+
+	h2 {
+		color: #fff;
+		font-family: $font-regular;
+	}
 
 	.bios {
 		width: 100%;
@@ -60,10 +75,10 @@
 				height: 24vh;
 				height:unquote("calc( #{$varH} - #{$space} )");
 				float: left;
-				background: rgba(0,90,120, 0.75);
+				//background: rgba(80, 80, 120, 0.25);
 				transition: 0.1s all ease-out 0s;
 				width: unquote("calc( #{$varW} - #{$space} )");
-    		margin: 0 1px 2px;
+    		margin: 0 2px 4px;
 				color: #fff;
 				padding: 0 0px;
 				vertical-align: middle;
@@ -74,7 +89,9 @@
 				top: 200px;
 				@include hacks();
 				font-size: 1em;
+				font-family: $font-regular;
 				text-transform: uppercase;
+				border: 1px solid #fff;
 
 				&.show-li {
 					opacity: 1;
@@ -166,7 +183,7 @@
 
 				&:hover {
 					cursor: pointer;
-					background: rgba(0,90,120, 0.925);
+					//background: rgba(80, 80, 120, 0.32);
 					transition: all 0.1s ease-out 0; 
 
 

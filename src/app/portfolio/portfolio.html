@@ -1,24 +1,60 @@
 <div class="container" ng-init="portfolio.setUpPage()">
   <div class="panel">
 
-    <section class="top-panel sliding-panel">
+    <div class="vert-nav">
+      <ul>
+        <li class="active panel1" data-active="panel1">
+          <span></span>
+        </li>
+        <li class="panel2" data-active="panel2">
+          <span></span>
+        </li>
+        <li class="panel3" data-active="panel3">
+          <span></span>
+        </li>
+        <li class="panel4" data-active="panel4">
+          <span></span>
+        </li>
+        <li class="panel5" data-active="panel5">
+          <span></span>
+        </li>
+      </ul>
+    </div>
+
+    <section class="top-panel sliding-panel" on-scroll>
       <div class="panel-static">
         <div class="static-inner" ng-class="{'load-content': portfolio.loadMainContent}">
           <h1>
-            <span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>SCOTT MURPHY <span class="title">WEB DEVELOPER</span>
+            <span class="logo" ng-include="'assets/images/portfolio/logo.svg'" ng-class="{'show': portfolio.loadMainContent}"></span><span class="name" ng-class="{'show': portfolio.loadMainContent}">SCOTT MURPHY</span><br class="mobile-only" /><span class="title" ng-class="{'show': portfolio.loadMainContent}">WEB DEVELOPER</span>
           </h1>         
-          <p class="tagline">Front-End and User Interface <br class="mobile-only" />Design Execution Specialist</p>
+          <p class="tagline" ng-class="{'show': portfolio.loadMainContent}">Front-End and User Interface <br class="mobile-only" />Design Execution Specialist</p>
         </div>
       </div>
-      <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
+      <!-- <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
         <span class="text">CONTINUE</span><br />
         <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
-      </p>
+      </p> -->
     </section>
 
-    <section class="second-panel sliding-panel" show-on-scroll>
+    <section class="second-panel sliding-panel" on-scroll>
       <div class="panel-wrapper">
-        <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>ABOUT SCOTT</h2>
+        <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logo.svg'"></span>Projects</h2>
+        <ul>
+          <li>Capital One - UI Developer</li>
+          <li>Rocket Pop Media - Wordpress Developer</li>
+          <li>Cloud 9 Web Designs - Web Developer</li>
+        </ul>
+      </div>
+      <!-- <p continue-button class="enter">
+        <span class="text">SKILLS</span><br />
+        <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
+      </p> -->
+    </section>
+
+    <section class="third-panel sliding-panel" on-scroll>
+      <div class="panel-wrapper">
+
+        <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logo.svg'"></span>ABOUT SCOTT</h2>
         <div class="bios">
           <ul>
             <li>
@@ -74,15 +110,15 @@
           </ul>
         </div>
       </div>
-      <p continue-button class="enter">
-        <span class="text">SKILLS</span><br />
+      <!-- <p continue-button class="enter">
+        <span class="text">DEPLOY SCOTT</span><br />
         <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
-      </p>
+      </p> -->
     </section>
 
-    <section class="third-panel sliding-panel" show-on-scroll>
+    <section class="fourth-panel sliding-panel" on-scroll>
       <div class="panel-wrapper">
-        <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>SKILLS</h2>
+      <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logo.svg'"></span>SKILLS</h2>
         <div class="what-is-front-end-development">
           <h3>What is Front End Development?</h3>
           <p class="definition">"The practice of producing HTML, CSS and Javascript for a website or web application so that a user can see and interact with them directly..." ~ Wikipedia</p>
@@ -119,15 +155,17 @@
             </li>
           </ul>
         </div>
+
       </div>
-      <p continue-button class="enter">
-        <span class="text">DEPLOY SCOTT</span><br />
+      
+      <!-- <p class="enter" ng-click="portfolio.reloadPage()">
+        <span class="text">THANKS</span><br />
         <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
-      </p>
+      </p> -->
     </section>
 
-    <section class="fourth-panel sliding-panel">
-      <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logoalt.svg'"></span>DEPLOY SCOTT</h2>
+    <section class="fifth-panel sliding-panel" on-scroll>
+      <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logo.svg'"></span>DEPLOY</h2>
       <div class="panel-static">
         <div class="static-inner" ng-class="{'load-content': portfolio.loadMainContent}">
           <p>In order to get a hold of Scott, please...</p>
@@ -136,13 +174,14 @@
           <p>to contact me directly</p>
         </div>
       </div>
-      <p class="enter" ng-click="portfolio.reloadPage()">
-        <span class="text">THANKS</span><br />
-        <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
-      </p>
     </section>
 
     <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}"></div>
+
+    <p class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
+      <span class="text">SCROLL</span><br />
+      <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
+    </p>
 
   </div>
 </div>

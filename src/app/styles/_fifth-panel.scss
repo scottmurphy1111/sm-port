@@ -1,50 +1,31 @@
-.fourth-panel {
-	top: 200vh;
-	background:  url(../assets/images/bg-image3.png) 50% 50% no-repeat transparent;
+.fifth-panel {
+	top: 300vh;
+	background:  url(../assets/images/bg-image4.png) 50% 50% no-repeat transparent;
 	background-size: cover;
 
-	.what-is-front-end-development {
-		width: 100%;
-		max-width: 1000px;
-		display: inline-block;
-		position: absolute;
-		top: 22.5%;
-		transform: translateY(-22.5%);
-		left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0 auto;
-    
+  h3 {
+  	color: #fff;
+  	font-size: 1.25em;
+  	font-family: $font-light;
+  	margin-top: 10px;
 
-    @include mobile {
-    	height: 100%;
-    	position: relative;
-    	top: 0;
-    	transform: translateY(0);
-    	
-    }
+  	@include mobile {
+  		margin-top: 0;
+  	}
+  }
 
-    h3 {
-    	color: #fff;
-    	font-size: 1.25em;
-    	font-family: $font-light;
-    	margin-top: 10px;
-    	font-weight: bold;
+  p.definition {
+  	color: #fff;
+  	padding: 5px 150px;
+  	font: 1em $font-light;
 
-    	@include mobile {
-    		margin-top: 0;
-    	}
-    }
+  	@include mobile {
+  		padding: 5px 20px;
+  	}
 
-    p.definition {
-    	color: #fff;
-    	font-size: 1em;
-    	padding: 5px 150px 10px;
-
-    	@include mobile {
-    		padding: 5px 20px 10px;
-    	}
-    }
+  	.clickable {
+  		
+  	}
   }
 
   .skills {
@@ -68,6 +49,8 @@
     	transform: translateY(0%);
     	font-size: 13px;
     }
+
+
 
 		ul {
 			margin: 50px auto 0;
@@ -110,7 +93,7 @@
 				height: 12vh;
 				height:unquote("calc( 12vh - #{$space} )");
 				float: left;
-				background: rgba(0, 85, 135, 0.8);
+				background: rgba(0,90,120, 0.75);
 				transition: 0.1s all ease-out 0s;
 				width: unquote("calc( #{$varW} - #{$space} )");
     		margin: 0 1px 2px;
@@ -123,8 +106,6 @@
 				-webkit-tap-highlight-color: transparent;
 				top: 200px;
 				@include hacks();
-				font-size: 1em;
-				text-transform: uppercase;
 
 				&.show-li {
 					opacity: 1;
@@ -154,6 +135,7 @@
 					&:nth-child(even) {
 						margin-right: 0;
 					}
+
 				}
 
 				@include landscape {
@@ -181,4 +163,5 @@
 			}
 		}
 	}
+
 }

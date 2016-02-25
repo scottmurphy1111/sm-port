@@ -1,5 +1,263 @@
 .third-panel {
 	top: 100vh;
+	background:  url(../assets/images/bg-image2.png) 50% 100% no-repeat transparent;
+	background-size: cover;
+	color: $primaryColor;
+
+	.logo-circle {
+		stroke: #fff;
+	}
+	.logo-lines {
+		stroke: #fff;
+	}
+
+	h2 {
+		color: #fff;
+		font-family: $font-regular;
+	}
+
+	.bios {
+		width: 100%;
+		max-width: 1000px;
+		display: inline-block;
+		position: absolute;
+		top: 40%;
+		transform: translateY(-40%);
+		left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+
+    @include mobile {
+    	height: auto;
+    	position: relative;
+    	margin-bottom: 124px;
+    	top: 0;
+    	transform: translateY(0%);
+    	font-size: 13px;
+    } 
+
+		ul {
+			margin: 0 auto;
+			padding: 0;
+			display: block;
+			width: 100%;
+
+			&:last-child {
+
+				li {
+					&:first-child {
+						border-top-left-radius: 0px;
+						border-bottom-left-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+					&:last-child {
+						border-top-right-radius: 0px;
+						border-bottom-right-radius: 10px;
+
+						@include mobile {
+							border-radius: 0;
+						}
+					}
+
+				}
+			}
+
+			li {
+				display: inline-block;
+				opacity: 0;
+				visibility: hidden;
+				height: 24vh;
+				height:unquote("calc( #{$varH} - #{$space} )");
+				float: left;
+				//background: rgba(80, 80, 120, 0.25);
+				transition: 0.1s all ease-out 0s;
+				width: unquote("calc( #{$varW} - #{$space} )");
+    		margin: 0 2px 4px;
+				color: #fff;
+				padding: 0 0px;
+				vertical-align: middle;
+				line-height: unquote("calc( #{$varH} - #{$space} )");
+				position: relative;
+				overflow: hidden;
+				-webkit-tap-highlight-color: transparent;
+				top: 200px;
+				@include hacks();
+				font-size: 1em;
+				font-family: $font-regular;
+				text-transform: uppercase;
+				border: 1px solid #fff;
+
+				&.show-li {
+					opacity: 1;
+					visibility: visible;
+					top: 0;
+					transition: 0.41s all ease-out 0s;
+				}
+
+				@include tablet {
+					height: 20vh;
+					height:unquote("calc( 20vh - #{$space} )");
+					line-height: 20vh;
+				}
+
+				@include mobile {
+					width: 50%;
+					margin: 0 1px 2px;
+					transition: all 0s ease-out 0s;
+					height:unquote("calc( #{$varH} - #{$space} )");
+					width:unquote("calc( 50% - 1px )");
+					
+
+					&:nth-child(odd) {
+						margin-left: 0;
+					}
+
+					&:nth-child(even) {
+						margin-right: 0;
+					}
+
+				}
+
+				@include landscape {
+					line-height: 40vh;
+					height:unquote("calc( 40vh - #{$space} )");
+				}
+				
+				.inner-box {
+					position: relative;
+			    overflow: hidden;
+			    width: 100%;
+			    display: inline-block;
+			    height:unquote("calc( #{$varH} - #{$space} )");
+			    vertical-align: middle;
+			    line-height:unquote("calc( #{$varH} - #{$space} )");
+				}
+
+				.initial {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					display: inline-block;
+					transition: all 0s ease-out;
+					transition-delay: 0.25s;
+					@include hacks();
+					transform: translateY(0px);
+					opacity: 1;
+					visibility: visible;
+					transform: scale(1,1);
+					user-select: none;
+
+					@include mobile {
+						transition: all 0s ease-out 0s;
+					}
+
+				}
+
+				.reveal {
+					position: absolute;
+					top: -1px;
+					left: 0;
+					width: 100%;
+					display: inline-block;
+					//background: rgba(0,90,120, 0.95);
+					transition: all 0s ease-out;
+					transition-delay: 0.1s;
+					@include hacks();
+					transform: translateY(-12vh);
+					visibility: hidden;
+					opacity: 0;
+					transform: scale(0,0);
+					user-select: none;
+
+					@include mobile {
+						transition: all 0s ease-out 0s;
+					}
+				}
+
+				&:hover {
+					cursor: pointer;
+					//background: rgba(80, 80, 120, 0.32);
+					transition: all 0.1s ease-out 0; 
+
+
+					.initial {
+						top: 1px;
+						transform: translateY(12vh);
+						transition: all 0.25s ease-out;
+						transition-delay: 0.1s;
+						opacity: 0;
+						visibility: hidden;
+						transform: scale(0,0);
+					}
+
+					.reveal {
+						transition: all 0.25s ease-out;
+						transition-delay: 0.25s;
+						top: 0;
+						transform: translateY(0);
+						visibility: visible;
+						opacity: 1;
+						transform: scale(1,1);
+					}
+				}
+
+				&:first-child {
+					margin-left: 0;
+					border-top-left-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
+				}
+
+				&:last-child {
+					margin-right: 0;
+					border-top-right-radius: 10px;
+
+					@include mobile {
+						border-radius: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.work-exp {
+		width: 100%;
+		max-width: 1000px;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 100%;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+
+    &.slide-left {
+    	left: 0%;
+    }
+
+    &.slide-right {
+    	left: 100%;
+    }
+
+  }
+
+}
+
+.third-panel {
+	top: 200vh;
+	background:  url(../assets/images/bg-image3.png) 50% 50% no-repeat transparent;
+	background-size: cover;
 
 	.what-is-front-end-development {
 		width: 100%;
@@ -108,7 +366,7 @@
 				height: 12vh;
 				height:unquote("calc( 12vh - #{$space} )");
 				float: left;
-				background: rgba(0,90,120, 0.75);
+				background: rgba(0, 85, 135, 0.8);
 				transition: 0.1s all ease-out 0s;
 				width: unquote("calc( #{$varW} - #{$space} )");
     		margin: 0 1px 2px;

@@ -1,27 +1,71 @@
 .top-panel {
 	top: 0;
+	background:  url(../assets/images/bg-image.png) 50% 100% no-repeat transparent;
+	background-size: cover;
 
 	h1 {
 		font-family: $font-light;
 		font-size: 2em;
-		margin: 0;
+		margin: 0 auto;
+		color: $highlightColor;
+		width: 420px;
 
 		@include mobile {
   		line-height: 1em;
-  		padding: 0px 10px 5px;
+  		padding: 0px 0px 5px;
+  		width: 250px;
+		}
+	}
+
+	.name {
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s ease-out 3.6s;
+		margin-right: 5px;
+
+		&.show {
+			opacity: 1;
+			visibility: visible;
+			//display: inline-block;
+		}
+
+		@include mobile {
+			transition: all 0.5s ease-out 3.6s;
 		}
 	}
 
 	.title {
 		font: 0.75em $font-extralight;
 		margin: 0;
-		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s ease-out 4s;
+
+		&.show {
+			opacity: 1;
+			visibility: visible;
+			//display: inline-block;
+		}
+
+		@include mobile {
+			transition: all 0.5s ease-out 4s;
+		}
 	}
 
 	.tagline {
 		font: 1em $font-light;
 		margin: 0em auto;
 		text-transform: uppercase;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s ease-out 4.4s;
+
+		&.show {
+			opacity: 1;
+			visibility: visible;
+			//display: inline-block;
+		}
+
 
 		@include mobile {
 			margin: 0.5em auto;
