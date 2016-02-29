@@ -167,20 +167,23 @@
           element.bind("mousewheel", function(e) {
             var enterBtn = document.querySelectorAll('.enter'),
             nextPanel = element.next(),
+            prevPanel = element[0].previousElementSibling,
             bios = document.querySelectorAll('.bios li'),
             skills = document.querySelectorAll('.skills li'),
             panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth,
             currentNav = document.querySelectorAll('.vert-nav li.active')[0],
-            nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling;
+            nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
+            prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
           
-            $log.debug('curentnav' + currentNav);
-            $log.debug('nextNav' + nextNav);
+            $log.debug(prevPanel);
+            //$log.debug('curentnav' + currentNav);
+            // $log.debug('nextNav' + nextNav);
             
 
             var movement = e.deltaY;
 
-            if(movement > 100) {
-              //$log.debug(enterBtn);
+            if(movement > 100 && nextNav) {
+              $log.debug('slidedown');
 
               currentNav.classList.remove('active');
               $timeout(function() {
@@ -256,21 +259,49 @@
                 }
               }
 
-              enterBtn[0].classList.remove('load-icon');
+              enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
               //element.children().addClass('hide');
 
-              element.removeClass('load-content show').addClass('hide');
+              element.removeClass('load-content show').addClass('hideTop');
               $timeout(function() {
-                nextPanel.addClass('show');
+                nextPanel.addClass('show').removeClass('hideTop hideBottom');
                 $timeout(function() {
-                  enterBtn[0].classList.add('load-icon');
+                  //enterBtn[0].classList.add('load-icon');
                 },400);
               }, 100);
               
               $timeout(function() {
-                nextPanel.addClass('start-scroll');
+                //nextPanel.addClass('start-scroll');
               }, 2000);
               
+            }
+
+            if(movement < -100 && prevNav) {
+              $log.debug('slideup');
+
+              currentNav.classList.remove('active');
+              $timeout(function() {
+                prevNav.classList.add('active');
+              },500);
+
+              if(prevPanel.className.indexOf('top-panel') > -1) {
+                enterBtn[0].classList.add('load-icon-instantly');
+              }
+              //element.children().addClass('hide');
+
+              element.removeClass('load-content show').addClass('hideBottom');
+              $timeout(function() {
+                prevPanel.classList.add('show');
+                prevPanel.classList.remove('hideTop', 'hideBottom');
+                $timeout(function() {
+                  //enterBtn[0].classList.add('load-icon');
+                },400);
+              }, 100);
+              
+              $timeout(function() {
+                //nextPanel.addClass('start-scroll');
+              }, 2000);
+
             }
 
           });

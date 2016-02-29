@@ -30,11 +30,16 @@ body {
 .vert-nav {
 	position: fixed;
 	z-index: 2;
-	right: 0px;
+	right: -30px;
 	top: 50%;
 	height: 100vh;
-	width: 10px;	
+	width: 12px;	
 	transform: translateY(-50%);
+	transition: all 0.75s ease-out 5s;
+
+	&.show {
+		right: 0;
+	}
 
 	ul {
 		padding: 0;
@@ -42,7 +47,7 @@ body {
 		height: 100%;
 
 		li {
-			width: 14px;
+			width: 10px;
 	    height: 20%;
 	    display: inline-block;
 	    padding: 0px;
@@ -50,7 +55,7 @@ body {
 	    position: relative;
 
 			span {
-	    	width: 8px;
+	    	width: 10px;
 		    height: 100%;
 		    margin: 0px 0px;
 		    background: $secondaryColor;
@@ -66,18 +71,10 @@ body {
 		    }
 	    }
 
-	    &.active.panel1 {
+	    &.active {
 
 				span {
 			    background: $highlightColor;
-			    opacity: 1;
-				}
-			}
-
-			&.active.panel2 {
-
-				span {
-			    background: #fff;
 			    opacity: 1;
 				}
 			}
@@ -91,26 +88,31 @@ body {
 	position: absolute;
 	color: #fff;
 	z-index: 1;
-	transition: all 0.35s ease-out;
+	transition: all 0.25s ease-out;
 	transition-delay: 0s;
 	left: 0;
 	right: 0;
 	padding: 0 20px;
-	//overflow: hidden;
+	overflow: hidden;
 	display: inline-block;
 
 	@include mobile {
 		padding: 0;
-		overflow-x: hidden;
-		overflow-y: hidden;
 	}
 
-	&.hide {
+	&.hideTop {
 		top: -100vh;
+		transition-delay: 0.1s;
+	}
+
+	&.hideBottom {
+		top: 100vh;
+		transition-delay: 0.1s;
 	}
 
 	&.show {
 		top: 0vh;
+		transition-delay: 0s;
 	}
 
 	&.start-scroll {
@@ -124,8 +126,8 @@ body {
 	max-width: 900px;
 	display: inline-block;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 44%;
+	transform: translateY(-44%);
 	left: 0;
   right: 0;
   text-align: center;
@@ -143,8 +145,8 @@ body {
 
 		&.load-content {
 			transform: scale(1,1);
-			transition: all 0.4s cubic-bezier(0.25,1.6,.75,1);
-			transition-delay: 1s; 
+			transition: all 0.5s cubic-bezier(0.25,1.2,.75,1);
+			transition-delay: 0.5s; 
 		}
 	}
 }
@@ -169,7 +171,7 @@ span.logo {
   position: relative;
   top: 3px;
   margin-right: 6px;
-  transition: left 0.75s ease-out 3s;
+  transition: left 0.75s ease-out 2.5s;
   left: 193px;
 
   &.show {
@@ -183,15 +185,17 @@ span.logo {
 }
 
 .logo-circle {
+	width: 28px;
+	height: 28px;
 	fill:none;
 	stroke: #fff;
-	stroke-width:5;
-	stroke-linecap:round;
-	stroke-miterlimit:10;
+	stroke-width: 5;
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
 	stroke-dashoffset: 235;
 	stroke-dasharray: 235;
-	animation: dash 1s ease-out forwards;
-	animation-delay: 1.75s;
+	animation: drawCircle 2s ease-out forwards;
+	animation-delay: 1s;
 	transform: rotateZ(-90deg);
 	transform-origin: center;
 }
@@ -205,11 +209,9 @@ span.logo {
 	stroke-miterlimit:10;
 	stroke-dashoffset: 0;
 	stroke-dasharray: 0;
-	animation: dashline 0.75s ease-out forwards;
-	animation-delay: 2.5s;
+	animation: drawLines 0.75s ease-out forwards;
+	animation-delay: 1.25s;
 	opacity: 0;
-	border-image:
-      linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
 }
 
 @keyframes flyin {
@@ -222,23 +224,30 @@ span.logo {
 	}
 }	
 
-@keyframes dash {
+@keyframes drawCircle {
 	0% {
 		stroke-dashoffset: 235;
 		stroke: #fff;
 	}
 
-	75% {
+	55% {
 		stroke: #fff;
+	}
+
+	80% {
+		stroke-dashoffset: 0;
+		stroke:$highlightColor;
+		transform: rotateZ(1000deg);
 	}
 
 	100% {
 		stroke-dashoffset: 0;
 		stroke:$highlightColor;
+		transform: rotateZ(1000deg);
 	}
 }	
 
-@keyframes dashline {
+@keyframes drawLines {
 	from {
 		opacity: 0;
 	}
@@ -251,9 +260,9 @@ span.logo {
 .category-title {
 	color: #fff;
   padding: 0;
-  line-height: 20vh !important;
+  line-height: 12vh !important;
   margin: 0 auto;
-  height: 20vh;
+  height: 12vh;
 	cursor: pointer;
 	font: 1.5em $font-light;
 	text-align: center;
@@ -299,36 +308,39 @@ span.logo {
 }
 
 .enter {
-	width: 200px;
+	width: 100%;
 	position: fixed;
 	z-index: 1;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	//cursor: pointer;
-	bottom: -200px;
+	bottom: -20px;
 	text-align: center;
 	visibility: hidden;
 	opacity: 0;
-	transform: scale(1,1);
 	overflow: hidden;
-	transition: .4s all ease-out;
-	font: 1em $font-light;
+	transition: .5s all ease-out;
+	font: 0.8em $font-light;
+	@include hacks();
 
 	&.load-icon {
 		visibility: visible;
 		opacity: 1;
-		bottom: 15px;
-		transform: scale(1,1);
-		transition: .4s all cubic-bezier(.25,1.5,.5, 1) 4.8s;
-	
+		bottom: 25px;
+		transition: 0.5s all cubic-bezier(0.25,1, 0.5, 1) 5s;
 
 		&.mobile {
 			visibility: visible;
 			opacity: 1;
-			transform: scale(1,1);
 			transition-delay: 0s;
 		}
+	}
+
+	&.load-icon-instantly {
+		visibility: visible;
+		opacity: 1;
+		bottom: 25px;
+		transition: 0.01s all cubic-bezier(0.25,1, 0.5, 1) 0.35s;
 	}
 
 	// &.hide {
@@ -356,11 +368,11 @@ span.logo {
 		color: #fff;	
 		text-align: center;
 		transition: all .4s ease-out !important;
-		visibility: hidden;
-		opacity: 0;
+		visibility: visible;
+		opacity: 1;
 		position: relative;
-		top: -8px;
-		transform: scale(0,0);
+		top: 0px;
+		transform: scale(1,1);
 	}	
 
 	span.icon {
@@ -400,28 +412,44 @@ span.logo {
   @include mobile {
     display: inline-block;
   }
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.desktop-only {
+  display: inline-block;
+
+  @include mobile {
+    display: none;
+  }
+
+  @include tablet {
+    display: none;
+  }
 }
 
 @keyframes bounce {
-	20% {
+	50% {
   	transform:translateY(0px);
   }
-  25% {
+  55% {
   	transform:translateY(-15px);
   }
-  30% {
+  60% {
   	transform:translateY(-2px);
   }
-  35% {
+  65% {
   	transform:translateY(-12px);
   }
-  40% {
+  70% {
   	transform:translateY(-2px);
   }
-  45% {
+  75% {
   	transform:translateY(-8px);
   }
-  55% {
+  85% {
   	transform:translateY(0px);
   }
 }

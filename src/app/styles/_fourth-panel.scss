@@ -1,7 +1,17 @@
 .fourth-panel {
-	top: 200vh;
-	background:  url(../assets/images/bg-image3.png) 50% 50% no-repeat transparent;
+	top: 100vh;
+	background:  url(../assets/images/bg-image4.png) 50% 50% no-repeat transparent;
 	background-size: cover;
+
+	h2 {
+		color: #fff;
+		font-family: $font-regular;
+
+		.logo {
+			left: 0;
+		}
+	}
+
 
 	.what-is-front-end-development {
 		width: 100%;
@@ -110,7 +120,7 @@
 				height: 12vh;
 				height:unquote("calc( 12vh - #{$space} )");
 				float: left;
-				background: rgba(0, 85, 135, 0.8);
+				background: $highlightColor;
 				transition: 0.1s all ease-out 0s;
 				width: unquote("calc( #{$varW} - #{$space} )");
     		margin: 0 1px 2px;

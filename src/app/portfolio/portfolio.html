@@ -1,7 +1,7 @@
 <div class="container" ng-init="portfolio.setUpPage()">
   <div class="panel">
 
-    <div class="vert-nav">
+    <div class="vert-nav" ng-class="{'show': portfolio.loadMainContent}">
       <ul>
         <li class="active panel1" data-active="panel1">
           <span></span>
@@ -27,7 +27,13 @@
           <h1>
             <span class="logo" ng-include="'assets/images/portfolio/logo.svg'" ng-class="{'show': portfolio.loadMainContent}"></span><span class="name" ng-class="{'show': portfolio.loadMainContent}">SCOTT MURPHY</span><br class="mobile-only" /><span class="title" ng-class="{'show': portfolio.loadMainContent}">WEB DEVELOPER</span>
           </h1>         
-          <p class="tagline" ng-class="{'show': portfolio.loadMainContent}">Front-End and User Interface <br class="mobile-only" />Design Execution Specialist</p>
+          <p class="tagline" ng-class="{'show': portfolio.loadMainContent}">
+            Front-End and User Interface <br class="mobile-only" />Design Execution Specialist<br />
+          </p>
+          <p class="skills" ng-class="{'show': portfolio.loadMainContent}">
+            HTML&nbsp;&nbsp;|&nbsp;&nbsp;CSS&nbsp;&nbsp;|&nbsp;&nbsp;JAVASCRIPT&nbsp;&nbsp;|&nbsp;&nbsp;RESPONSIVE&nbsp;&nbsp;<br class="mobile-only" /><span class="desktop-only">|</span>&nbsp;&nbsp;FRAMEWORKS&nbsp;&nbsp;|&nbsp;&nbsp;BUILD TOOLS&nbsp;&nbsp;|&nbsp;&nbsp;VERSION CONTROL&nbsp;&nbsp;<br class="mobile-only" /><span class="desktop-only">|</span>&nbsp;&nbsp;UI &amp; VISUAL DESIGN
+            <span class="overlay-filter"></span>
+          </p>
         </div>
       </div>
       <!-- <p continue-button class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
@@ -39,11 +45,44 @@
     <section class="second-panel sliding-panel" on-scroll>
       <div class="panel-wrapper">
         <h2 class="category-title" ng-click="portfolio.reloadPage()"><span class="logo" ng-include="'assets/images/portfolio/logo.svg'"></span>Projects</h2>
-        <ul>
-          <li>Capital One - UI Developer</li>
-          <li>Rocket Pop Media - Wordpress Developer</li>
-          <li>Cloud 9 Web Designs - Web Developer</li>
-        </ul>
+        <div class="projects-list">
+          <ul>
+            <li>Capital One - Front End Developer
+              <ul>
+                <li>Credit Tracker / CreditWise</li>
+                <li>Personal Loans</li>
+                <li>Interest Eraser</li>
+                <li>Card Servicing</li>
+                <li>Card Benefits</li>
+                <li>Card Terms</li>
+                <li>Account Combination</li>
+                <li>Credit Card WWW Redesign</li>
+                <li>Add Authorized User</li>
+              </ul>
+            </li>
+            <li>Rocket Pop Media - Wordpress Developer
+              <ul>
+                <li>VCU RamTech</li>
+                <li>Willow Lawn Mall</li>
+                <li>Epitome Networks</li>
+                <li>Olli Salumeria</li>
+                <li>Keep Virginia Beautiful</li>
+                <li>Beth Ahabah Synagogue</li>
+              </ul>
+            </li>
+            <li>Cloud 9 Web Designs - Web Developer
+              <ul>
+                <li>Camel City Dispatch</li>
+                <li>Cloud 9 Web Designs</li>
+                <li>1 Stop Mini Storage</li>
+                <li>Element Rentals</li>
+                <li>RC Graphics Studio</li>
+                <li>Katie Adcock - Designer</li>
+                <li>Images by Kuhn</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
       <!-- <p continue-button class="enter">
         <span class="text">SKILLS</span><br />
@@ -179,8 +218,8 @@
     <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}"></div>
 
     <p class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
-      <span class="text">SCROLL</span><br />
-      <span class="icon" ng-include="'assets/images/portfolio/enter.svg'"></span>
+      <span class="text">TO NAVIGATE THIS SITE, <span class="mobile-only">SWIPE&nbsp;</span><span class="desktop-only">SCROLL&nbsp;</span>UP / DOWN</span><br />
+      <span class="icon" ng-include="'assets/images/portfolio/enteralt.svg'"></span>
     </p>
 
   </div>

@@ -14,32 +14,37 @@
 	h2 {
 		color: #fff;
 		font-family: $font-regular;
+
+		.logo {
+			left: 0;
+		}
 	}
 
-	.bios {
+	.projects-list {
 		width: 100%;
-		max-width: 1000px;
-		display: inline-block;
-		position: absolute;
-		top: 40%;
-		transform: translateY(-40%);
+		max-width: 720px;
+		display: block;
+		// position: absolute;
+		// top: 44%;
+		// transform: translateY(-44%);
 		left: 0;
     right: 0;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
     font-size: 16px;
+    color: #fff;
 
     @include mobile {
     	height: auto;
     	position: relative;
-    	margin-bottom: 124px;
-    	top: 0;
+    	//margin-bottom: 124px;
+    	top: 100px;
     	transform: translateY(0%);
     	font-size: 13px;
     } 
 
 		ul {
-			margin: 0 auto;
+			margin: 4px auto 12px;
 			padding: 0;
 			display: block;
 			width: 100%;
@@ -68,30 +73,42 @@
 				}
 			}
 
-			li {
-				display: inline-block;
-				opacity: 0;
-				visibility: hidden;
-				height: 24vh;
-				height:unquote("calc( #{$varH} - #{$space} )");
+			> li {
+				display: block;
+				width: 50%;
+				opacity: 1;
+				visibility: visible;
 				float: left;
-				//background: rgba(80, 80, 120, 0.25);
-				transition: 0.1s all ease-out 0s;
-				width: unquote("calc( #{$varW} - #{$space} )");
-    		margin: 0 2px 4px;
-				color: #fff;
-				padding: 0 0px;
-				vertical-align: middle;
-				line-height: unquote("calc( #{$varH} - #{$space} )");
-				position: relative;
-				overflow: hidden;
-				-webkit-tap-highlight-color: transparent;
-				top: 200px;
-				@include hacks();
-				font-size: 1em;
-				font-family: $font-regular;
-				text-transform: uppercase;
-				border: 1px solid #fff;
+
+				> ul {
+					display: inline-block;
+					margin-left: 10px;
+
+					>li {
+						display: inline-block;
+						margin-left: 5px;
+					}
+				}
+				// height: 24vh;
+				// height:unquote("calc( #{$varH} - #{$space} )");
+				// float: left;
+				// //background: rgba(80, 80, 120, 0.25);
+				// transition: 0.1s all ease-out 0s;
+				// width: unquote("calc( #{$varW} - #{$space} )");
+    // 		margin: 0 2px 4px;
+				// color: #fff;
+				// padding: 0 0px;
+				// vertical-align: middle;
+				// line-height: unquote("calc( #{$varH} - #{$space} )");
+				// position: relative;
+				// overflow: hidden;
+				// -webkit-tap-highlight-color: transparent;
+				// top: 200px;
+				// @include hacks();
+				// font-size: 1em;
+				// font-family: $font-regular;
+				// text-transform: uppercase;
+				// border: 1px solid #fff;
 
 				&.show-li {
 					opacity: 1;
@@ -101,25 +118,25 @@
 				}
 
 				@include tablet {
-					height: 20vh;
-					height:unquote("calc( 20vh - #{$space} )");
-					line-height: 20vh;
+					// height: 20vh;
+					// height:unquote("calc( 20vh - #{$space} )");
+					// line-height: 20vh;
 				}
 
 				@include mobile {
-					width: 50%;
-					margin: 0 1px 2px;
-					transition: all 0s ease-out 0s;
-					height:unquote("calc( #{$varH} - #{$space} )");
-					width:unquote("calc( 50% - 1px )");
+					// width: 50%;
+					// margin: 0 1px 2px;
+					// transition: all 0s ease-out 0s;
+					// height:unquote("calc( #{$varH} - #{$space} )");
+					// width:unquote("calc( 50% - 1px )");
 					
 
 					&:nth-child(odd) {
-						margin-left: 0;
+						//margin-left: 0;
 					}
 
 					&:nth-child(even) {
-						margin-right: 0;
+						//margin-right: 0;
 					}
 
 				}
@@ -209,7 +226,7 @@
 				}
 
 				&:first-child {
-					margin-left: 0;
+					//margin-left: 0;
 					border-top-left-radius: 10px;
 
 					@include mobile {
@@ -218,7 +235,7 @@
 				}
 
 				&:last-child {
-					margin-right: 0;
+					//margin-right: 0;
 					border-top-right-radius: 10px;
 
 					@include mobile {

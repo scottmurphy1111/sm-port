@@ -1,7 +1,16 @@
 .fifth-panel {
-	top: 300vh;
-	background:  url(../assets/images/bg-image4.png) 50% 50% no-repeat transparent;
+	top: 100vh;
+	background:  url(../assets/images/bg-image5.png) 50% 50% no-repeat transparent;
 	background-size: cover;
+
+	h2 {
+		color: #fff;
+		font-family: $font-regular;
+
+		.logo {
+			left: 0;
+		}
+	}
 
   h3 {
   	color: #fff;
