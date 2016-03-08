@@ -1,29 +1,8 @@
-body {
-  margin: 0;
-  font: 16px $font-light;
-  background: $primaryColor;
-
-  @include mobile {
-    font: 14px $font-light;    
-  }
-}
-
-.container {
-	position: relative;
-  height: 100vh;
-  overflow: hidden;
-
-	@include mobile {
-		overflow-x: hidden;
-	}
-}
-
 .panel {
 	height: 100vh;
 	width: 100%;
 	overflow: hidden;
 	display: inline-block;
-	//background: $primaryColor;
 	position: relative;
 }
 
@@ -35,7 +14,7 @@ body {
 	height: 100vh;
 	width: 12px;	
 	transform: translateY(-50%);
-	transition: all 0.75s ease-out 5s;
+	transition: all 0.75s ease-out 6s;
 
 	&.show {
 		right: 0;
@@ -74,6 +53,7 @@ body {
 	    &.active {
 
 				span {
+					transition: 0.4s all ease-out 0.15s;
 			    background: $highlightColor;
 			    opacity: 1;
 				}
@@ -95,6 +75,7 @@ body {
 	padding: 0 20px;
 	overflow: hidden;
 	display: inline-block;
+
 
 	@include mobile {
 		padding: 0;
@@ -196,8 +177,8 @@ span.logo {
 	stroke-dasharray: 235;
 	animation: drawCircle 2s ease-out forwards;
 	animation-delay: 1s;
-	transform: rotateZ(-90deg);
-	transform-origin: center;
+	@include prefixed(transform, rotateZ(-90deg));
+	@include prefixed(transform-origin, center);
 }
 
 .logo-lines {
@@ -264,20 +245,21 @@ span.logo {
   margin: 0 auto;
   height: 12vh;
 	cursor: pointer;
-	font: 1.5em $font-light;
+	font: 1.5em $font-extralight;
 	text-align: center;
 	font-weight: bold;
+	text-transform: uppercase;
 	
 	span.logo {
-		width: 28px;
-		height: 28px;
-    top: 8px;	
+		width: 25px;
+		height: 25px;
+    top: 5px;	
 	}
 }
 
 .bg-image {
-	//background: url(../assets/images/me.png) 50% 100% no-repeat transparent;
-	background-size: 70%;
+	// background: url(../assets/images/bg-image.png) 50% 100% no-repeat transparent;
+	// background-size: cover;
 	@include hacks();
 	height: 100vh;
 	width: 100%;
@@ -327,7 +309,7 @@ span.logo {
 		visibility: visible;
 		opacity: 1;
 		bottom: 25px;
-		transition: 0.5s all cubic-bezier(0.25,1, 0.5, 1) 5s;
+		transition: 0.5s all cubic-bezier(0.25,1, 0.5, 1) 5.5s;
 
 		&.mobile {
 			visibility: visible;
@@ -341,6 +323,10 @@ span.logo {
 		opacity: 1;
 		bottom: 25px;
 		transition: 0.01s all cubic-bezier(0.25,1, 0.5, 1) 0.35s;
+	}
+
+	.pipe {
+		padding: 0 2px;
 	}
 
 	// &.hide {
@@ -385,8 +371,6 @@ span.logo {
 		@include hacks();
 	}
 
-	
-
 	@include mobile {
 
 		&.show {
@@ -404,6 +388,14 @@ span.logo {
 		}
 			
 	}
+}
+
+.pipe {
+	color: #fff;
+	top: -1px;
+	position: relative;
+	font-family: $font-regular;
+	padding: 0 8px;
 }
 
 .mobile-only {

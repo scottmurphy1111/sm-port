@@ -1,7 +1,7 @@
 .third-panel {
 	top: 100vh;
-	background:  url(../assets/images/bg-image3.png) 50% 100% no-repeat transparent;
-	background-size: cover;
+	// background:  url(../assets/images/bg-image3.png) 50% 100% no-repeat transparent;
+	// background-size: cover;
 	color: $primaryColor;
 
 	.logo-circle {
@@ -12,26 +12,26 @@
 	}
 
 	h2 {
-		color: #fff;
-		font-family: $font-regular;
+		// color: #fff;
+		// font-family: $font-regular;
 
 		.logo {
 			left: 0;
 		}
 	}
 
-	.bios {
+	.snippets {
 		width: 100%;
-		max-width: 1000px;
-		display: inline-block;
-		position: absolute;
-		top: 40%;
-		transform: translateY(-40%);
-		left: 0;
-    right: 0;
-    text-align: center;
+		max-width: 720px;
+		display: block;
+    text-align: left;
     margin: 0 auto;
     font-size: 16px;
+    color: #fff;
+
+    h3 {
+    	color: $highlightColor;
+    }
 
     @include mobile {
     	height: auto;
@@ -74,28 +74,29 @@
 
 			li {
 				display: inline-block;
-				opacity: 0;
-				visibility: hidden;
-				height: 24vh;
-				height:unquote("calc( #{$varH} - #{$space} )");
-				float: left;
+				opacity: 1;
+				visibility: visible;
+				//height: 24vh;
+				//height:unquote("calc( #{$varH} - #{$space} )");
+				//float: left;
 				//background: rgba(80, 80, 120, 0.25);
 				transition: 0.1s all ease-out 0s;
-				width: unquote("calc( #{$varW} - #{$space} )");
+				//width: unquote("calc( #{$varW} - #{$space} )");
+				width: 100%;
     		margin: 0 2px 4px;
 				color: #fff;
 				padding: 0 0px;
 				vertical-align: middle;
-				line-height: unquote("calc( #{$varH} - #{$space} )");
+				//line-height: unquote("calc( #{$varH} - #{$space} )");
 				position: relative;
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
-				top: 200px;
+				//top: 200px;
 				@include hacks();
 				font-size: 1em;
 				font-family: $font-regular;
-				text-transform: uppercase;
-				border: 1px solid #fff;
+				//text-transform: uppercase;
+				//border: 1px solid #fff;
 
 				&.show-li {
 					opacity: 1;

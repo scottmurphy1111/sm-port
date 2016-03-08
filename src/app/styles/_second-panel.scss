@@ -1,7 +1,7 @@
 .second-panel {
 	top: 100vh;
-	background:  url(../assets/images/bg-image2.png) 50% 100% no-repeat transparent;
-	background-size: cover;
+	// background:  url(../assets/images/bg-image2.png) 50% 100% no-repeat transparent;
+	// background-size: cover;
 	color: $primaryColor;
 
 	.logo-circle {
@@ -12,8 +12,8 @@
 	}
 
 	h2 {
-		color: #fff;
-		font-family: $font-regular;
+		// color: #fff;
+		// font-family: $font-regular;
 
 		.logo {
 			left: 0;
@@ -24,11 +24,6 @@
 		width: 100%;
 		max-width: 720px;
 		display: block;
-		// position: absolute;
-		// top: 44%;
-		// transform: translateY(-44%);
-		left: 0;
-    right: 0;
     text-align: left;
     margin: 0 auto;
     font-size: 16px;
@@ -44,9 +39,9 @@
     } 
 
 		ul {
-			margin: 4px auto 12px;
+			margin: 0px auto 12px;
 			padding: 0;
-			display: block;
+			display: inline-block;
 			width: 100%;
 
 			&:last-child {
@@ -79,14 +74,26 @@
 				opacity: 1;
 				visibility: visible;
 				float: left;
+				color: $highlightColor;
+				//font-size: 18px;
+				text-transform: uppercase;
+				font-weight: bold;
+
 
 				> ul {
 					display: inline-block;
 					margin-left: 10px;
+					padding-bottom: 15px;
+					margin-top: 4px;
 
 					>li {
 						display: inline-block;
 						margin-left: 5px;
+						color: #fff;
+						//font-size: 16px;
+						text-transform: normal;
+						width: 100%;
+						font-weight: normal;
 					}
 				}
 				// height: 24vh;

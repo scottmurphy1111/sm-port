@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window) {
+    .controller('PortfolioController', function($timeout, $state, $window, $log) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -12,30 +12,27 @@
         $timeout(function() {
           portfolio.loadMainContent = true;
         }, 200);
+
+        var toReveal = document.querySelectorAll('.skills .to-reveal');
+        
+        $timeout(function() {
+          for (var n = 0; n < toReveal.length; n++) {
+            var timer = 0;
+            timer += 60*n+(Math.random()*60);
+
+            (function(n) {
+              $timeout(function() {
+                toReveal[n].classList.add('show');
+              }, timer);
+            })(n);
+          }
+        }, 4500);
+          
       };
 
       portfolio.reloadPage = function() {
         $window.location.reload();
       };
-
-      // portfolio.enterClicked1 = false;
-      // portfolio.enterClicked2 = false;
-      // portfolio.enterClicked3 = false;
-
-      // portfolio.slideTopPanel1 = function() {
-      //   portfolio.enterClicked1 = true;
-      //   //$log.debug(angular.element('.enter'));
-      // };
-
-      // portfolio.slideTopPanel2 = function() {
-      //   portfolio.enterClicked2 = true;
-      //   portfolio.enterClicked1 = false;
-      // };
-
-      // portfolio.slideTopPanel3 = function() {
-      //   portfolio.enterClicked3 = true;
-      //   portfolio.enterClicked2 = false;
-      // };
       
     })
 
@@ -123,49 +120,135 @@
         link: linkFunction
       };
     })
-    .directive('showOnScroll', function($window, $log) {
-        
-
-        var linkFunction = function(scope, element) {
-
-          element.bind("scroll", function() {
-            
-            var scrollingVal = element[0].scrollTop,
-            panelHeight = element[0].firstElementChild.scrollHeight,
-            panelWidth = element[0].offsetWidth,
-            windowHeight = $window.innerHeight,
-            enterBtn = element[0].lastElementChild;
-
-            // $log.debug(element);
-
-            // $log.debug('windowplusscrolltop' + (windowHeight+scrollingVal));
-            // $log.debug('panel' + panelHeight);
-            
-
-            //$log.debug('scrollTop' + scrollingVal);
-            
-
-            if(panelWidth < 768) {
-              if(panelHeight - windowHeight < scrollingVal) {
-                enterBtn.classList.add('load-icon', 'mobile');
-              } else {
-                enterBtn.classList.remove('load-icon', 'mobile');
-              }
-            }
-          });
-        };
-
-        return {
-          restrict: 'A',
-          link: linkFunction
-        };
-    })
     .directive('onScroll', function($window, $log, $timeout) {
-        
-        var linkFunction = function(scope, element) {
+        var isWheel = false;
+        var movingPanel = false;
 
+        var linkFunction = function(scope, element) {
           element.bind("mousewheel", function(e) {
             var enterBtn = document.querySelectorAll('.enter'),
+                nextPanel = element.next(),
+                prevPanel = element[0].previousElementSibling,
+                bios = document.querySelectorAll('.bios li'),
+                skills = document.querySelectorAll('.skills li'),
+                panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth,
+                currentNav = document.querySelectorAll('.vert-nav li.active')[0],                
+                nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
+                prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
+                movement = 0;
+            
+            movement = e.deltaY;
+
+            if(movement > 100 && nextNav) {
+              if(isWheel) {  
+                return;
+              } 
+              
+              isWheel = true;
+              
+              var movePanelDown = function() {
+                if(element[0].className.indexOf('top-panel') > -1) {
+                  enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
+                }
+
+                element.removeClass('load-content show').addClass('hideTop');
+                
+                $timeout(function() {
+                  nextPanel.addClass('show').removeClass('hideTop hideBottom');
+                }, 100);
+                  
+                finishMovingDown();
+              };
+
+              var finishMovingDown = function() {
+                
+                if(movingPanel) {
+                  return;
+                } else {
+                  nextNav.classList.add('active');
+                  currentNav.classList.remove('active');
+                  
+                  $timeout(function() {
+                    isWheel = false;
+                    movingPanel = false;
+                  },800);
+                }
+              };
+
+              movePanelDown();
+            }
+
+            if(movement < -100 && prevNav) {
+              if(isWheel) {  
+                return;
+              } 
+              
+              isWheel = true;
+              
+              var movePanelUp = function() {
+                if(element[0].className.indexOf('second-panel') > -1) {
+                  enterBtn[0].classList.add('load-icon-instantly');
+                }
+
+                element.removeClass('load-content show').addClass('hideBottom');
+                
+                $timeout(function() {
+                  prevPanel.classList.add('show');
+                  prevPanel.classList.remove('hideTop', 'hideBottom');
+                }, 100);
+                  
+                finishMovingUp();
+              };
+
+              var finishMovingUp = function() {
+                
+                if(movingPanel) {
+                  return;
+                } else {
+                  prevNav.classList.add('active');
+                  currentNav.classList.remove('active');
+                  
+                  $timeout(function() {
+                    isWheel = false;
+                    movingPanel = false;
+                  },800);
+                }
+              };
+
+              movePanelUp();
+            }
+          });
+
+          var startX,
+              startY,
+              dist,
+              threshold = 150, //required min distance traveled to be considered swipe
+              allowedTime = 200, // maximum time allowed to travel that distance
+              elapsedTime,
+              startTime;
+           
+
+          element.bind('touchstart', function(e) {
+            e.preventDefault();
+            var touchobj = e.changedTouches[0];
+            dist = 0,
+            startX = touchobj.pageX,
+            startY = touchobj.pageY,
+            startTime = new Date().getTime();
+            
+
+            $log.debug(startY);
+          });
+
+          element.bind('touchmove', function(e){
+              e.preventDefault();
+          });
+       
+          element.bind('touchend', function(e){
+            e.preventDefault()
+            var touchobj = e.changedTouches[0],
+            dist = touchobj.pageY - startY,
+            enterBtn = document.querySelectorAll('.enter'),
             nextPanel = element.next(),
             prevPanel = element[0].previousElementSibling,
             bios = document.querySelectorAll('.bios li'),
@@ -174,259 +257,83 @@
             currentNav = document.querySelectorAll('.vert-nav li.active')[0],
             nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
             prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
-          
-            $log.debug(prevPanel);
-            //$log.debug('curentnav' + currentNav);
-            // $log.debug('nextNav' + nextNav);
-            
 
-            var movement = e.deltaY;
-
-            if(movement > 100 && nextNav) {
-              $log.debug('slidedown');
-
-              currentNav.classList.remove('active');
-              $timeout(function() {
-                nextNav.classList.add('active');
-              },500);
+            if(dist < -100 && nextNav) {
+              if(isWheel) {  
+                return;
+              } 
               
-
-              if(panelWidth > 768) {
-                
-                // for (var i = 0; i < nextBtn.length; i++) {
-                //   if(nextBtn[i].className === 'enter') {
-                //     nextBtn[i].classList.add('load-icon');
-                //     break;
-                //   }
-                // }
-
-                // for (var i = 0; i < currentBtn.length; i++) {
-                //   $log.debug(currentBtn[i]);
-                //   if(currentBtn[i].className === 'enter') {
-                //     currentBtn[i].classList.remove('load-icon', 'hide');
-                //     break;
-                //   }
-                // }
-
-              }
-
-              //if element parent is second panel
-              for (var b = 0; b < nextPanel.length; b++) {
-                if(nextPanel[b].className.indexOf('third-panel') > -1) {
-                  $timeout(function() {
-                      for (var n = 0; n < bios.length; n++) {
-                        var timer = 0;
-                        timer += 160*n+(Math.random()*150);
-                        //$log.debug(timer);
-                        
-                        (function(n) {
-                          $timeout(function() {
-                            bios[n].classList.add('show-li');
-                          }, timer);
-                        })(n);
-                      }
-                    }, 400);
-                }
-
-                //if element parent is third panel
-                if(nextPanel[b].className.indexOf('fourth-panel') > -1) {
-                  $timeout(function() {
-                      for (var j = 0; j < skills.length; j++) {
-                        var timer = 0;
-                        timer += 160*j+(Math.random()*150);
-                        //$log.debug(timer);
-                        
-                        (function(j) {
-                          $timeout(function() {
-                            skills[j].classList.add('show-li');
-                          }, timer);
-                        })(j);
-                      }
-                    }, 400);
-
-                }
-
-                if(nextPanel[b].className.indexOf('fifth-panel') > -1) {
-                  var panelChildren = element.parent().next().children();
-
-                  for (var k = 0; k < panelChildren.length; k++) {
-                    if (panelChildren[k].className === 'enter') {
-                      panelChildren[k].classList.add('load-icon');
-                      break;
-                    }
-
+              isWheel = true;
+              
+                var movePanelDown = function() {
+                  if(element[0].className.indexOf('top-panel') > -1) {
+                    enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
                   }
-                }
-              }
+                  //enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
+                  element.removeClass('load-content show').addClass('hideTop');
 
-              enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
-              //element.children().addClass('hide');
+                  $timeout(function() {
+                    nextPanel.addClass('show').removeClass('hideTop hideBottom');
+                  }, 100);
+                  
+                  finishMovingDown();
+                };
 
-              element.removeClass('load-content show').addClass('hideTop');
-              $timeout(function() {
-                nextPanel.addClass('show').removeClass('hideTop hideBottom');
-                $timeout(function() {
-                  //enterBtn[0].classList.add('load-icon');
-                },400);
-              }, 100);
-              
-              $timeout(function() {
-                //nextPanel.addClass('start-scroll');
-              }, 2000);
-              
+                var finishMovingDown = function() {
+                  
+                  if(movingPanel) {
+                    return;
+                  } else {       
+                    nextNav.classList.add('active');            
+                    currentNav.classList.remove('active');
+
+                    $timeout(function() {
+                      isWheel = false;
+                      movingPanel = false;
+                    },800);
+                  }
+                };
+
+                movePanelDown();
             }
 
-            if(movement < -100 && prevNav) {
-              $log.debug('slideup');
-
-              currentNav.classList.remove('active');
-              $timeout(function() {
-                prevNav.classList.add('active');
-              },500);
-
-              if(prevPanel.className.indexOf('top-panel') > -1) {
-                enterBtn[0].classList.add('load-icon-instantly');
-              }
-              //element.children().addClass('hide');
-
-              element.removeClass('load-content show').addClass('hideBottom');
-              $timeout(function() {
-                prevPanel.classList.add('show');
-                prevPanel.classList.remove('hideTop', 'hideBottom');
-                $timeout(function() {
-                  //enterBtn[0].classList.add('load-icon');
-                },400);
-              }, 100);
+            if(dist > 100 && prevNav) {
+              if(isWheel) {  
+                return;
+              } 
               
-              $timeout(function() {
-                //nextPanel.addClass('start-scroll');
-              }, 2000);
+              isWheel = true;
+              
+                var movePanelUp = function() {
+                  if(element[0].className.indexOf('second-panel') > -1) {
+                    enterBtn[0].classList.add('load-icon-instantly');
+                  }
+                  
+                  element.removeClass('load-content show').addClass('hideBottom');
 
+                  $timeout(function() {
+                    prevPanel.classList.add('show');
+                    prevPanel.classList.remove('hideTop', 'hideBottom');
+                  }, 100);
+                  
+                  finishMovingUp();
+                };
+
+                var finishMovingUp = function() {
+                  
+                  if(movingPanel) {
+                    return;
+                  } else {
+                    isWheel = false;
+                    movingPanel = false;         
+                    prevNav.classList.add('active');            
+                    currentNav.classList.remove('active');
+                  }
+                };
+
+                movePanelUp();
             }
-
           });
-
-    //       element.bind("touchmove", function(e) {
-    //         var enterBtn = document.querySelectorAll('.enter'),
-    //         nextPanel = element.next(),
-    //         bios = document.querySelectorAll('.bios li'),
-    //         skills = document.querySelectorAll('.skills li'),
-    //         panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth,
-    //         currentNav = document.querySelectorAll('.vert-nav li.active')[0],
-    //         nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling;
-          
-    //         $log.debug(e);
-    //         $log.debug(nextNav.classList);
-            
-
-    //         var movement1 = e.touches[0].clientY;
-    //         $log.debug(movement1);
-
-    //         $timeout(function() {
-    //           var movement2 = e.touches[0].clientY;
-    //           $log.debug(movement2);
-    //         }, 300);
-
-
-    //         if(movement1 - movement2 > 100) {
-    //           $log.debug('triggered');
-    //           //$log.debug(enterBtn); 
-
-    //           currentNav.classList.remove('active');
-    //           $timeout(function() {
-    //             nextNav.classList.add('active');
-    //           },500);
-              
-
-    //           if(panelWidth > 768) {
-                
-    //             // for (var i = 0; i < nextBtn.length; i++) {
-    //             //   if(nextBtn[i].className === 'enter') {
-    //             //     nextBtn[i].classList.add('load-icon');
-    //             //     break;
-    //             //   }
-    //             // }
-
-    //             // for (var i = 0; i < currentBtn.length; i++) {
-    //             //   $log.debug(currentBtn[i]);
-    //             //   if(currentBtn[i].className === 'enter') {
-    //             //     currentBtn[i].classList.remove('load-icon', 'hide');
-    //             //     break;
-    //             //   }
-    //             // }
-
-    //           }
-
-    //           //if element parent is second panel
-    //           for (var b = 0; b < nextPanel.length; b++) {
-    //             if(nextPanel[b].className.indexOf('second-panel') > -1) {
-    //               $timeout(function() {
-    //                   for (var n = 0; n < bios.length; n++) {
-    //                     var timer = 0;
-    //                     timer += 160*n+(Math.random()*150);
-    //                     //$log.debug(timer);
-                        
-    //                     (function(n) {
-    //                       $timeout(function() {
-    //                         bios[n].classList.add('show-li');
-    //                       }, timer);
-    //                     })(n);
-    //                   }
-    //                 }, 400);
-    //             }
-
-    //             //if element parent is third panel
-    //             if(nextPanel[b].className.indexOf('third-panel') > -1) {
-    //               $timeout(function() {
-    //                   for (var j = 0; j < skills.length; j++) {
-    //                     var timer = 0;
-    //                     timer += 160*j+(Math.random()*150);
-    //                     //$log.debug(timer);
-                        
-    //                     (function(j) {
-    //                       $timeout(function() {
-    //                         skills[j].classList.add('show-li');
-    //                       }, timer);
-    //                     })(j);
-    //                   }
-    //                 }, 400);
-
-    //             }
-
-    //             if(nextPanel[b].className.indexOf('fourth-panel') > -1) {
-    //               var panelChildren = element.parent().next().children();
-
-    //               for (var k = 0; k < panelChildren.length; k++) {
-    //                 if (panelChildren[k].className === 'enter') {
-    //                   panelChildren[k].classList.add('load-icon');
-    //                   break;
-    //                 }
-
-    //               }
-    //             }
-    //           }
-
-    //           enterBtn[0].classList.remove('load-icon');
-    //           //element.children().addClass('hide');
-
-    //           element.removeClass('load-content show').addClass('hide');
-    //           $timeout(function() {
-    //             nextPanel.addClass('show');
-    //             $timeout(function() {
-    //               enterBtn[0].classList.add('load-icon');
-    //             },400);
-    //           }, 100);
-              
-            
-              
-
-    //           $timeout(function() {
-    //             nextPanel.addClass('start-scroll');
-    //           }, 2000);
-              
-    //         }
-
-    //       });
         };
 
         return {
