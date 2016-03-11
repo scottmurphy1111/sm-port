@@ -1,5 +1,5 @@
 .top-panel {
-	top: 0;
+	//top: 0;
 	// background:  url(../assets/images/bg-image.png) 50% 100% no-repeat transparent;
 	// background-size: cover;
 
@@ -23,6 +23,7 @@
 		visibility: hidden;
 		transition: all 0.25s ease-out 3.25s;
 		margin-right: 5px;
+		@include hacks();
 
 		&.show {
 			opacity: 1;
@@ -41,6 +42,7 @@
 		opacity: 0;
 		visibility: hidden;
 		transition: all 0.35s ease-out 3.5s;
+		@include hacks();
 		right: -30px;
 		position: relative;
 
@@ -67,6 +69,7 @@
 		overflow: hidden;
 		width: 100%;
 		left: -30px;
+		@include hacks();
 
 		&.show {
 			opacity: 1;
@@ -90,11 +93,13 @@
 		transition: all 0.25s linear 2s;
 		position: relative;
 		overflow: hidden;
+		@include hacks();
 		width: 100%;
 
 		.to-reveal {
 			bottom: -30px;
 			transition: all 0.25s cubic-bezier(0.5, 1.75, 0.75, 1);
+			@include hardwareAccel();
 			position: relative;
 			opacity: 0;
 

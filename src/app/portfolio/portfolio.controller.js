@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window, $log) {
+    .controller('PortfolioController', function($timeout, $state, $window) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -11,7 +11,7 @@
       portfolio.setUpPage = function() {
         $timeout(function() {
           portfolio.loadMainContent = true;
-        }, 200);
+        }, 400);
 
         var toReveal = document.querySelectorAll('.skills .to-reveal');
         
@@ -36,87 +36,44 @@
       
     })
 
-    .directive('continueButton', function($log, $window, $timeout) {
+    .directive('vertNavItem', function() {
     
-      var linkFunction = function(scope, element) {
-        element.bind('click', function() {
-          var myEl = element.parent().next().children(),
-          panelClass = element.parent().next(),
-          bios = document.querySelectorAll('.bios li'),
-          skills = document.querySelectorAll('.skills li'),
-          panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth;
+      var linkFunction = function(scope, element, attr) {
+        element.bind('click', function(e) {
+          e.stopPropagation();
+          var clickedLiVal = attr.active,
+          currentActiveLi = document.querySelectorAll('.vert-nav li.active'),
+          allPanels = document.querySelectorAll('.sliding-panel'),
+          activatePanel = '',
+          enterBtn = document.querySelectorAll('.enter');
 
-          //$log.debug(element.parent().next().hasClass('second-panel'));
-
-          if(panelWidth > 768) {
-            
-            for (var i = 0; i < myEl.length; i++) {
-              if (myEl[i].className === 'enter') {
-                myEl[i].classList.add('load-icon');
-                break;
-              }
-
-            }
+          activatePanel = document.querySelectorAll('.'+clickedLiVal);
+         
+          for(var i = 0; i < allPanels.length; i++) {
+            allPanels[i].classList.add('fade-out');
+            allPanels[i].classList.remove('fade-in');
+              
           }
-
-          //if element parent is second panel
-          if(panelClass.hasClass('second-panel')) {
-            $timeout(function() {
-                for (var n = 0; n < bios.length; n++) {
-                  var timer = 0;
-                  timer += 160*n+(Math.random()*150);
-                  //$log.debug(timer);
-                  
-                  (function(n) {
-                    $timeout(function() {
-                      bios[n].classList.add('show-li');
-                    }, timer);
-                  })(n);
-                }
-              }, 400);
-          }
-
-          //if element parent is third panel
-          if(panelClass.hasClass('third-panel')) {
-            $timeout(function() {
-                for (var j = 0; j < skills.length; j++) {
-                  var timer = 0;
-                  timer += 160*j+(Math.random()*150);
-                  //$log.debug(timer);
-                  
-                  (function(j) {
-                    $timeout(function() {
-                      skills[j].classList.add('show-li');
-                    }, timer);
-                  })(j);
-                }
-              }, 400);
-
-          }
-
-          if(panelClass.hasClass('fourth-panel')) {
-            var panelChildren = element.parent().next().children();
-
-            for (var k = 0; k < panelChildren.length; k++) {
-              if (panelChildren[k].className === 'enter') {
-                panelChildren[k].classList.add('load-icon');
-                break;
-              }
-
-            }
-          }
-
-          element.removeClass('load-icon');
-          element.addClass('hide');
-          element.parent().removeClass('load-content show').addClass('hide');
-          element.parent().next().addClass('show');
           
+          currentActiveLi[0].classList.remove('active');
+          element[0].classList.add('active');
+
+          activatePanel[0].classList.add('fade-in');
+          activatePanel[0].classList.remove('fade-out');
+          
+
+          if(clickedLiVal === 'top-panel') {
+            enterBtn[0].classList.add('load-icon-instantly');
+          } else {
+            enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
+          }
         });
         
       };
 
       return {
         restrict: 'A',
+        scope: true,
         link: linkFunction
       };
     })
@@ -129,9 +86,6 @@
             var enterBtn = document.querySelectorAll('.enter'),
                 nextPanel = element.next(),
                 prevPanel = element[0].previousElementSibling,
-                bios = document.querySelectorAll('.bios li'),
-                skills = document.querySelectorAll('.skills li'),
-                panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth,
                 currentNav = document.querySelectorAll('.vert-nav li.active')[0],                
                 nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
                 prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
@@ -151,17 +105,13 @@
                   enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
                 }
 
-                element.removeClass('load-content show').addClass('hideTop');
-                
-                $timeout(function() {
-                  nextPanel.addClass('show').removeClass('hideTop hideBottom');
-                }, 100);
-                  
+                element.removeClass('load-content fade-in').addClass('fade-out');
+                nextPanel.addClass('fade-in').removeClass('fade-out');  
+
                 finishMovingDown();
               };
 
               var finishMovingDown = function() {
-                
                 if(movingPanel) {
                   return;
                 } else {
@@ -171,7 +121,7 @@
                   $timeout(function() {
                     isWheel = false;
                     movingPanel = false;
-                  },800);
+                  },600);
                 }
               };
 
@@ -190,18 +140,14 @@
                   enterBtn[0].classList.add('load-icon-instantly');
                 }
 
-                element.removeClass('load-content show').addClass('hideBottom');
-                
-                $timeout(function() {
-                  prevPanel.classList.add('show');
-                  prevPanel.classList.remove('hideTop', 'hideBottom');
-                }, 100);
-                  
+                element.removeClass('load-content fade-in').addClass('fade-out');  
+                angular.element(prevPanel)[0].classList.add('fade-in');
+                angular.element(prevPanel)[0].classList.remove('fade-out');
+              
                 finishMovingUp();
               };
 
               var finishMovingUp = function() {
-                
                 if(movingPanel) {
                   return;
                 } else {
@@ -211,7 +157,7 @@
                   $timeout(function() {
                     isWheel = false;
                     movingPanel = false;
-                  },800);
+                  },600);
                 }
               };
 
@@ -222,9 +168,9 @@
           var startX,
               startY,
               dist,
-              threshold = 150, //required min distance traveled to be considered swipe
-              allowedTime = 200, // maximum time allowed to travel that distance
-              elapsedTime,
+              // threshold = 150, //required min distance traveled to be considered swipe
+              // allowedTime = 200, // maximum time allowed to travel that distance
+              // elapsedTime,
               startTime;
            
 
@@ -245,15 +191,12 @@
           });
        
           element.bind('touchend', function(e){
-            e.preventDefault()
+            e.preventDefault();
             var touchobj = e.changedTouches[0],
             dist = touchobj.pageY - startY,
             enterBtn = document.querySelectorAll('.enter'),
             nextPanel = element.next(),
             prevPanel = element[0].previousElementSibling,
-            bios = document.querySelectorAll('.bios li'),
-            skills = document.querySelectorAll('.skills li'),
-            panelWidth = document.querySelectorAll('.panel-wrapper')[0].offsetWidth,
             currentNav = document.querySelectorAll('.vert-nav li.active')[0],
             nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
             prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
@@ -266,33 +209,29 @@
               isWheel = true;
               
                 var movePanelDown = function() {
-                  if(element[0].className.indexOf('top-panel') > -1) {
-                    enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
-                  }
-                  //enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
-                  element.removeClass('load-content show').addClass('hideTop');
+                if(element[0].className.indexOf('top-panel') > -1) {
+                  enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
+                }
 
+                element.removeClass('load-content fade-in').addClass('fade-out');
+                nextPanel.addClass('fade-in').removeClass('fade-out');  
+
+                finishMovingDown();
+              };
+
+              var finishMovingDown = function() {
+                if(movingPanel) {
+                  return;
+                } else {
+                  nextNav.classList.add('active');
+                  currentNav.classList.remove('active');
+                  
                   $timeout(function() {
-                    nextPanel.addClass('show').removeClass('hideTop hideBottom');
-                  }, 100);
-                  
-                  finishMovingDown();
-                };
-
-                var finishMovingDown = function() {
-                  
-                  if(movingPanel) {
-                    return;
-                  } else {       
-                    nextNav.classList.add('active');            
-                    currentNav.classList.remove('active');
-
-                    $timeout(function() {
-                      isWheel = false;
-                      movingPanel = false;
-                    },800);
-                  }
-                };
+                    isWheel = false;
+                    movingPanel = false;
+                  },600);
+                }
+              };
 
                 movePanelDown();
             }
@@ -305,31 +244,30 @@
               isWheel = true;
               
                 var movePanelUp = function() {
-                  if(element[0].className.indexOf('second-panel') > -1) {
-                    enterBtn[0].classList.add('load-icon-instantly');
-                  }
-                  
-                  element.removeClass('load-content show').addClass('hideBottom');
+                if(element[0].className.indexOf('second-panel') > -1) {
+                  enterBtn[0].classList.add('load-icon-instantly');
+                }
 
+                element.removeClass('load-content fade-in').addClass('fade-out');  
+                angular.element(prevPanel)[0].classList.add('fade-in');
+                angular.element(prevPanel)[0].classList.remove('fade-out');
+              
+                finishMovingUp();
+              };
+
+              var finishMovingUp = function() {
+                if(movingPanel) {
+                  return;
+                } else {
+                  prevNav.classList.add('active');
+                  currentNav.classList.remove('active');
+                  
                   $timeout(function() {
-                    prevPanel.classList.add('show');
-                    prevPanel.classList.remove('hideTop', 'hideBottom');
-                  }, 100);
-                  
-                  finishMovingUp();
-                };
-
-                var finishMovingUp = function() {
-                  
-                  if(movingPanel) {
-                    return;
-                  } else {
                     isWheel = false;
-                    movingPanel = false;         
-                    prevNav.classList.add('active');            
-                    currentNav.classList.remove('active');
-                  }
-                };
+                    movingPanel = false;
+                  },600);
+                }
+              };
 
                 movePanelUp();
             }

@@ -7,14 +7,15 @@
 }
 
 .vert-nav {
-	position: fixed;
-	z-index: 2;
+	position: absolute;
+	z-index: 3;
 	right: -30px;
-	top: 50%;
+	//top: 50%;
 	height: 100vh;
 	width: 12px;	
-	transform: translateY(-50%);
+	//transform: translateY(-50%);
 	transition: all 0.75s ease-out 6s;
+	@include hacks();
 
 	&.show {
 		right: 0;
@@ -32,21 +33,27 @@
 	    padding: 0px;
 	    margin: 0px 0;
 	    position: relative;
+	    @include hacks();
 
 			span {
 	    	width: 10px;
 		    height: 100%;
 		    margin: 0px 0px;
 		    background: $secondaryColor;
-		    opacity: 0.25;
+		    opacity: 0.15;
 		    display: inline-block;
 		    position: absolute;
 		    padding: 0;
 		    transition: 0.25s all ease-out;
+		    @include hacks();
 		    cursor: pointer;
+		    -webkit-tap-highlight-color: transparent;
 
 		    &:hover {
-		    	opacity: 1;
+		    	@include desktop {
+		    		opacity: 0.25;	
+		    	}
+		    	
 		    }
 	    }
 
@@ -69,6 +76,7 @@
 	color: #fff;
 	z-index: 1;
 	transition: all 0.25s ease-out;
+	@include hacks();
 	transition-delay: 0s;
 	left: 0;
 	right: 0;
@@ -81,23 +89,39 @@
 		padding: 0;
 	}
 
-	&.hideTop {
-		top: -100vh;
-		transition-delay: 0.1s;
-	}
+	// &.hideTop {
+	// 	top: -100vh;
+	// 	transition-delay: 0.1s;
+	// }
 
-	&.hideBottom {
-		top: 100vh;
-		transition-delay: 0.1s;
-	}
+	// &.hideBottom {
+	// 	top: 100vh;
+	// 	transition-delay: 0.1s;
+	// }
 
-	&.show {
-		top: 0vh;
-		transition-delay: 0s;
-	}
+	// &.show {
+	// 	top: 0vh;
+	// 	transition-delay: 0s;
+	// }
 
 	&.start-scroll {
 		overflow-y: scroll;
+	}
+
+	&.fade-in {
+		opacity: 1 !important;
+		visibility: visible;
+		transition: 0.25s all ease-out 0.4s;
+		@include hacks();
+		z-index: 2;
+	}
+
+	&.fade-out {
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.25s all ease-out 0s;
+		@include hacks();
+		z-index: 1;
 	}
 }
 
@@ -107,17 +131,19 @@
 	max-width: 900px;
 	display: inline-block;
 	position: absolute;
-	top: 44%;
-	transform: translateY(-44%);
+	top: 36%;
+	//transform: translateY(-44%);
 	left: 0;
   right: 0;
   text-align: center;
   margin: 0 auto;
   overflow: hidden;
   padding-top: 0px;
+  visibility: visible;
+  @include hacks();
 
   @include mobile {
-
+  	top: 32%;
   }
 
   .static-inner {
@@ -127,6 +153,7 @@
 		&.load-content {
 			transform: scale(1,1);
 			transition: all 0.5s cubic-bezier(0.25,1.2,.75,1);
+			@include hacks();
 			transition-delay: 0.5s; 
 		}
 	}
@@ -138,6 +165,7 @@
   display: inline-block;
   width: 100%;
   height: 100vh;
+  visibility: visible;
 
 	@include mobile {
 		height: auto;
@@ -150,17 +178,21 @@ span.logo {
   width: 28px;
   height: 28px;
   position: relative;
-  top: 3px;
-  margin-right: 6px;
-  transition: left 0.75s ease-out 2.5s;
+  top: 6px;
+  margin-right: 6px;  
+  transition: .75s all ease-out 2.5s;
   left: 193px;
+ //@include hardwareAccel();
 
   &.show {
   	left: 0%;
   }
 
   @include mobile {
-  	top: 5px;
+  	top: 7px;
+		width: 26px;
+		height: 26px;
+		margin-right: 4px;
   	left: 95px;
   }
 }
@@ -178,7 +210,7 @@ span.logo {
 	animation: drawCircle 2s ease-out forwards;
 	animation-delay: 1s;
 	@include prefixed(transform, rotateZ(-90deg));
-	@include prefixed(transform-origin, center);
+	@include prefixed(transform-origin, 8px 16px);
 }
 
 .logo-lines {
@@ -249,6 +281,7 @@ span.logo {
 	text-align: center;
 	font-weight: bold;
 	text-transform: uppercase;
+	visibility: visible;
 	
 	span.logo {
 		width: 25px;
@@ -354,6 +387,7 @@ span.logo {
 		color: #fff;	
 		text-align: center;
 		transition: all .4s ease-out !important;
+		@include hacks();
 		visibility: visible;
 		opacity: 1;
 		position: relative;
@@ -366,7 +400,7 @@ span.logo {
 		height: 28px;
 		display: inline-block;
 		margin-top: 10px;
-		transform:translateY(0px);
+		//transform:translateY(0px);
 		animation: bounce 3s infinite;
 		@include hacks();
 	}
