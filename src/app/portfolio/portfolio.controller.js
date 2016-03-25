@@ -18,7 +18,7 @@
         $timeout(function() {
           for (var n = 0; n < toReveal.length; n++) {
             var timer = 0;
-            timer += 60*n+(Math.random()*60);
+            timer += 20*n+(Math.random()*5);
 
             (function(n) {
               $timeout(function() {
@@ -26,7 +26,7 @@
               }, timer);
             })(n);
           }
-        }, 4500);
+        }, 3200);
           
       };
 
@@ -175,14 +175,13 @@
            
 
           element.bind('touchstart', function(e) {
-            e.preventDefault();
+            //e.preventDefault();
             var touchobj = e.changedTouches[0];
             dist = 0,
             startX = touchobj.pageX,
             startY = touchobj.pageY,
             startTime = new Date().getTime();
             
-
             $log.debug(startY);
           });
 
@@ -191,7 +190,7 @@
           });
        
           element.bind('touchend', function(e){
-            e.preventDefault();
+            //e.preventDefault();
             var touchobj = e.changedTouches[0],
             dist = touchobj.pageY - startY,
             enterBtn = document.querySelectorAll('.enter'),
@@ -278,5 +277,32 @@
           restrict: 'A',
           link: linkFunction
         };
+    })
+    .directive('revealContent', function() {
+    
+      var linkFunction = function(scope, element, attr) {
+        element.bind('click', function() {
+          var content = element.next(),
+          allBoxes = document.querySelectorAll('.snippets li .content');
+  
+          if(content.hasClass('show')){
+            for(var i = 0; i < allBoxes.length; i++) {
+              allBoxes[i].classList.remove('show');
+            }
+            content.removeClass('show');
+          } else {
+            for(var i = 0; i < allBoxes.length; i++) {
+              allBoxes[i].classList.remove('show');
+            }
+            content.addClass('show');
+          }
+        });
+      };
+
+      return {
+        restrict: 'A',
+        scope: true,
+        link: linkFunction
+      };
     });
 })();

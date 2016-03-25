@@ -1,7 +1,4 @@
 .second-panel {
-	//top: 100vh;
-	// background:  url(../assets/images/bg-image2.png) 50% 100% no-repeat transparent;
-	// background-size: cover;
 	color: $primaryColor;
 
 	.logo-circle {
@@ -12,9 +9,6 @@
 	}
 
 	h2 {
-		// color: #fff;
-		// font-family: $font-regular;
-
 		.logo {
 			left: 0;
 		}
@@ -22,7 +16,7 @@
 
 	.projects-list {
 		width: 100%;
-		max-width: 720px;
+		max-width: 600px;
 		display: block;
     text-align: left;
     margin: 0 auto;
@@ -32,7 +26,6 @@
     @include mobile {
     	height: auto;
     	position: relative;
-    	//margin-bottom: 124px;
     	top: 0px;
     	transform: translateY(0%);
     	font-size: 13px;
@@ -74,18 +67,42 @@
 				opacity: 1;
 				visibility: visible;
 				float: left;
-				color: $highlightColor;
-				padding: 0 0px;
-				margin: 0 1%;
-				//font-size: 18px;
+				color: $blueThin;
+				padding: 0px;
+				margin: 0 5px;
 				text-transform: uppercase;
 				font-weight: bold;
-				text-align: center;
+				text-align: left;
 				@include box-sizing(border-box);
 
 				@include mobile {
 					width: 100%;
-					text-align: center;
+					text-align: left;
+				}
+
+				.icon {
+					width: 16px;
+			    height: 16px;
+			    display: inline-block;
+			    background-size: 100%;
+			    margin: 0px 3px 0 0;
+			    position: relative;
+			    top: 3px;
+			    vertical-align: top;
+
+			    @include mobile {
+			    	top: 2px;
+			    	width: 13px;
+			    	height: 13px;
+			    }
+				}
+
+				.icon-circle {
+					fill: #67CEF6;
+				}
+
+				.icon-logo {
+					fill: #fff;
 				}
 
 
@@ -102,38 +119,62 @@
 
 					>li {
 						display: inline-block;
-						margin-left: 0px;
+						margin-left: 3px;
 						color: #fff;
-						//font-size: 16px;
+						padding: 0;
 						text-transform: normal;
 						width: 100%;
 						font-weight: normal;
+						transition: 0.15s all ease-in;
 
 						@include mobile {
-							margin-left: 0;
+							margin-left: 17px;
+						}
+
+						a, a:hover, a:focus, a:visited {
+							color: #fff;
+							transition: 0.2s all ease-in 0s;
+							position: relative;
+							left: 0;
+
+							&:before {
+								content: '';
+						    background: url(../assets/images/portfolio/plus.svg);
+						    width: 13px;
+						    height: 13px;
+						    display: inline-block;
+						    background-size: 100%;
+						    margin: 0px 4px 0 0;
+						    position: relative;
+						    top: 2px;
+						    opacity: 0;
+						    left: -10px;
+						    transition: 0.3s all ease-out 0.05s;
+							}
+
+							&:hover {
+								color: $blueThin;
+								transition: 0.3s all ease-in, 0.3s color ease-out 0.1s;
+								left: 16px;
+
+								&:before {
+									content: '';
+							    background: url(../assets/images/portfolio/plus.svg);
+							    width: 13px;
+							    height: 13px;
+							    display: inline-block;
+							    background-size: 100%;
+							    margin: 0px 4px 0 0;
+							    position: relative;
+							    top: 2px;
+							    opacity: 1;
+							    left: 0;
+							    transition: 0.3s all ease-out 0.15s;
+								}
+							}
 						}
 					}
 				}
-				// height: 24vh;
-				// height:unquote("calc( #{$varH} - #{$space} )");
-				// float: left;
-				// //background: rgba(80, 80, 120, 0.25);
-				// transition: 0.1s all ease-out 0s;
-				// width: unquote("calc( #{$varW} - #{$space} )");
-    // 		margin: 0 2px 4px;
-				// color: #fff;
-				// padding: 0 0px;
-				// vertical-align: middle;
-				// line-height: unquote("calc( #{$varH} - #{$space} )");
-				// position: relative;
-				// overflow: hidden;
-				// -webkit-tap-highlight-color: transparent;
-				// top: 200px;
-				// @include hacks();
-				// font-size: 1em;
-				// font-family: $font-regular;
-				// text-transform: uppercase;
-				// border: 1px solid #fff;
 
 				&.show-li {
 					opacity: 1;
@@ -142,35 +183,6 @@
 					transition: 0.41s all ease-out 0s;
 				}
 
-				@include tablet {
-					// height: 20vh;
-					// height:unquote("calc( 20vh - #{$space} )");
-					// line-height: 20vh;
-				}
-
-				@include mobile {
-					// width: 50%;
-					// margin: 0 1px 2px;
-					// transition: all 0s ease-out 0s;
-					// height:unquote("calc( #{$varH} - #{$space} )");
-					// width:unquote("calc( 50% - 1px )");
-					
-
-					&:nth-child(odd) {
-						//margin-left: 0;
-					}
-
-					&:nth-child(even) {
-						//margin-right: 0;
-					}
-
-				}
-
-				@include landscape {
-					// line-height: 40vh;
-					// height:unquote("calc( 40vh - #{$space} )");
-				}
-				
 				.inner-box {
 					position: relative;
 			    overflow: hidden;
@@ -208,7 +220,6 @@
 					left: 0;
 					width: 100%;
 					display: inline-block;
-					//background: rgba(0,90,120, 0.95);
 					transition: all 0s ease-out;
 					transition-delay: 0.1s;
 					@include hacks();
@@ -224,8 +235,7 @@
 				}
 
 				&:hover {
-					cursor: pointer;
-					//background: rgba(80, 80, 120, 0.32);
+					//cursor: pointer;
 					transition: all 0.1s ease-out 0; 
 
 
@@ -251,7 +261,6 @@
 				}
 
 				&:first-child {
-					//margin-left: 0;
 					border-top-left-radius: 10px;
 
 					@include mobile {
@@ -260,7 +269,6 @@
 				}
 
 				&:last-child {
-					//margin-right: 0;
 					border-top-right-radius: 10px;
 
 					@include mobile {
@@ -291,7 +299,5 @@
     &.slide-right {
     	left: 100%;
     }
-
   }
-
 }

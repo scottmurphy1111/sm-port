@@ -1,7 +1,4 @@
 .top-panel {
-	//top: 0;
-	// background:  url(../assets/images/bg-image.png) 50% 100% no-repeat transparent;
-	// background-size: cover;
 
 	h1 {
 		font-family: $font-light;
@@ -21,18 +18,17 @@
 	.name {
 		opacity: 0;
 		visibility: hidden;
-		transition: all 0.25s ease-out 3.25s;
+		@include prefixed(transition, all 0.25s ease-out 2.25s);
 		margin-right: 5px;
 		@include hacks();
 
 		&.show {
 			opacity: 1;
 			visibility: visible;
-			//display: inline-block;
 		}
 
 		@include mobile {
-			transition: all 0.25s ease-out 3.25s;
+			@include prefixed(transition, all 0.25s ease-out 2.25s);
 		}
 	}
 
@@ -41,20 +37,20 @@
 		margin: 0;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 0.35s ease-out 3.5s;
+		@include prefixed(transition, all 0.35s ease-out 2.4s);
 		@include hacks();
 		right: -30px;
 		position: relative;
+		color: $blueThin;
 
 		&.show {
 			opacity: 1;
 			visibility: visible;
 			right: 0px;
-			//display: inline-block;
 		}
 
 		@include mobile {
-			transition: all 0.35s ease-out 3.5s;
+			@include prefixed(transition, all 0.35s ease-out 2.4s);
 		}
 	}
 
@@ -64,23 +60,22 @@
 		text-transform: uppercase;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 0.35s linear 3.8s;
+		@include prefixed(transition, all 0.35s linear 2.6s);
 		position: relative;
 		overflow: hidden;
 		width: 100%;
 		left: -30px;
 		@include hacks();
+		
 
 		&.show {
 			opacity: 1;
 			visibility: visible;
 			left: 0;
-			//display: inline-block;
 		}
 
 		@include mobile {
 			margin: 0.5em auto;
-			//width: 280px;
 		}
 	}
 
@@ -89,43 +84,43 @@
 		margin: 0 auto;
 		display: block;
 		opacity: 0;
-		visibility: hidden;
-		transition: all 0.25s linear 2s;
+		//visibility: hidden;
+		@include prefixed(transition, all 0.25s linear 0s);
 		position: relative;
 		overflow: hidden;
 		@include hacks();
 		width: 100%;
+		
 
 		.to-reveal {
-			bottom: -30px;
-			transition: all 0.25s cubic-bezier(0.5, 1.75, 0.75, 1);
-			@include hardwareAccel();
+			bottom: -35px;
+			@include prefixed(transition, all 0.15s ease-out);
+			@include hacks();
 			position: relative;
 			opacity: 0;
+
+			&.pipe {
+				top: 15px;
+				bottom: 0;
+			}
 
 			&.show {
 				bottom: 0;
 				opacity: 1;
+
+				&.pipe {
+					top: -1px;
+					bottom: 0;
+				}
 			}
 		}
 		
 
 		&.show {
 			opacity: 1;
-			visibility: visible;
-			//display: inline-block;
+			//visibility: visible;
 		}
 	}
-
-	// .overlay-filter {
-	// 	position: absolute;
-	// 	top: 0;
-	// 	right: 0;
-	// 	bottom: 0;
-	// 	width: 100%;
-	// 	animation: showHide 0.5s forwards 4.5s;
-	// 	background:  url(../assets/images/bg-image.png) 50% 60% no-repeat transparent;
-	// }
 }
 
 @keyframes showHide {

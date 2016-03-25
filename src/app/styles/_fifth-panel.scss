@@ -1,11 +1,6 @@
 .fifth-panel {
-	//top: 100vh;
-	// background:  url(../assets/images/bg-image5.png) 50% 50% no-repeat transparent;
-	// background-size: cover;
 
 	h2 {
-		// color: #fff;
-		// font-family: $font-regular;
 
 		.logo {
 			left: 0;
@@ -23,20 +18,61 @@
   	}
   }
 
-  .static-inner {
-  	display: block;
+  .inner-wrap {
   	width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    display: block;
+    text-align: left;
     margin: 0 auto;
+    font-size: 16px;
+    color: #fff;
+    min-height: 100px;
+
+    &.special-note {
+    	min-height: 180px;
+    }
+
+   	.info-block {
+   		display: inline-block;
+   		width: 50%;
+   		@include box-sizing(border-box);
+   		float: left;
+
+   		p {
+	   		text-align: center;
+
+	   		@include mobile {
+	   			font-size: 13px;
+	   		}
+  		}
+   	}
+
+   	.social {
+   		width: 100%;
+   		display: block;
+
+   		ul {
+   			padding: 0;
+   		}
+
+   		li {
+   			float: left;
+   			width: 50%;
+   			display: inline-block;
+   			text-align: center;
+   			list-style-type: none;
+   		}
+   	}
   }
 
-  p.definition {
-  	color: $highlightColor;
+
+
+  p {
   	padding: 5px 0px;
   	font: 1em $font-light;
   	width: 100%;
     float: left;
-    text-align: center;
+    text-align: left;
     display: inline-block;
     margin: 0;
     @include box-sizing(border-box);
@@ -46,8 +82,13 @@
   		width: 100%;
   	}
 
-  	.clickable {
+  	&.definition {
+  		color: $blueThin;
+  	}
+
+  	&.clickable {
   		color: #fff;
+  		padding: 0 0 10px;
   	}
   }
 
@@ -135,12 +176,6 @@
 					visibility: visible;
 					top: 0;
 					transition: 0.41s all ease-out 0s;
-				}
-
-				@include tablet {
-					height: 12vh;
-					height:unquote("calc( 12vh - #{$space} )");
-					line-height: 12vh;
 				}
 
 				@include mobile {
