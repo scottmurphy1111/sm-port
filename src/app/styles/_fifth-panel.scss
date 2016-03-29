@@ -18,6 +18,20 @@
   	}
   }
 
+  .block {
+  	display: inline-block;
+  	@include box-sizing(border-box);
+  	width: 50%;
+
+  	&.left {
+  		float: left;
+  	}
+
+  	&.right {
+  		float: right;
+  	}
+  }
+
   .inner-wrap {
   	width: 100%;
     max-width: 600px;
@@ -29,12 +43,14 @@
     min-height: 100px;
 
     &.special-note {
-    	min-height: 180px;
+    	min-height: 200px;
     }
+
+	}
 
    	.info-block {
    		display: inline-block;
-   		width: 50%;
+   		width: 100%;
    		@include box-sizing(border-box);
    		float: left;
 
@@ -57,14 +73,13 @@
 
    		li {
    			float: left;
-   			width: 50%;
+   			width: 100%;
+   			@include box-sizing(border-box);
    			display: inline-block;
    			text-align: center;
    			list-style-type: none;
    		}
    	}
-  }
-
 
 
   p {
@@ -91,6 +106,17 @@
   		padding: 0 0 10px;
   	}
   }
+
+  .align-right {
+		text-align: center;
+    padding: 20px 0px;
+    display: inline-block;
+    width: 100%;
+
+    p {
+    	text-align: center;
+    }
+	}
 
   .skills {
   	width: 100%;

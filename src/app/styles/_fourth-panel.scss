@@ -123,6 +123,30 @@
 				font-size: 1em;
 				text-transform: uppercase;
 
+				.inner-box {
+
+					.bio-icon {
+						display: inline-block;
+						width: 13px;
+						height: 13px;
+						position: relative;
+						top: 1px;
+
+						&.left {
+							margin-right: 4px;
+						}
+
+						&.right {
+							margin-left: 4px;
+						}
+
+						.bio-icon-svg {
+							fill: #fff;
+						}
+					}
+					
+				}
+
 				&:nth-child(odd) {
 					text-align: right;
 					border-right: 1px solid rgba(255,255,255,0.5);
@@ -140,6 +164,22 @@
 
 				.initial {
 					color: $blueThin;
+
+					&.location {
+						&:before {
+							content: '';
+					    background: url(../assets/images/portfolio/location.svg) no-repeat;
+					    width: 20px;
+					    height: 26px;
+					    display: inline-block;
+					    background-size: contain;
+					    margin: 0px 4px 0 0;
+					    position: absolute;
+					    top: 2px;
+					    left: 0;
+						}
+					}
+
 				}
 
 				&:first-child {
