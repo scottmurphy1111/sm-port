@@ -42,48 +42,69 @@
     color: #fff;
     min-height: 100px;
 
-    &.special-note {
-    	min-height: 200px;
+    @include mobile {
+    	font-size: 13px;
     }
 
+    &.special-note {
+    	min-height: 180px;
+
+    	p {
+	    	color: $blueThin;
+	    	font-weight: bold;
+	    	margin: 0;
+	    	line-height: 1.625em;
+    	}
+    }
 	}
 
-   	.info-block {
-   		display: inline-block;
-   		width: 100%;
-   		@include box-sizing(border-box);
-   		float: left;
+ 	.info-block {
+ 		display: inline-block;
+ 		width: 100%;
+ 		@include box-sizing(border-box);
+ 		float: left;
 
-   		p {
-	   		text-align: center;
+ 		p {
+   		text-align: center;
 
-	   		@include mobile {
-	   			font-size: 13px;
-	   		}
-  		}
-   	}
-
-   	.social {
-   		width: 100%;
-   		display: block;
-
-   		ul {
-   			padding: 0;
+   		@include mobile {
+   			font-size: 13px;
    		}
+		}
+ 	}
 
-   		li {
-   			float: left;
-   			width: 100%;
-   			@include box-sizing(border-box);
-   			display: inline-block;
-   			text-align: center;
-   			list-style-type: none;
-   		}
-   	}
+ 	.social {
+ 		width: 100%;
+ 		display: block;
+
+ 		ul {
+ 			padding: 0;
+ 		}
+
+ 		li {
+ 			float: left;
+ 			width: 100%;
+ 			@include box-sizing(border-box);
+ 			display: inline-block;
+ 			text-align: center;
+ 			list-style-type: none;
+ 			color: $blueThin;
+	  	text-transform: uppercase;
+	  	font-weight: bold;
+
+	  	@include mobile {
+	  		margin: 0 0 5px;
+	  	}
+
+ 			.definition {
+	  		color: #fff;
+	  	}
+ 		}
+ 	}
 
 
   p {
-  	padding: 5px 0px;
+  	padding: 0px 0px 15px;
   	font: 1em $font-light;
   	width: 100%;
     float: left;
@@ -97,9 +118,7 @@
   		width: 100%;
   	}
 
-  	&.definition {
-  		color: $blueThin;
-  	}
+  	
 
   	&.clickable {
   		color: #fff;
@@ -109,9 +128,10 @@
 
   .align-right {
 		text-align: center;
-    padding: 20px 0px;
+    padding: 0px 0px 10px;
     display: inline-block;
     width: 100%;
+    color: #fff;
 
     p {
     	text-align: center;

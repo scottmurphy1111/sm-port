@@ -1,5 +1,5 @@
 .fourth-panel {
-
+  
 	h2 {
 
 		.logo {
@@ -54,7 +54,7 @@
 
   .bios {
   	width: 100%;
-		max-width: 480px;
+		max-width: 600px;
 		display: block;
 		left: 0;
     right: 0;
@@ -111,10 +111,10 @@
 				opacity: 1;
 				float: left;
 				transition: 0.1s all ease-out 0s;
-				width: 50%;
-		    margin: 0 0px 12px;
+				width: 100%;
+		    margin: 0 0px 0;
 		    color: #fff;
-		    padding: 0 10px 0px;
+		    padding: 0 0px 8px;
 				vertical-align: middle;
 				position: relative;
 				overflow: hidden;
@@ -122,22 +122,31 @@
 				@include hacks();
 				font-size: 1em;
 				text-transform: uppercase;
+				text-align: left;
+
+				@include mobile {
+				}
 
 				.inner-box {
 
 					.bio-icon {
 						display: inline-block;
-						width: 13px;
-						height: 13px;
-						position: relative;
-						top: 1px;
+				    width: 20px;
+				    height: 20px;
+				    position: relative;
+				    top: 4px;
+
+				    @include mobile {
+				    	width: 16px;
+				    	height: 16px;
+				    }
 
 						&.left {
-							margin-right: 4px;
+							margin-right: 6px;
 						}
 
 						&.right {
-							margin-left: 4px;
+							margin-left: 6px;
 						}
 
 						.bio-icon-svg {
@@ -148,8 +157,8 @@
 				}
 
 				&:nth-child(odd) {
-					text-align: right;
-					border-right: 1px solid rgba(255,255,255,0.5);
+					//text-align: center;
+					//border-right: 1px solid rgba(255,255,255,0.5);
 				}
 
 				&.show-li {
@@ -162,24 +171,9 @@
 					transition: all 0s ease-out 0s;
 				}
 
-				.initial {
+				.reveal {
 					color: $blueThin;
-
-					&.location {
-						&:before {
-							content: '';
-					    background: url(../assets/images/portfolio/location.svg) no-repeat;
-					    width: 20px;
-					    height: 26px;
-					    display: inline-block;
-					    background-size: contain;
-					    margin: 0px 4px 0 0;
-					    position: absolute;
-					    top: 2px;
-					    left: 0;
-						}
-					}
-
+					font-weight: bold;
 				}
 
 				&:first-child {

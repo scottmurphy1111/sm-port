@@ -29,10 +29,10 @@
 		li {
 			width: 32px;
 	    height: 20vh;
-	    height:unquote("calc( 20vh - 1px )");
+	    height:unquote("calc( 20vh - 2px )");
 	    display: inline-block;
 	    padding: 0px;
-	    margin: 0px 0 2px;
+	    margin: 0px 0 4px;
 	    position: relative;
 	    @include hacks();
 
@@ -315,7 +315,7 @@ span.logo {
 	opacity: 0;
 	overflow: hidden;
 	@include prefixed(transition, 0.5s all ease-out);
-	font: 0.8em $font-light;
+	font: 0.95em $font-light;
 	@include hacks();
 
 	&.load-icon {
@@ -340,6 +340,7 @@ span.logo {
 
 	.pipe {
 		padding: 0 2px;
+		color: $blueThin;
 	}
 
 	&:hover {
@@ -357,7 +358,7 @@ span.logo {
 	}
 
 	span.text {
-		color: #fff;	
+		color: #fff;
 		text-align: center;
 		@include prefixed(transition, all .4s ease-out !important);
 		@include hacks();
@@ -366,6 +367,10 @@ span.logo {
 		position: relative;
 		top: 0px;
 		transform: scale(1,1);
+
+		.white {
+			color: #fff;
+		}
 	}	
 
 	span.icon {
