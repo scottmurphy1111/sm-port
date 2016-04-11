@@ -8,6 +8,7 @@
 		stroke: #fff;
 	}
 
+
 	h2 {
 
 		.logo {
@@ -17,11 +18,11 @@
 
 	.snippets {
 		width: 100%;
-		max-width: 600px;
+		max-width: 1000px;
 		display: block;
     text-align: left;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 21px;
     color: #fff;
 
     @include mobile {
@@ -30,7 +31,7 @@
     	margin-bottom: 124px;
     	top: 0;
     	transform: translateY(0%);
-    	font-size: 13px;
+    	font-size: 16px;
     } 
 
 		ul {
@@ -124,6 +125,7 @@
 
 				img {
 					width: 100%;
+					max-width: 600px;
 					margin-bottom: 10px;
 			    display: block;
 				}

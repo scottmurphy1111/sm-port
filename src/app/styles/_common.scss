@@ -114,7 +114,7 @@
 .panel-static {
 	width: 100%;
 	height: auto;
-	max-width: 900px;
+	max-width: 1000px;
 	display: inline-block;
 	position: absolute;
 	top: 36vh;
@@ -134,6 +134,11 @@
   .static-inner {
 		position: relative;
 		transform: scale(0,0);
+		font-size: 21px;
+
+		@include mobile {
+			font-size: 16px;
+		}
 
 		&.load-content {
 			transform: scale(1,1);
@@ -159,12 +164,12 @@
 
 span.logo {
 	display: inline-block;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   position: relative;
-  top: 6px;
+  top: 8px;
   margin-right: 6px;
-  left: 47%;
+  left: 25%;
 
   &.show {
   	@include prefixed(transition, 0.4s all ease-out 2s);
@@ -172,11 +177,11 @@ span.logo {
   }
 
   @include mobile {
-  	top: 7px;
-		width: 26px;
-		height: 26px;
+  	top: 6px;
+		width: 28px;
+		height: 28px;
 		margin-right: 4px;
-  	left: 39%;
+  	left: 43%;
   }
 }
 
@@ -260,7 +265,7 @@ span.logo {
   margin: 0 auto;
   height: 12vh;
 	font: 1.5em $font-extralight;
-	text-align: center;
+	text-align: left;
 	font-weight: bold;
 	text-transform: uppercase;
 	visibility: visible;

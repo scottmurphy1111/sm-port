@@ -16,11 +16,11 @@
 
 	.projects-list {
 		width: 100%;
-		max-width: 600px;
+		max-width: 1000px;
 		display: block;
     text-align: left;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 21px;
     color: #fff;
 
     @include mobile {
@@ -28,7 +28,7 @@
     	position: relative;
     	top: 0px;
     	transform: translateY(0%);
-    	font-size: 13px;
+    	font-size: 16px;
     } 
 
 		ul {
@@ -137,7 +137,7 @@
 
 						a, a:hover, a:focus, a:visited {
 							color: #fff;
-							transition: 0.2s all ease-in 0s;
+							transition: 0.2s all ease-in 0.2s;
 							position: relative;
 							left: 0;
 
@@ -158,7 +158,7 @@
 
 							&:hover {
 								color: $blueThin;
-								transition: 0.3s all ease-in, 0.3s color ease-out 0.1s;
+								transition: 0.3s all ease-in, 0.3s color ease-out 0.2s;
 								left: 16px;
 
 								&:before {
