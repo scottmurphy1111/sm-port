@@ -10,7 +10,7 @@
 
 	.what-is-front-end-development {
 		width: 100%;
-		max-width: 1000px;
+		//max-width: 1000px;
 		display: inline-block;
 		position: absolute;
 		top: 22.5%;
@@ -54,7 +54,7 @@
 
   .bios {
   	width: 100%;
-		max-width: 1000px;
+		//max-width: 1000px;
 		display: block;
 		left: 0;
     right: 0;
@@ -140,6 +140,14 @@
 				    	width: 16px;
 				    	height: 16px;
 				    }
+
+				    .bio-icon-inner {
+							fill: #fff;
+						}
+
+				    .bio-icon-circle {
+							fill: $highlightColor;
+						}
 
 						&.left {
 							margin-right: 6px;
