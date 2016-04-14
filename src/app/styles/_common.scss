@@ -416,7 +416,7 @@ span.logo {
 	height: 100%;
 	background: rgba(20,20,20,0.75);
 	position: absolute;
-	z-index: 2;
+	z-index: 4;
 	@include prefixed(transition, all 0.25s ease-in-out); 
 
 	&.show {
@@ -433,16 +433,28 @@ span.logo {
 	visibility: hidden;
 	top: unquote("calc( 50vh - 45% )");
 	right: unquote("calc( 50vw - 45% )");
+	overflow: hidden;
 	width:70%;
 	height:90%;
 	background:#fff;
 	position: absolute;
-	z-index: 3;
+	z-index: 5;
 	@include prefixed(transition, all 0.25s ease-in-out); 
 
 	&.show {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	@include mobile {
+		width: 80%;
+	}
+
+	.modal-inner {
+		width: 100%;
+		height: 100%;
+		overflow-y: scroll;
+		display: block;
 	}
 }
 
