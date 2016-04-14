@@ -33,6 +33,13 @@
       portfolio.reloadPage = function() {
         $window.location.reload();
       };
+
+      portfolio.closeModal = function() {
+        document.querySelectorAll('.modal-window')[0].classList.remove('show');
+        $timeout(function() {
+          document.querySelectorAll('.modal-overlay')[0].classList.remove('show');
+        }, 100);
+      };
       
     })
 
@@ -296,6 +303,24 @@
             }
             content.addClass('show');
           }
+        });
+      };
+
+      return {
+        restrict: 'A',
+        scope: true,
+        link: linkFunction
+      };
+    })
+    .directive('smModal', function($log, $timeout, $window) {
+    
+      var linkFunction = function(scope, element, attr) {
+        element.bind('click', function() {
+          document.querySelectorAll('.modal-overlay')[0].classList.add('show');
+          $timeout(function() {
+            document.querySelectorAll('.modal-window')[0].classList.add('show');
+          }, 200);
+          
         });
       };
 

@@ -168,7 +168,7 @@
 							&:hover {
 								color: $blueThin;
 								font-weight: bold;
-								transition: 0.3s all ease-in 0.3s, 0.3s color ease-out 0.5s;
+								transition: 0.3s all ease-in 0.1s, 0.3s color ease-out 0.2s;
 								left: 23px;
 
 								@include mobile {
@@ -187,7 +187,7 @@
 							    top: 3px;
 							    opacity: 1;
 							    left: 0;
-							    transition: 0.3s all ease-out 0.45s;
+							    transition: 0.3s all ease-out 0.25s;
 
 							    @include mobile {
 										width: 15px;

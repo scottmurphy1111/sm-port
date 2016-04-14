@@ -45,16 +45,16 @@
           <ul>
             <li><p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>Capital One - Front End Developer</p>
               <ul>
-                <li><a href="#" target="_blank">Credit Tracker / CreditWise</a></li>
-                <li><a href="#" target="_blank">Personal Loans</a></li>
-                <li><a href="#" target="_blank">Interest Eraser</a></li>
-                <li><a href="#" target="_blank">Income Calculator</a></li>
-                <li><a href="#" target="_blank">OneUI Contributor</a></li>
-                <li><a href="#" target="_blank">Front End 101 Contributor</a></li>
-                <li><a href="#" target="_blank">Card Servicing</a></li>
-                <li><a href="#" target="_blank">Account Combination</a></li>
-                <li><a href="#" target="_blank">Credit Card WWW Redesign</a></li>
-                <li><a href="#" target="_blank">Add Authorized User</a></li>
+                <li><a sm-modal href="#">Credit Tracker / CreditWise</a></li>
+                <li><a sm-modal href="#">Personal Loans</a></li>
+                <li><a sm-modal href="#">Interest Eraser</a></li>
+                <li><a sm-modal href="#">Income Calculator</a></li>
+                <li><a sm-modal href="#">OneUI Contributor</a></li>
+                <li><a sm-modal href="#">Front End 101 Contributor</a></li>
+                <li><a sm-modal href="#">Card Servicing</a></li>
+                <li><a sm-modal href="#">Account Combination</a></li>
+                <li><a sm-modal href="#">Credit Card WWW Redesign</a></li>
+                <li><a sm-modal href="#">Add Authorized User</a></li>
 
               </ul>
             </li>
@@ -208,6 +208,8 @@
     </section>
 
     <div class="bg-image" ng-class="{'load-image': portfolio.loadMainContent}"></div>
+    <div class="modal-overlay" ng-click="portfolio.closeModal()"></div>
+    <div class="modal-window">MODAL</div>
 
     <p class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
       <span class="text">TO NAVIGATE THIS SITE, <span class="mobile-only">SWIPE&nbsp;</span><span class="desktop-only">SCROLL&nbsp;</span>UP <span class="pipe">/</span> DOWN</span><br />
