@@ -114,7 +114,7 @@
 				width: 100%;
 		    margin: 0 0px 0;
 		    color: #fff;
-		    padding: 0 0px 8px;
+		    padding: 0 0px 16px;
 				vertical-align: middle;
 				position: relative;
 				overflow: hidden;
@@ -131,10 +131,10 @@
 
 					.bio-icon {
 						display: inline-block;
-				    width: 20px;
-				    height: 20px;
+				    width: 32px;
+				    height: 32px;
 				    position: relative;
-				    top: 4px;
+				    top: 10px;
 
 				    @include mobile {
 				    	width: 16px;
@@ -150,7 +150,7 @@
 						}
 
 						&.left {
-							margin-right: 6px;
+							margin-right: 10px;
 						}
 
 						&.right {

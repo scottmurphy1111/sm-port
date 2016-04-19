@@ -312,7 +312,7 @@
         link: linkFunction
       };
     })
-    .directive('smModal', function($log, $timeout, $window) {
+    .directive('smModal', function($log, $timeout, $window, $templateRequest, $compile, $document) {
     
       var linkFunction = function(scope, element, attr) {
         element.bind('click', function() {
@@ -320,12 +320,34 @@
           $timeout(function() {
             document.querySelectorAll('.modal-window')[0].classList.add('show');
           }, 200);
+
+          var getData = attr.template;
+          $log.debug(getData);
+          
+          var displayData = $document.find('.modal-display-data');
+          var getTemplate = '#/portfolio/modal-templates/'+getData+'.html';
+
+          scope.$apply(function() {
+            var content = $compile(getTemplate)(scope);
+            displayData.append(content);
+          })
+
+          // $templateRequest('#/portfolio/modal-templates/'+getData+'.html').then(function(html){
+          //   // Convert the html to an actual DOM node
+          //   var datatemplate = angular.element(html);
+          //   // Append it to the directive element
+          //   var displayData = $document.find('.modal-display-data');
+          //   displayData.append(datatemplate);
+          //   // And let Angular $compile it
+          //   $compile(datatemplate)(scope);
+          // });
           
         });
       };
 
       return {
         restrict: 'A',
+        replace: true,
         scope: true,
         link: linkFunction
       };
