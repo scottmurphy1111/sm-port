@@ -66,20 +66,20 @@
 					text-align: left;
 				}
 
-				span {
-					
+				.code-link {
 					cursor: pointer;
 
 					&:before {
 						content: '';
 				    background: url(../assets/images/portfolio/plus.svg);
-				    width: 20px;
-				    height: 20px;
+				    width: 32px;
+				    height: 32px;
 				    display: inline-block;
 				    background-size: 100%;
 				    margin: 0px 6px 0 0;
 				    position: relative;
-				    top: 3px;
+				    top: 0px;
+				    float: left;
 
 				    @include mobile {
 				    	width: 13px;

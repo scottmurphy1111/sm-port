@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window) {
+    .controller('PortfolioController', function($timeout, $state, $window, $log) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -40,6 +40,13 @@
           document.querySelectorAll('.modal-overlay')[0].classList.remove('show');
         }, 100);
       };
+
+      portfolio.chosenTemplate = "app/portfolio/modal-templates/creditwise.html";
+
+      // portfolio.getTemplate = function() {
+      //   $log.debug();
+      //   portfolio.chosenTemplate = ;
+      // };
       
     })
 
@@ -321,16 +328,30 @@
             document.querySelectorAll('.modal-window')[0].classList.add('show');
           }, 200);
 
-          var getData = attr.template;
-          $log.debug(getData);
-          
-          var displayData = $document.find('.modal-display-data');
-          var getTemplate = '#/portfolio/modal-templates/'+getData+'.html';
+        //   var displayData = $document.find('.modal-display-data');
+        //   $log.debug(displayData);
 
-          scope.$apply(function() {
-            var content = $compile(getTemplate)(scope);
-            displayData.append(content);
-          })
+        //   displayData.html(
+        //     $compile(
+        //       "<h1>WORKS</h1>"
+        //     )(scope));
+        // scope.apply();
+          // scope.getTemplate = function() {
+          //   var getData = attr.templateData || 'text';
+          //   return '#/portfolio/modal-templates/'+getData+'.html';
+          // }
+
+          // scope.$apply(function() {
+          //   var getData = attr.template;
+          // $log.debug(getData);
+          
+          // var displayData = $document.find('.modal-display-data');
+          // var getTemplate = '#/portfolio/modal-templates/'+getData+'.html';
+
+          //   var content = $compile(getTemplate)(scope);
+          //   $log.debug(content);
+          //   displayData.append(content);
+          // })
 
           // $templateRequest('#/portfolio/modal-templates/'+getData+'.html').then(function(html){
           //   // Convert the html to an actual DOM node
@@ -347,9 +368,9 @@
 
       return {
         restrict: 'A',
-        replace: true,
         scope: true,
         link: linkFunction
+        //template: '<div class="dynamic-field" ng-include="getTemplate()"></div>'
       };
     });
 })();

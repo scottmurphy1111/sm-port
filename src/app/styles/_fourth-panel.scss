@@ -134,7 +134,8 @@
 				    width: 32px;
 				    height: 32px;
 				    position: relative;
-				    top: 10px;
+				    top: 0px;
+				    float: left;
 
 				    @include mobile {
 				    	width: 16px;

@@ -21,7 +21,7 @@
   .block {
   	display: inline-block;
   	@include box-sizing(border-box);
-  	width: 50%;
+  	width: 100%;
 
   	@include mobile {
   		width: 100%;

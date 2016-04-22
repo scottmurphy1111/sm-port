@@ -45,8 +45,8 @@
           <ul>
             <li><p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>Capital One - Front End Developer</p>
               <ul>
-                <li><a sm-modal data-template="creditwise" href="">CreditWise</a></li>
-                <li><a sm-modal href="#">Personal Loans</a></li>
+                <li><a sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/creditwise.html'" href="">CreditWise</a></li>
+                <li><a sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/personal-loans.html'" href="">Personal Loans</a></li>
                 <li><a sm-modal href="#">Interest Eraser</a></li>
                 <li><a sm-modal href="#">Income Calculator</a></li>
                 <li><a sm-modal href="#">OneUI Contributor</a></li>
@@ -85,14 +85,14 @@
           <h2 class="category-title">Coding</h2>
           <ul>
             <li>
-              <span reveal-content>Design Execution</span>
+              <div class="code-link" reveal-content>Design Execution</div>
               <div class="content">
                 <p>I use HTML/CSS/JAVASCRIPT to implement animations, designs and visual elements into web user interfaces</p>
                 <img src="assets/images/portfolio/design-execution.png" />
               </div>
             </li>
             <li>
-              <span reveal-content>Production Level Code</span>
+              <div class="code-link" reveal-content>Production Level Code</div>
               <div class="content">
                 <p>I produce clean, efficient front end code that's ready for use in production</p>
                 <img src="assets/images/portfolio/prod-code.png" />
@@ -219,7 +219,7 @@
   <div class="modal-overlay" ng-click="portfolio.closeModal()"></div>
     <div class="modal-window">
       <div class="modal-inner">
-        <div class="modal-display-data"></div>
+        <div class="modal-display-data" ng-include="portfolio.chosenTemplate"></div>
       </div>
     </div>
 </div>
