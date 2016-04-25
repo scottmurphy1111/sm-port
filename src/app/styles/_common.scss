@@ -117,7 +117,7 @@
 	max-width: 1000px;
 	display: inline-block;
 	position: absolute;
-	top: 36vh;
+	top: 30vh;
 	left: 0;
   right: 0;
   text-align: center;
@@ -129,6 +129,10 @@
 
   @include mobile {
   	top: 27vh;
+  }
+
+  @include landscape {
+  	top: 12px;
   }
 
   .static-inner {
@@ -162,12 +166,25 @@
 
 }
 
+.inner-wrap {
+	width: 100%;
+  display: block;
+  text-align: left;
+  margin: 0 auto;
+  font-size: 24px;
+  color: #fff;
+
+  @include mobile {
+  	font-size: 16px;
+  }
+}
+
 span.logo {
 	display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   position: relative;
-  top: 8px;
+  top: 15px;
   margin-right: 6px;
   left: 25%;
 
@@ -186,8 +203,8 @@ span.logo {
 }
 
 .logo-circle {
-	width: 28px;
-	height: 28px;
+	// width: 28px;
+	// height: 28px;
 	fill:none;
 	stroke: #fff;
 	stroke-width: 5;
@@ -429,7 +446,7 @@ span.logo {
 	color: $highlightColor;
 	opacity: 0;
 	border-radius: 4px;
-	border: 2px solid $highlightColor;
+	border: 3px solid $highlightColor;
 	visibility: hidden;
 	top: unquote("calc( 50vh - 45% )");
 	right: unquote("calc( 50vw - 45% )");

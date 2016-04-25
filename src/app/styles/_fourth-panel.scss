@@ -52,15 +52,8 @@
     }
   }
 
-  .bios {
-  	width: 100%;
-		//max-width: 1000px;
-		display: block;
-		left: 0;
-    right: 0;
-    text-align: left;
-    margin: 0 auto;
-    font-size: 21px;
+  .inner-wrap {
+  	
 
     @include mobile {
     	height: auto;

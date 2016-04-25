@@ -14,14 +14,8 @@
 		}
 	}
 
-	.projects-list {
-		width: 100%;
-		//max-width: 1000px;
-		display: block;
-    text-align: left;
-    margin: 0 auto;
-    font-size: 21px;
-    color: #fff;
+	.inner-wrap {
+		
 
     @include mobile {
     	height: auto;

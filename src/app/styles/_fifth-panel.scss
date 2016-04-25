@@ -36,32 +36,17 @@
   	}
   }
 
-  .inner-wrap {
-  	width: 100%;
-    //max-width: 1000px;
-    display: block;
-    text-align: left;
-    margin: 0 auto;
-    font-size: 21px;
-    color: #fff;
-    //min-height: 100px;
+  .special-note {
+  	min-height: 180px;
 
-    @include mobile {
-    	font-size: 16px;
-    }
-
-    &.special-note {
-    	min-height: 180px;
-
-    	p {
-	    	color: $blueThin;
-	    	font-weight: bold;
-	    	margin: 0;
-	    	line-height: 1.625em;
-    	}
-    }
-	}
-
+  	p {
+    	color: $blueThin;
+    	font-weight: bold;
+    	margin: 0;
+    	line-height: 1.625em;
+  	}
+  }
+	
  	.info-block {
  		display: inline-block;
  		width: 100%;

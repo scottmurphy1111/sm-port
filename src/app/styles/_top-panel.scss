@@ -3,7 +3,7 @@
 	h1 {
 		font-family: $font-light;
 		font-size: 2em;
-		margin: 0 auto;
+		margin: 0 auto 4px;
 		color: $highlightColor;
 		width: 100%;
 		position: relative;
@@ -82,7 +82,7 @@
 	}
 
 	.skills {
-		padding: 40px 0;
+		padding: 60px 0 0;
 		margin: 0 auto;
 		display: block;
 		opacity: 0;
@@ -92,6 +92,10 @@
 		overflow: hidden;
 		@include hacks();
 		width: 100%;
+
+		@include mobile {
+			padding: 10px 0 0;
+		}
 		
 
 		.to-reveal {
