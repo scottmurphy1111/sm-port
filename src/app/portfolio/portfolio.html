@@ -28,7 +28,7 @@
             <span class="logo" ng-include="'assets/images/portfolio/logo.svg'" ng-class="{'show': portfolio.loadMainContent}"></span><span class="name" ng-class="{'show': portfolio.loadMainContent}">SCOTT MURPHY</span><br class="mobile-only" /><span class="title" ng-class="{'show': portfolio.loadMainContent}">WEB DEVELOPER</span>
           </h1>         
           <p class="tagline" ng-class="{'show': portfolio.loadMainContent}">
-            Front-End Development <span class="desktop-only">and </span> <br class="mobile-only" />User Interface&nbsp;Design Execution
+            Front-End Development <span class="desktop-only">and&nbsp;</span> <br class="mobile-only" />User Interface&nbsp;Design Execution
           </p>
           <div class="skills" ng-class="{'show': portfolio.loadMainContent}">
             <span class="to-reveal">HTML</span><span class="to-reveal pipe">|</span><span class="to-reveal">CSS</span><span class="to-reveal pipe">|</span><span class="to-reveal">JAVASCRIPT</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">RESPONSIVE</span><span class="to-reveal pipe">|</span><span class="to-reveal">ANGULAR</span><span class="to-reveal pipe">|</span><span class="to-reveal">SASS</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">VERSION CONTROL</span><span class="to-reveal pipe">|</span><span class="to-reveal">PHP &amp; WORDPRESS</span>
@@ -45,10 +45,9 @@
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>Capital One - Front End Developer</p>
               <ul>
-                <li><a sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/creditwise.html'" href="">CreditWise</a></li>
                 <li><a sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/personal-loans.html'" href="">Personal Loans</a></li>
-                <li><a sm-modal href="#">Interest Eraser</a></li>
-                <li><a sm-modal href="#">Income Calculator</a></li>
+                <li><a sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/creditwise.html'" href="">CreditWise</a></li>
+                <li><a ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/income-calc.html'" sm-modal href="#">Income Calculator</a></li>
               </ul>
             </li>
             <li>
@@ -60,7 +59,7 @@
               </ul>
             </li>
             <li>
-              <p><span class="icon" ng-include="'assets/images/portfolio/c9.svg'"></span>Cloud 9 Web Designs - Web Developer</p>
+              <p><span class="icon" ng-include="'assets/images/portfolio/c9.svg'"></span>Cloud 9 - Web Developer</p>
               <ul>
                 <li><a href="http://cloud9webdesigns.com/" target="_blank">Cloud 9 Web Designs</a></li>
                 <li><a href="http://1stopministorage.com/" target="_blank">1 Stop Mini Storage</a></li>
@@ -91,14 +90,12 @@
                 <img src="assets/images/portfolio/prod-code.png" />
               </div>
             </li>
-            <li>AngularJs Frameworks</li>
-            <li>User Interface Solutions</li>
-            <li>Animation for the Web</li>
-            <li>Form Validation</li>
-            <li>Browser Compatible</li>
-            <li>Responsive Grids</li>
-            <li>Accessibility</li>
+            <li>UI &amp; Web Animation</li>
+            <li>Responsive, Browser Compatible</li>
+            <li>Accessibility / Form Validation</li>
           </ul>
+          <p>"Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye."</p>
+          <p>"Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent. His collaboration was very much appreciated."</p>
         </div>
       </div>
     </section>
@@ -182,13 +179,14 @@
             </div>
           </div>
           <div class="block right">
-            <h2 class="category-title">Dev Social</h2>
+            <h2 class="category-title">Social</h2>
             <div class="inner-wrap">
               <div class="social">
                 <ul>
                   <li><a href="http://github.com/scottmurphy1111">Github</a></li>
                   <li><a href="http://stackoverflow.com/users/5711949/scott-murphy">Stack Overflow</a></li>
-                  <li><a href="https://jsfiddle.net/user/scottmurphy1111/fiddles/">JS Fiddle</a></li>
+                  <li><a href="https://jsfiddle.net/user/scottmurphy1111/fiddles/">jsFiddle</a></li>
+                  <li><a href="https://www.linkedin.com/in/scottmurphy1111">LinkedIn</a></li>
                   <!-- <li></li>
                   <li></li> -->
                 </ul>

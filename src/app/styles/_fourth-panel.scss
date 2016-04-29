@@ -7,62 +7,7 @@
 		}
 	}
 
-
-	.what-is-front-end-development {
-		width: 100%;
-		//max-width: 1000px;
-		display: inline-block;
-		position: absolute;
-		top: 22.5%;
-		transform: translateY(-22.5%);
-		left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0 auto;
-    
-
-    @include mobile {
-    	height: 100%;
-    	position: relative;
-    	top: 0;
-    	transform: translateY(0);
-    	
-    }
-
-    h3 {
-    	color: #fff;
-    	font-size: 1.25em;
-    	font-family: $font-light;
-    	margin-top: 10px;
-    	font-weight: bold;
-
-    	@include mobile {
-    		margin-top: 0;
-    	}
-    }
-
-    p.definition {
-    	color: #fff;
-    	font-size: 1em;
-    	padding: 5px 150px 10px;
-
-    	@include mobile {
-    		padding: 5px 20px 10px;
-    	}
-    }
-  }
-
   .inner-wrap {
-  	
-
-    @include mobile {
-    	height: auto;
-    	position: relative;
-    	margin-bottom: 0;
-    	top: 0;
-    	transform: translateY(0%);
-    	font-size: 16px;
-    }
 
 		ul {
 			margin: 0px auto 0;
@@ -131,8 +76,8 @@
 				    float: left;
 
 				    @include mobile {
-				    	width: 16px;
-				    	height: 16px;
+				    	width: 24px;
+				    	height: 24px;
 				    }
 
 				    .bio-icon-inner {

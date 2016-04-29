@@ -22,6 +22,7 @@
   	display: inline-block;
   	@include box-sizing(border-box);
   	width: 100%;
+  	margin-bottom: 10px;
 
   	@include mobile {
   		width: 100%;
@@ -43,7 +44,11 @@
     	color: $blueThin;
     	font-weight: bold;
     	margin: 0;
-    	line-height: 1.625em;
+
+    	@include mobile {
+    		font-size: 16px;
+    		line-height: 24px;
+    	}
   	}
   }
 	
@@ -68,6 +73,9 @@
 
  		ul {
  			padding: 0;
+ 			display: inline-block;
+ 			width: 100%;
+ 			margin-top: 10px;
  		}
 
  		li {
@@ -128,136 +136,6 @@
     p {
     	text-align: left;
     }
-	}
-
-  .skills {
-  	width: 100%;
-		max-width: 1000px;
-		display: inline-block;
-		position: absolute;
-		top: 67%;
-		transform: translateY(-67%);
-		left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 16px;
-
-    @include mobile {
-    	height: auto;
-    	position: relative;
-    	margin-bottom: 124px;
-    	top: 0;
-    	transform: translateY(0%);
-    	font-size: 13px;
-    }
-
-
-
-		ul {
-			margin: 50px auto 0;
-			padding: 0;
-			display: block;
-			width: 100%;
-
-			@include mobile {
-				margin: 20px auto 0;
-			}
-
-			&:last-child {
-
-				li {
-					&:first-child {
-						border-top-left-radius: 0px;
-						border-bottom-left-radius: 10px;
-
-						@include mobile {
-							border-radius: 0;
-						}
-					}
-
-					&:last-child {
-						border-top-right-radius: 0px;
-						border-bottom-right-radius: 10px;
-
-						@include mobile {
-							border-radius: 0;
-						}
-					}
-
-				}
-			}
-
-			li {
-				display: inline-block;
-				opacity: 0;
-				visibility: hidden;
-				height: 12vh;
-				height:unquote("calc( 12vh - #{$space} )");
-				float: left;
-				background: rgba(0,90,120, 0.75);
-				transition: 0.1s all ease-out 0s;
-				width: unquote("calc( #{$varW} - #{$space} )");
-    		margin: 0 1px 2px;
-				color: #fff;
-				padding: 0 0px;
-				vertical-align: middle;
-				line-height: 12vh;
-				position: relative;
-				overflow: hidden;
-				-webkit-tap-highlight-color: transparent;
-				top: 200px;
-				@include hacks();
-
-				&.show-li {
-					opacity: 1;
-					visibility: visible;
-					top: 0;
-					transition: 0.41s all ease-out 0s;
-				}
-
-				@include mobile {
-					width: 50%;
-					margin: 0 1px 2px;
-					transition: all 0s ease-out 0s;
-					height:unquote("calc( 12vh - #{$space} )");
-					width:unquote("calc( 50% - 1px )");
-					
-
-					&:nth-child(odd) {
-						margin-left: 0;
-					}
-
-					&:nth-child(even) {
-						margin-right: 0;
-					}
-
-				}
-
-				@include landscape {
-					line-height: 24vh;
-					height:unquote("calc( 24vh - #{$space} )");
-				}
-
-				&:first-child {
-					margin-left: 0;
-					border-top-left-radius: 10px;
-
-					@include mobile {
-						border-radius: 0;
-					}
-				}
-
-				&:last-child {
-					margin-right: 0;
-					border-top-right-radius: 10px;
-
-					@include mobile {
-						border-radius: 0;
-					}
-				}
-			}
-		}
 	}
 
 }
