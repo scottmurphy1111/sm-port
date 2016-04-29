@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window, $log) {
+    .controller('PortfolioController', function($timeout, $state, $window) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -97,7 +97,7 @@
 
         var linkFunction = function(scope, element) {
           $timeout(function() {
-            element.bind("mousewheel", function(e) {
+            element.bind("wheel", function(e) {
               var enterBtn = document.querySelectorAll('.enter'),
                   nextPanel = element.next(),
                   prevPanel = element[0].previousElementSibling,
@@ -296,7 +296,7 @@
     })
     .directive('revealContent', function() {
     
-      var linkFunction = function(scope, element, attr) {
+      var linkFunction = function(scope, element) {
         element.bind('click', function() {
           var content = element.next(),
           allBoxes = document.querySelectorAll('.snippets li .content');
@@ -307,8 +307,8 @@
             }
             content.removeClass('show');
           } else {
-            for(var i = 0; i < allBoxes.length; i++) {
-              allBoxes[i].classList.remove('show');
+            for(var n = 0; n < allBoxes.length; n++) {
+              allBoxes[n].classList.remove('show');
             }
             content.addClass('show');
           }
@@ -321,49 +321,14 @@
         link: linkFunction
       };
     })
-    .directive('smModal', function($log, $timeout, $window, $templateRequest, $compile, $document) {
+    .directive('smModal', function($timeout) {
     
-      var linkFunction = function(scope, element, attr) {
+      var linkFunction = function(scope, element) {
         element.bind('click', function() {
           document.querySelectorAll('.modal-overlay')[0].classList.add('show');
           $timeout(function() {
             document.querySelectorAll('.modal-window')[0].classList.add('show');
           }, 200);
-
-        //   var displayData = $document.find('.modal-display-data');
-        //   $log.debug(displayData);
-
-        //   displayData.html(
-        //     $compile(
-        //       "<h1>WORKS</h1>"
-        //     )(scope));
-        // scope.apply();
-          // scope.getTemplate = function() {
-          //   var getData = attr.templateData || 'text';
-          //   return '#/portfolio/modal-templates/'+getData+'.html';
-          // }
-
-          // scope.$apply(function() {
-          //   var getData = attr.template;
-          // $log.debug(getData);
-          
-          // var displayData = $document.find('.modal-display-data');
-          // var getTemplate = '#/portfolio/modal-templates/'+getData+'.html';
-
-          //   var content = $compile(getTemplate)(scope);
-          //   $log.debug(content);
-          //   displayData.append(content);
-          // })
-
-          // $templateRequest('#/portfolio/modal-templates/'+getData+'.html').then(function(html){
-          //   // Convert the html to an actual DOM node
-          //   var datatemplate = angular.element(html);
-          //   // Append it to the directive element
-          //   var displayData = $document.find('.modal-display-data');
-          //   displayData.append(datatemplate);
-          //   // And let Angular $compile it
-          //   $compile(datatemplate)(scope);
-          // });
           
         });
       };
@@ -372,7 +337,6 @@
         restrict: 'A',
         scope: true,
         link: linkFunction
-        //template: '<div class="dynamic-field" ng-include="getTemplate()"></div>'
       };
     });
 })();
