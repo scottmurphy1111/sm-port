@@ -11,7 +11,7 @@
       portfolio.setUpPage = function() {
         $timeout(function() {
           portfolio.loadMainContent = true;
-        }, 400);
+        }, 800);
 
         var toReveal = document.querySelectorAll('.skills .to-reveal');
         
@@ -26,7 +26,7 @@
               }, timer);
             })(n);
           }
-        }, 3200);
+        }, 3700);
           
       };
 
