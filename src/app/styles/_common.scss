@@ -317,6 +317,11 @@ span.logo {
 		// }
     }
 
+    p {
+    	font: 1.25em $font-light;
+    	text-transform: uppercase;
+    }
+
 	.finger-swipe-icon {
 		background: url(../assets/images/finger-swipe.svg) 50% 50% no-repeat transparent;
 		background-size: 70%;
@@ -343,7 +348,7 @@ span.logo {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	position: fixed;
+	position: absolute;
 	overflow: hidden;
 	top: 100vh;
 	left: 0;
@@ -369,7 +374,7 @@ span.logo {
 
 .enter {
 	width: 100%;
-	position: fixed;
+	position: absolute;
 	z-index: 1;
 	left: 0;
 	right: 0;
