@@ -105,6 +105,7 @@
                   nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
                   prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
                   swipeIcon = document.querySelectorAll('.finger-swipe')[0],
+                  overlay = document.querySelectorAll('.modal-overlay')[0],
                   movement = 0;
               
 
@@ -113,9 +114,11 @@
               if(movement > 10 && movement <= 100) {
                            
                 swipeIcon.classList.add('show');
+                overlay.classList.add('show');
               
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
+                  overlay.classList.remove('show');
                 }, 1600);
               }
 
@@ -127,6 +130,7 @@
                 isWheel = true;
 
                 swipeIcon.classList.remove('show');
+                overlay.classList.remove('show');
 
                 var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
@@ -225,17 +229,18 @@
               prevPanel = element[0].previousElementSibling,
               currentNav = document.querySelectorAll('.vert-nav li.active')[0],
               swipeIcon = document.querySelectorAll('.finger-swipe')[0],
+              overlay = document.querySelectorAll('.modal-overlay')[0],
               nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
               prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
-
-              $log.debug(dist);
 
               if(dist < -10 && dist >= -100) {
                            
                 swipeIcon.classList.add('show');
+                overlay.classList.add('show');
               
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
+                  overlay.classList.remove('show');
                 }, 1600);
               }
 
@@ -246,6 +251,7 @@
                 
                 isWheel = true;
                 swipeIcon.classList.remove('show');
+                overlay.classList.remove('show');
 
                   var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
