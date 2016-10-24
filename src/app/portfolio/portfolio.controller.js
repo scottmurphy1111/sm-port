@@ -104,9 +104,20 @@
                   currentNav = document.querySelectorAll('.vert-nav li.active')[0],                
                   nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
                   prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
+                  swipeIcon = document.querySelectorAll('.finger-swipe')[0],
                   movement = 0;
               
+
               movement = e.deltaY;
+
+              if(movement > 10 && movement <= 100) {
+                           
+                swipeIcon.classList.add('show');
+              
+                $timeout(function() {
+                  swipeIcon.classList.remove('show');
+                }, 1600);
+              }
 
               if(movement > 100 && nextNav) {
                 if(isWheel) {  
@@ -114,7 +125,9 @@
                 } 
                 
                 isWheel = true;
-                
+
+                swipeIcon.classList.remove('show');
+
                 var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
                     enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');
@@ -197,7 +210,6 @@
               startY = touchobj.pageY,
               startTime = new Date().getTime();
               
-              $log.debug(startY);
             });
 
             element.bind('touchmove', function(e){
@@ -212,8 +224,20 @@
               nextPanel = element.next(),
               prevPanel = element[0].previousElementSibling,
               currentNav = document.querySelectorAll('.vert-nav li.active')[0],
+              swipeIcon = document.querySelectorAll('.finger-swipe')[0],
               nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
               prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
+
+              $log.debug(dist);
+
+              if(dist < -10 && dist >= -100) {
+                           
+                swipeIcon.classList.add('show');
+              
+                $timeout(function() {
+                  swipeIcon.classList.remove('show');
+                }, 1600);
+              }
 
               if(dist < -100 && nextNav) {
                 if(isWheel) {  
@@ -221,7 +245,8 @@
                 } 
                 
                 isWheel = true;
-                
+                swipeIcon.classList.remove('show');
+
                   var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
                     enterBtn[0].classList.remove('load-icon', 'load-icon-instantly');

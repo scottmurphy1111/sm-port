@@ -294,6 +294,50 @@ span.logo {
 	}
 }
 
+.finger-swipe {
+	opacity: 0;
+	visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+    transform: scale(0.5, 0.5);
+    @include prefixed(transition, all 0.3s ease-out);
+
+    &.show {
+    	opacity: 1;
+    	visibility: visible;
+    	bottom: 40px;
+    	transform: scale(1, 1);
+
+    	@include mobile {
+			bottom: 100px;
+		}
+    }
+
+	.finger-swipe-icon {
+		background: url(../assets/images/finger-swipe.svg) 50% 50% no-repeat transparent;
+		background-size: 70%;
+	    width: 114px;
+	    height: 75px;
+
+	    @include mobile {
+			width: 80px;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+
+
+	}
+
+	@include mobile {
+		bottom: -100px;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+}
+
+
 .bg-image {
 	@include hacks();
 	height: 100vh;
