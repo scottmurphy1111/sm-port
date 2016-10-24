@@ -119,7 +119,7 @@
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
                   overlay.classList.remove('show');
-                }, 1600);
+                }, 800);
               }
 
               if(movement > 60 && nextNav) {
@@ -241,7 +241,7 @@
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
                   overlay.classList.remove('show');
-                }, 1600);
+                }, 800);
               }
 
               if(dist < -100 && nextNav) {
