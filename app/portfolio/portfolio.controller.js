@@ -111,7 +111,7 @@
 
               movement = e.deltaY;
 
-              if(movement > 10 && movement <= 80) {
+              if(movement > 10 && movement <= 60) {
                            
                 swipeIcon.classList.add('show');
                 overlay.classList.add('show');
@@ -122,7 +122,7 @@
                 }, 1600);
               }
 
-              if(movement > 80 && nextNav) {
+              if(movement > 60 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
