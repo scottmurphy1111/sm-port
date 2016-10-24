@@ -111,7 +111,7 @@
 
               movement = e.deltaY;
 
-              if(movement > 10 && movement <= 80) {
+              if(movement > 10 && movement <= 60) {
                            
                 swipeIcon.classList.add('show');
                 overlay.classList.add('show');
@@ -119,10 +119,10 @@
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
                   overlay.classList.remove('show');
-                }, 1600);
+                }, 800);
               }
 
-              if(movement > 80 && nextNav) {
+              if(movement > 60 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -241,7 +241,7 @@
                 $timeout(function() {
                   swipeIcon.classList.remove('show');
                   overlay.classList.remove('show');
-                }, 1600);
+                }, 800);
               }
 
               if(dist < -100 && nextNav) {
