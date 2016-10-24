@@ -111,7 +111,8 @@
 
               movement = e.deltaY;
 
-              if(movement > 10 && movement <= 60) {
+              $log.debug(movement);
+              if(movement > 10 && movement <= 30) {
                            
                 swipeIcon.classList.add('show');
                 overlay.classList.add('show');
@@ -122,7 +123,7 @@
                 }, 800);
               }
 
-              if(movement > 60 && nextNav) {
+              if(movement > 30 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -160,7 +161,7 @@
                 movePanelDown();
               }
 
-              if(movement < -100 && prevNav) {
+              if(movement < -30 && prevNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -233,7 +234,7 @@
               nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
               prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
 
-              if(dist < -10 && dist >= -100) {
+              if(dist < -10 && dist >= -30) {
                            
                 swipeIcon.classList.add('show');
                 overlay.classList.add('show');
@@ -244,7 +245,7 @@
                 }, 800);
               }
 
-              if(dist < -100 && nextNav) {
+              if(dist < -30 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -281,7 +282,7 @@
                   movePanelDown();
               }
 
-              if(dist > 100 && prevNav) {
+              if(dist > 30 && prevNav) {
                 if(isWheel) {  
                   return;
                 } 
