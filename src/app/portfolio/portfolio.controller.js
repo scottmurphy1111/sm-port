@@ -95,6 +95,9 @@
         var isWheel = false;
         var movingPanel = false;
 
+        var iconIsVisible = false;
+        var stillShowing = false;
+
         var linkFunction = function(scope, element) {
           $timeout(function() {
             element.bind("wheel", function(e) {
@@ -105,33 +108,59 @@
                   nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
                   prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
                   swipeIcon = document.querySelectorAll('.finger-swipe')[0],
-                  overlay = document.querySelectorAll('.modal-overlay')[0],
+                  panel = document.querySelectorAll('.panel')[0],
                   movement = 0;
               
 
               movement = e.deltaY;
-
               $log.debug(movement);
-              if(movement > 10 && movement <= 30) {
-                           
-                swipeIcon.classList.add('show');
-                overlay.classList.add('show');
-              
-                $timeout(function() {
-                  swipeIcon.classList.remove('show');
-                  overlay.classList.remove('show');
-                }, 800);
-              }
 
-              if(movement > 30 && nextNav) {
+              // if(movement === 1) {
+              //   if(iconIsVisible) {
+              //     return;
+              //   }
+
+              //   iconIsVisible = true;
+              
+              //   var showIcon = function() {
+              //     finishShowingIcon();
+              //   };
+
+              //   var finishShowingIcon = function() {
+              //     if(stillShowing) {
+              //       return;
+              //     } else {
+              //       iconIsVisible = true;
+              //       stillShowing = true;
+
+              //       swipeIcon.classList.add('show');
+              //       panel.classList.add('dim');
+
+                    
+
+              //       $timeout(function() {
+              //         iconIsVisible = false;
+              //         stillShowing = false;
+              //         swipeIcon.classList.remove('show');
+              //         panel.classList.remove('dim');
+                      
+                      
+              //       }, 1200);
+              //     }
+              //   };
+              //   $log.debug('iconIsVisible ' + iconIsVisible);
+              //   $log.debug('stillShowing ' + stillShowing);
+
+              //   showIcon();
+
+              // }
+
+              if(movement > 100 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
                 
                 isWheel = true;
-
-                swipeIcon.classList.remove('show');
-                overlay.classList.remove('show');
 
                 var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
@@ -161,7 +190,7 @@
                 movePanelDown();
               }
 
-              if(movement < -30 && prevNav) {
+              if(movement < -100 && prevNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -234,7 +263,7 @@
               nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
               prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
 
-              if(dist < -10 && dist >= -30) {
+              if(dist < -10 && dist >= -50) {
                            
                 swipeIcon.classList.add('show');
                 overlay.classList.add('show');
@@ -245,7 +274,7 @@
                 }, 800);
               }
 
-              if(dist < -30 && nextNav) {
+              if(dist < -100 && nextNav) {
                 if(isWheel) {  
                   return;
                 } 
@@ -282,7 +311,7 @@
                   movePanelDown();
               }
 
-              if(dist > 30 && prevNav) {
+              if(dist > 100 && prevNav) {
                 if(isWheel) {  
                   return;
                 } 
