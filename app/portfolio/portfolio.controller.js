@@ -95,6 +95,9 @@
         var isWheel = false;
         var movingPanel = false;
 
+        var iconIsVisible = false;
+        var stillShowing = false;
+
         var linkFunction = function(scope, element) {
           $timeout(function() {
             element.bind("wheel", function(e) {
@@ -110,17 +113,46 @@
               
 
               movement = e.deltaY;
+              $log.debug(movement);
 
-              // $log.debug(movement);
-              // if(movement > 0 && movement <= 20) {
-                           
-              //   swipeIcon.classList.add('show');
-              //   panel.classList.add('dim');
+              // if(movement === 1) {
+              //   if(iconIsVisible) {
+              //     return;
+              //   }
+
+              //   iconIsVisible = true;
               
-              //   $timeout(function() {
-              //     swipeIcon.classList.remove('show');
-              //     panel.classList.remove('dim');
-              //   }, 800);
+              //   var showIcon = function() {
+              //     finishShowingIcon();
+              //   };
+
+              //   var finishShowingIcon = function() {
+              //     if(stillShowing) {
+              //       return;
+              //     } else {
+              //       iconIsVisible = true;
+              //       stillShowing = true;
+
+              //       swipeIcon.classList.add('show');
+              //       panel.classList.add('dim');
+
+                    
+
+              //       $timeout(function() {
+              //         iconIsVisible = false;
+              //         stillShowing = false;
+              //         swipeIcon.classList.remove('show');
+              //         panel.classList.remove('dim');
+                      
+                      
+              //       }, 1200);
+              //     }
+              //   };
+              //   $log.debug('iconIsVisible ' + iconIsVisible);
+              //   $log.debug('stillShowing ' + stillShowing);
+
+              //   showIcon();
+
               // }
 
               if(movement > 100 && nextNav) {
@@ -129,9 +161,6 @@
                 } 
                 
                 isWheel = true;
-
-                swipeIcon.classList.remove('show');
-                panel.classList.remove('dim');
 
                 var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
