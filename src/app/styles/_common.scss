@@ -66,7 +66,6 @@
 		    &:hover {
 		    	@include desktop {
 		    		opacity: 0.25;
-		    		width: 15px;
 		    	}
 		    	
 		    }
@@ -290,10 +289,10 @@ span.logo {
 
 .category-title {
 	color: #fff;
-  padding: 0;
-  line-height: 12vh !important;
-  margin: 0 auto;
-  height: 12vh;
+	padding: 0;
+	line-height: 12vh !important;
+	margin: 0 auto;
+	height: 10vh;
 	font: 1.5em $font-extralight;
 	text-align: left;
 	font-weight: bold;
