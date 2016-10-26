@@ -101,6 +101,7 @@
         var linkFunction = function(scope, element) {
           $timeout(function() {
             element.bind("wheel", function(e) {
+
               var enterBtn = document.querySelectorAll('.enter'),
                   nextPanel = element.next(),
                   prevPanel = element[0].previousElementSibling,
@@ -111,11 +112,18 @@
                   panel = document.querySelectorAll('.panel')[0],
                   movement = 0;
               
-
               movement = e.deltaY;
+              
+              
+              
+              if(e.deltaMode === 1) {
+                movement = movement * 8;
+              }
+              
               $log.debug(movement);
+              // $log.debug(movement);
 
-              // if(movement === 1) {
+              // if(movement > 0 && movement <= 100) {
               //   if(iconIsVisible) {
               //     return;
               //   }
