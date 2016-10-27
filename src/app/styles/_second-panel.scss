@@ -158,7 +158,7 @@
 							    width: 0;
 							    height: 2px;
 							    background: $blueThin;
-							    transition: width .3s;
+							    transition: width .3s linear 0.05s;
 							}
 
 							&:hover {
