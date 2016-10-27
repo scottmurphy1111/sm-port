@@ -3,7 +3,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window) {
+    .controller('PortfolioController', function($timeout, $state, $window, $log) {
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -27,7 +27,11 @@
             })(n);
           }
         }, 3700);
-          
+
+        var setDate = document.querySelectorAll('.experience-time'),
+        calcDate = new Date().getFullYear() - 2009;
+
+        setDate[0].innerHTML = calcDate;
       };
 
       portfolio.reloadPage = function() {
@@ -43,11 +47,6 @@
 
       portfolio.chosenTemplate = "app/portfolio/modal-templates/creditwise.html";
 
-      // portfolio.getTemplate = function() {
-      //   $log.debug();
-      //   portfolio.chosenTemplate = ;
-      // };
-      
     })
 
     .directive('vertNavItem', function() {
@@ -363,13 +362,16 @@
           link: linkFunction
         };
     })
-    .directive('revealContent', function() {
+    .directive('revealContent', function($log) {
     
       var linkFunction = function(scope, element) {
         element.bind('click', function() {
           var content = element.next(),
           allBoxes = document.querySelectorAll('.snippets li .content');
-  
+          
+
+
+
           if(content.hasClass('show')){
             for(var i = 0; i < allBoxes.length; i++) {
               allBoxes[i].classList.remove('show');
@@ -380,8 +382,30 @@
               allBoxes[n].classList.remove('show');
             }
             content.addClass('show');
+
+            var contentText = document.querySelectorAll('.content.show p')[0].textContent,
+            updatePlace = document.querySelectorAll('.content.show p')[0],
+            current = 0,
+            height = content.children()[0].clientHeight,
+            contentText = contentText.split("");
+            
+            updatePlace.style.height = height + 'px';
+            //$log.debug(height);
+            updatePlace.innerHTML = '';
+
+            setInterval(function() {
+              if(current < contentText.length) {
+                updatePlace.innerHTML += contentText[current++];
+              }
+            }, 15);
+
           }
+
+          
+         
+          
         });
+      
       };
 
       return {
