@@ -582,6 +582,7 @@ span.logo {
 .code-link {
 	cursor: pointer;
 	color: $blueThin;
+	font-weight: bold;
 
 	&.bio {
 		&:before {

@@ -57,6 +57,7 @@
     	color: $blueThin;
     	font-weight: bold;
     	margin: 0;
+      text-transform: uppercase;
 
     	@include mobile {
     		font-size: 16px;

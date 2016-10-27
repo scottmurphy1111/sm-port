@@ -124,10 +124,10 @@
 							transition: 0.2s all ease-in 0s;
 							position: relative;
 							left: 23px;
-							-webkit-font-smoothing: antialiased;
+							//-webkit-font-smoothing: antialiased;
 							display: inline-block;
 							font-family: $font-light;
-							font-weight: bold;
+							// font-weight: bold;
 
 							@include mobile {
 								//left: 3px;
