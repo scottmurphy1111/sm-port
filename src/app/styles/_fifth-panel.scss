@@ -34,7 +34,20 @@
 
   	&.right {
   		float: right;
-  	}
+
+      .social {
+        li {
+          padding: 0 32px 0 0;
+          max-width: 84px;
+          width: 25%;
+
+          @include mobile {
+            padding: 0 24px 0 0;
+            max-width: 72px;
+          }
+        }
+      }
+    }
   }
 
   .special-note {
@@ -81,6 +94,7 @@
  		li {
  			float: left;
  			width: 100%;
+      padding: 0 5px;
  			@include box-sizing(border-box);
  			display: inline-block;
  			text-align: left;
@@ -104,7 +118,7 @@
 
 
   p {
-  	padding: 0px 0px 15px;
+  	padding: 0px 0px 0px;
   	font: 1em $font-light;
   	width: 100%;
     float: left;
@@ -114,7 +128,7 @@
     @include box-sizing(border-box);
 
   	@include mobile {
-  		padding: 5px 0px;
+  		padding: 0px 0px;
   		width: 100%;
   	}
 

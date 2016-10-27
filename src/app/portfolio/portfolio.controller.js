@@ -397,7 +397,7 @@
               if(current < contentText.length) {
                 updatePlace.innerHTML += contentText[current++];
               }
-            }, 15);
+            }, 12);
 
           }
 

@@ -19,7 +19,7 @@
 	.inner-wrap {
 
 		ul {
-			margin: 0 auto 4px;
+			margin: 0 auto 0px;
 			padding: 0;
 			display: inline-block;
 			width: 100%;
@@ -30,7 +30,7 @@
 				visibility: visible;
 				transition: 0.1s all ease-out 0s;
 				width: 100%;
-    			margin: 0 auto 12px;
+    			margin: 0 auto 8px;
 				color: $blueThin;
 				font-weight: bold;
 				padding: 0px;
@@ -101,7 +101,7 @@
 				    	color: #fff;
 				    	font-weight: normal;
 				    	margin: 12px 30px 12px 0px;
-				    	transition: 0.15s all linear 0.3s;
+				    	transition: 0.15s all linear 0s;
 				    	padding-left: 0;
 				    	opacity: 0;
 				    	visibility: hidden;
@@ -126,7 +126,7 @@
 
 				    &.show {
 				    	height: 400px;
-				    	padding-bottom: 20px;
+				    	//padding-bottom: 20px;
 				    	top: 0;
 
 				    	@include mobile {
@@ -135,7 +135,7 @@
 
 				    	p {
 				    		
-				    		transition: 0.4s all linear 0.3s;
+				    		transition: 0.4s all linear 0s;
 				    		opacity: 1;
 				    		visibility: visible;
 				    	}
@@ -156,6 +156,8 @@
 
 			p {
 				padding-left: 38px;
+				margin: 0 0 12px;
+				text-transform: uppercase;
 
 				@include mobile {
 		    	padding-left: 29px;

@@ -126,6 +126,8 @@
 							left: 23px;
 							-webkit-font-smoothing: antialiased;
 							display: inline-block;
+							font-family: $font-light;
+							font-weight: bold;
 
 							@include mobile {
 								//left: 3px;
