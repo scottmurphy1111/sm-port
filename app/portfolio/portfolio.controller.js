@@ -3,7 +3,8 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window, $log) {
+    .controller('PortfolioController', function($timeout, $state, $window, $document) {
+
       var portfolio = this;
         
       portfolio.loadMainContent = false;
@@ -13,22 +14,24 @@
           portfolio.loadMainContent = true;
         }, 800);
 
-        var toReveal = document.querySelectorAll('.skills .to-reveal');
+        var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
         
+        var processAll = function(els) {
+          var timer = 0;
+            timer += 20*els+(Math.random()*5);
+
+            $timeout(function() {
+              toReveal[els].classList.add('show');
+            }, timer);
+        };
+
         $timeout(function() {
           for (var n = 0; n < toReveal.length; n++) {
-            var timer = 0;
-            timer += 20*n+(Math.random()*5);
-
-            (function(n) {
-              $timeout(function() {
-                toReveal[n].classList.add('show');
-              }, timer);
-            })(n);
+            processAll(n);
           }
         }, 3700);
 
-        var setDate = document.querySelectorAll('.experience-time'),
+        var setDate = $document[0].querySelectorAll('.experience-time'),
         calcDate = new Date().getFullYear() - 2009;
 
         setDate[0].innerHTML = calcDate;
@@ -39,9 +42,9 @@
       };
 
       portfolio.closeModal = function() {
-        document.querySelectorAll('.modal-window')[0].classList.remove('show');
+        $document[0].querySelectorAll('.modal-window')[0].classList.remove('show');
         $timeout(function() {
-          document.querySelectorAll('.modal-overlay')[0].classList.remove('show');
+          $document[0].querySelectorAll('.modal-overlay')[0].classList.remove('show');
         }, 100);
       };
 
@@ -49,18 +52,18 @@
 
     })
 
-    .directive('vertNavItem', function() {
+    .directive('vertNavItem', function($document) {
     
       var linkFunction = function(scope, element, attr) {
         element.bind('click', function(e) {
           e.stopPropagation();
           var clickedLiVal = attr.active,
-          currentActiveLi = document.querySelectorAll('.vert-nav li.active'),
-          allPanels = document.querySelectorAll('.sliding-panel'),
+          currentActiveLi = $document[0].querySelectorAll('.vert-nav li.active'),
+          allPanels = $document[0].querySelectorAll('.sliding-panel'),
           activatePanel = '',
-          enterBtn = document.querySelectorAll('.enter');
+          enterBtn = $document[0].querySelectorAll('.enter');
 
-          activatePanel = document.querySelectorAll('.'+clickedLiVal);
+          activatePanel = $document[0].querySelectorAll('.'+clickedLiVal);
          
           for(var i = 0; i < allPanels.length; i++) {
             allPanels[i].classList.add('fade-out');
@@ -90,25 +93,20 @@
         link: linkFunction
       };
     })
-    .directive('onScroll', function($window, $log, $timeout) {
+    .directive('onScroll', function($window, $document, $timeout) {
         var isWheel = false;
         var movingPanel = false;
-
-        var iconIsVisible = false;
-        var stillShowing = false;
 
         var linkFunction = function(scope, element) {
           $timeout(function() {
             element.bind("wheel", function(e) {
 
-              var enterBtn = document.querySelectorAll('.enter'),
+              var enterBtn = $document[0].querySelectorAll('.enter'),
                   nextPanel = element.next(),
                   prevPanel = element[0].previousElementSibling,
-                  currentNav = document.querySelectorAll('.vert-nav li.active')[0],                
-                  nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
-                  prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
-                  swipeIcon = document.querySelectorAll('.finger-swipe')[0],
-                  panel = document.querySelectorAll('.panel')[0],
+                  currentNav = $document[0].querySelectorAll('.vert-nav li.active')[0],                
+                  nextNav = $document[0].querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
+                  prevNav = $document[0].querySelectorAll('.vert-nav li.active')[0].previousElementSibling,
                   movement = 0;
               
               movement = e.deltaY;
@@ -118,23 +116,7 @@
               if(e.deltaMode === 1) {
                 movement = movement * 8;
               }
-              
-              $log.debug(movement);
-              //$log.debug(movement);
-
-              // if(movement > 0 && movement <= 100) {
-
-              //   var scaleBy = 1 + (movement/20);
-              //   //if(element[0].className.indexOf('second-panel') > -1) {
-              //     //enterBtn[0].childNodes[5].childNodes[4].style.transform = 'scale('+scaleBy+','+ scaleBy+')';
-              //   //}
-
-
-              //   $log.debug(scaleBy);
-              //   $log.debug(enterBtn);
-
-              // }
-
+                           
               if(movement > 100 && nextNav) {
                 if(isWheel) {  
                   return;
@@ -219,10 +201,11 @@
             element.bind('touchstart', function(e) {
               //e.preventDefault();
               var touchobj = e.changedTouches[0];
+
               dist = 0,
               startX = touchobj.pageX,
               startY = touchobj.pageY,
-              startTime = new Date().getTime();
+              startTime = Date.now();
               
             });
 
@@ -234,14 +217,12 @@
               //e.preventDefault();
               var touchobj = e.changedTouches[0],
               dist = touchobj.pageY - startY,
-              enterBtn = document.querySelectorAll('.enter'),
+              enterBtn = $document[0].querySelectorAll('.enter'),
               nextPanel = element.next(),
               prevPanel = element[0].previousElementSibling,
-              currentNav = document.querySelectorAll('.vert-nav li.active')[0],
-              swipeIcon = document.querySelectorAll('.finger-swipe')[0],
-              overlay = document.querySelectorAll('.modal-overlay')[0],
-              nextNav = document.querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
-              prevNav = document.querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
+              currentNav = $document[0].querySelectorAll('.vert-nav li.active')[0],
+              nextNav = $document[0].querySelectorAll('.vert-nav li.active')[0].nextElementSibling,
+              prevNav = $document[0].querySelectorAll('.vert-nav li.active')[0].previousElementSibling;
 
               if(dist < -10 && dist >= -50) {
                            
@@ -335,12 +316,12 @@
           link: linkFunction
         };
     })
-    .directive('revealContent', function($log) {
+    .directive('revealContent', function($interval, $document) {
     
       var linkFunction = function(scope, element) {
         element.bind('click', function() {
           var content = element.next(),
-          allBoxes = document.querySelectorAll('.snippets li .content');
+          allBoxes = $document[0].querySelectorAll('.snippets li .content');
           
           if(content.hasClass('show')){
             for(var i = 0; i < allBoxes.length; i++) {
@@ -356,20 +337,15 @@
             content.addClass('show');
 
 
-            var contentText = document.querySelectorAll('.content.show p')[0].textContent,
-            updatePlace = document.querySelectorAll('.content.show p')[0],
+            var contentText = $document[0].querySelectorAll('.content.show p')[0].textContent,
+            updatePlace = $document[0].querySelectorAll('.content.show p')[0],
             current = 0,
-            height = content.children()[0].clientHeight,
-            contentText = contentText.split("");
+            height = content.children()[0].clientHeight;
             
-            // console.log(content);
-            // console.log(content[0]);
-            // content.css('height', height + 12 +'px');
-            updatePlace.style.height = height + 'px';
-            //$log.debug(height);
+            updatePlace.style.height = height + 'px';            
             updatePlace.innerHTML = '';
 
-            setInterval(function() {
+            $interval(function() {
               if(current < contentText.length) {
                 updatePlace.innerHTML += contentText[current++];
               }
@@ -387,13 +363,13 @@
         link: linkFunction
       };
     })
-    .directive('smModal', function($timeout) {
+    .directive('smModal', function($timeout, $document) {
     
       var linkFunction = function(scope, element) {
         element.bind('click', function() {
-          document.querySelectorAll('.modal-overlay')[0].classList.add('show');
+          $document[0].querySelectorAll('.modal-overlay')[0].classList.add('show');
           $timeout(function() {
-            document.querySelectorAll('.modal-window')[0].classList.add('show');
+            $document[0].querySelectorAll('.modal-window')[0].classList.add('show');
           }, 200);
           
         });
