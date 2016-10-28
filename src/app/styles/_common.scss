@@ -137,7 +137,7 @@
   @include hacks();
 
   @include mobile {
-  	top: 27vh;
+  	top: 24vh;
   }
 
   @include landscape {
@@ -176,16 +176,25 @@
 }
 
 .inner-wrap {
-	width: 100%;
-  display: block;
-  text-align: left;
-  margin: 0 auto;
-  font-size: 24px;
-  color: #fff;
+	width: 1024px;
+	display: block;
+	text-align: left;
+	margin: 0 auto;
+	padding: 0 12px;
+	font-size: 24px;
+	color: #fff;
+	@include box-sizing(border-box);
 
-  @include mobile {
-  	font-size: 18px;
-  }
+	@include tablet {
+		width: 100%;
+		padding: 0;
+	}
+
+	@include mobile {
+		font-size: 18px;
+		width: 100%;
+		padding: 0;
+	}
 }
 
 span.logo {
@@ -456,10 +465,10 @@ span.logo {
 	}	
 
 	span.icon {
-		width: 28px;
-		height: 28px;
+		width: 40px;
+		height: 40px;
 		display: inline-block;
-		margin-top: 10px;
+		margin-top: 20px;
 		animation: bounce 3s infinite;
 		@include hacks();
 	}
@@ -620,6 +629,9 @@ span.logo {
 	left: 28px;
 	position: relative;
 	top: 0px;
+	opacity: 0;
+	visibility: hidden;
+	@include prefixed(transition, all 0.5s ease-out 0s);
 
 	@include mobile {
 		margin-left: 0px;
@@ -654,12 +666,13 @@ span.logo {
 	}
 
 	&.show {
-		height: 48px;
-		//padding-bottom: 20px;
+		height: 43px;
 		top: 0;
+		opacity: 1;
+		visibility: visible;
 
 		@include mobile {
-			height: 100px;
+			height: 60px;
 		}
 
 		p {
@@ -678,25 +691,15 @@ span.logo {
 }
 
 @keyframes bounce {
-	50% {
-  	transform:translateY(0px);
-  }
-  55% {
-  	transform:translateY(-15px);
-  }
-  60% {
-  	transform:translateY(-2px);
-  }
-  65% {
-  	transform:translateY(-12px);
-  }
-  70% {
-  	transform:translateY(-2px);
-  }
-  75% {
-  	transform:translateY(-8px);
-  }
-  85% {
-  	transform:translateY(0px);
-  }
+	60% {
+		transform:translateY(0px);
+	}
+	88% {
+		transform:translateY(-16px);
+	}
+	98% {
+		transform:translateY(0px);
+	}
+	
+  
 }

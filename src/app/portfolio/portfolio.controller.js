@@ -120,45 +120,18 @@
               }
               
               $log.debug(movement);
-              // $log.debug(movement);
+              //$log.debug(movement);
 
               // if(movement > 0 && movement <= 100) {
-              //   if(iconIsVisible) {
-              //     return;
-              //   }
 
-              //   iconIsVisible = true;
-              
-              //   var showIcon = function() {
-              //     finishShowingIcon();
-              //   };
+              //   var scaleBy = 1 + (movement/20);
+              //   //if(element[0].className.indexOf('second-panel') > -1) {
+              //     //enterBtn[0].childNodes[5].childNodes[4].style.transform = 'scale('+scaleBy+','+ scaleBy+')';
+              //   //}
 
-              //   var finishShowingIcon = function() {
-              //     if(stillShowing) {
-              //       return;
-              //     } else {
-              //       iconIsVisible = true;
-              //       stillShowing = true;
 
-              //       swipeIcon.classList.add('show');
-              //       panel.classList.add('dim');
-
-                    
-
-              //       $timeout(function() {
-              //         iconIsVisible = false;
-              //         stillShowing = false;
-              //         swipeIcon.classList.remove('show');
-              //         panel.classList.remove('dim');
-                      
-                      
-              //       }, 1200);
-              //     }
-              //   };
-              //   $log.debug('iconIsVisible ' + iconIsVisible);
-              //   $log.debug('stillShowing ' + stillShowing);
-
-              //   showIcon();
+              //   $log.debug(scaleBy);
+              //   $log.debug(enterBtn);
 
               // }
 
@@ -272,13 +245,13 @@
 
               if(dist < -10 && dist >= -50) {
                            
-                swipeIcon.classList.add('show');
-                overlay.classList.add('show');
+                // swipeIcon.classList.add('show');
+                // overlay.classList.add('show');
               
-                $timeout(function() {
-                  swipeIcon.classList.remove('show');
-                  overlay.classList.remove('show');
-                }, 800);
+                // $timeout(function() {
+                //   swipeIcon.classList.remove('show');
+                //   overlay.classList.remove('show');
+                // }, 800);
               }
 
               if(dist < -100 && nextNav) {
@@ -287,8 +260,8 @@
                 } 
                 
                 isWheel = true;
-                swipeIcon.classList.remove('show');
-                overlay.classList.remove('show');
+                // swipeIcon.classList.remove('show');
+                // overlay.classList.remove('show');
 
                   var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
@@ -369,19 +342,19 @@
           var content = element.next(),
           allBoxes = document.querySelectorAll('.snippets li .content');
           
-
-
-
           if(content.hasClass('show')){
             for(var i = 0; i < allBoxes.length; i++) {
               allBoxes[i].classList.remove('show');
             }
             content.removeClass('show');
+            //content.css('height', 0 +'px');
+
           } else {
             for(var n = 0; n < allBoxes.length; n++) {
               allBoxes[n].classList.remove('show');
             }
             content.addClass('show');
+
 
             var contentText = document.querySelectorAll('.content.show p')[0].textContent,
             updatePlace = document.querySelectorAll('.content.show p')[0],
@@ -389,6 +362,9 @@
             height = content.children()[0].clientHeight,
             contentText = contentText.split("");
             
+            // console.log(content);
+            // console.log(content[0]);
+            // content.css('height', height + 12 +'px');
             updatePlace.style.height = height + 'px';
             //$log.debug(height);
             updatePlace.innerHTML = '';
@@ -400,9 +376,6 @@
             }, 12);
 
           }
-
-          
-         
           
         });
       
