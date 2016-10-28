@@ -245,13 +245,13 @@
 
               if(dist < -10 && dist >= -50) {
                            
-                swipeIcon.classList.add('show');
-                overlay.classList.add('show');
+                // swipeIcon.classList.add('show');
+                // overlay.classList.add('show');
               
-                $timeout(function() {
-                  swipeIcon.classList.remove('show');
-                  overlay.classList.remove('show');
-                }, 800);
+                // $timeout(function() {
+                //   swipeIcon.classList.remove('show');
+                //   overlay.classList.remove('show');
+                // }, 800);
               }
 
               if(dist < -100 && nextNav) {
@@ -260,8 +260,8 @@
                 } 
                 
                 isWheel = true;
-                swipeIcon.classList.remove('show');
-                overlay.classList.remove('show');
+                // swipeIcon.classList.remove('show');
+                // overlay.classList.remove('show');
 
                   var movePanelDown = function() {
                   if(element[0].className.indexOf('top-panel') > -1) {
