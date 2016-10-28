@@ -8,6 +8,10 @@
 	overflow: hidden;
 	display: inline-block;
 	position: relative;
+	@include hacks();
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+
 
 	&.dim {
 		opacity: 0.25;
@@ -126,7 +130,7 @@
 	max-width: 1140px;
 	display: inline-block;
 	position: absolute;
-	top: 30vh;
+	top: 35vh;
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -137,7 +141,7 @@
 	@include hacks();
 
 	@include mobile {
-		top: 24vh;
+		top: 20vh;
 	}
 
 	@include landscape {
@@ -458,6 +462,7 @@ span.logo {
 		position: relative;
 		top: 0px;
 		transform: scale(1,1);
+		font-weight: bold;
 
 		.white {
 			color: #fff;
@@ -476,7 +481,7 @@ span.logo {
 	@include mobile {
 		font: 16px $font-light;
 		&.show {
-			bottom: 25px;
+			bottom: 10px;
 			visibility: visible;
 			opacity: 1;
 			transform: scale(1,1);
@@ -640,7 +645,7 @@ span.logo {
 
 	p {
 		color: #fff;
-		font-weight: normal;
+		//font-weight: normal;
 		margin: 12px 30px 12px 0px;
 		transition: 0.15s all linear 0s;
 		padding-left: 0;
