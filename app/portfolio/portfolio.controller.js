@@ -1,7 +1,8 @@
 (function() {
   'use strict';
-  /* jshint expr: true */
   
+  /* jshint expr: true */
+
   angular
     .module('website')
     .controller('PortfolioController', function($timeout, $state, $window, $document) {
@@ -25,6 +26,21 @@
               toReveal[els].classList.add('show');
             }, timer);
         };
+
+        var loadContact = function() {
+          var phone = '336-602-3121',
+          phoneDiv = $document[0].querySelectorAll('.insert-phone'),
+          user = 'scottmurphy1111',
+          domain = 'gmail.com',
+          emailDiv = $document[0].querySelectorAll('.insert-email');
+
+
+          phoneDiv[0].innerHTML = '<a href="tel:' + phone + '">' + phone + '</a>';
+          emailDiv[0].innerHTML = '<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>';
+
+        };
+
+        loadContact();
 
         $timeout(function() {
           for (var n = 0; n < toReveal.length; n++) {
