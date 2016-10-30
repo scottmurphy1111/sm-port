@@ -69,22 +69,22 @@
 					cursor: pointer;
 					color: $blueThin;
 
-					&:before {
+				
 
-						.bio-icon-inner {
-						    fill: #fff;
-						}
-
-						.bio-icon-circle {
-						    fill: #51d4ff;
-						}
+					.bio-icon-inner {
+					    fill: #fff;
 					}
 
-					&.bio {
-						&:before {
-							background: url(../assets/images/portfolio/location.svg);
-						}
+					.bio-icon-circle {
+					    fill: #51d4ff;
 					}
+					
+
+					// &.bio {
+					// 	&:before {
+					// 		background: url(../assets/images/portfolio/location.svg);
+					// 	}
+					// }
 				}
 
 			

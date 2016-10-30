@@ -203,12 +203,12 @@
 
 span.logo {
 	display: inline-block;
-  width: 48px;
-  height: 48px;
-  position: relative;
-  top: 15px;
-  margin-right: 6px;
-  left: 25%;
+	width: 48px;
+	height: 48px;
+	position: relative;
+	top: 15px;
+	margin-right: 6px;
+	left: 25%;
 
   &.show {
   	@include prefixed(transition, 0.4s all ease-out 2s);
@@ -217,10 +217,10 @@ span.logo {
 
   @include mobile {
   	top: 10px;
-		width: 34px;
-		height: 34px;
-		margin-right: 4px;
-  	left: 43%;
+	width: 34px;
+	height: 34px;
+	margin-right: 4px;
+  	left: 45%;
   }
 }
 
@@ -416,7 +416,7 @@ span.logo {
 	&.load-icon {
 		visibility: visible;
 		opacity: 1;
-		bottom: 25px;
+		bottom: 10px;
 		@include prefixed(transition, 0.35s all ease-out 3.2s);
 
 		&.mobile {
@@ -424,18 +424,15 @@ span.logo {
 			opacity: 1;
 			@include prefixed(transition, 0.35s all ease-out 0s);
 		}
+
+		
 	}
 
 	&.load-icon-instantly {
 		visibility: visible;
 		opacity: 1;
-		bottom: 25px;
+		bottom: 10px;
 		@include prefixed(transition, 0.35s all ease-out 0.35s);
-	}
-
-	.pipe {
-		padding: 0 2px;
-		color: $blueThin;
 	}
 
 	&:hover {
@@ -470,12 +467,24 @@ span.logo {
 	}	
 
 	span.icon {
-		width: 40px;
-		height: 40px;
+		width: 67px;
+		height: 67px;
 		display: inline-block;
 		margin-top: 20px;
-		animation: bounce 3s infinite;
-		@include hacks();
+
+		@include mobile {
+			width: 56px;
+			height: 56px;
+		}
+
+		svg {
+			overflow: visible;
+		}
+
+		.fingers {
+			animation: bounce 3s infinite;
+			@include hacks();
+		}
 	}
 
 	@include mobile {
@@ -677,7 +686,7 @@ span.logo {
 		visibility: visible;
 
 		@include mobile {
-			height: 60px;
+			height: 32px;
 		}
 
 		p {
@@ -696,13 +705,13 @@ span.logo {
 }
 
 @keyframes bounce {
-	60% {
+	67% {
 		transform:translateY(0px);
 	}
-	88% {
+	92% {
 		transform:translateY(-16px);
 	}
-	98% {
+	100% {
 		transform:translateY(0px);
 	}
 	
