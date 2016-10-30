@@ -1,6 +1,7 @@
 (function() {
   'use strict';
-
+  /* jshint expr: true */
+  
   angular
     .module('website')
     .controller('PortfolioController', function($timeout, $state, $window, $document) {
