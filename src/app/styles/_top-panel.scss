@@ -87,7 +87,6 @@
 		margin: 0 auto;
 		display: block;
 		opacity: 0;
-		//visibility: hidden;
 		@include prefixed(transition, all 0.25s linear 0s);
 		position: relative;
 		overflow: hidden;
@@ -110,7 +109,6 @@
 			&.pipe {
 				top: 15px;
 				bottom: 0;
-				//color: #fff;
 			}
 
 			&.show {
@@ -127,7 +125,6 @@
 
 		&.show {
 			opacity: 1;
-			//visibility: visible;
 		}
 	}
 }

@@ -225,8 +225,6 @@ span.logo {
 }
 
 .logo-circle {
-	// width: 28px;
-	// height: 28px;
 	fill:none;
 	stroke: #fff;
 	stroke-width: 5;
@@ -303,7 +301,7 @@ span.logo {
 .category-title {
 	color: #fff;
 	padding: 0;
-	line-height: 12vh !important;
+	line-height: 10vh !important;
 	margin: 0 auto;
 	height: 10vh;
 	font: 1.5em $font-extralight;
@@ -336,10 +334,6 @@ span.logo {
     	opacity: 1;
     	visibility: visible;
     	transform: scale(1, 1);
-
-  //   	@include mobile {
-			
-		// }
     }
 
     p {
@@ -416,7 +410,7 @@ span.logo {
 	&.load-icon {
 		visibility: visible;
 		opacity: 1;
-		bottom: 10px;
+		bottom: 20px;
 		@include prefixed(transition, 0.35s all ease-out 3.2s);
 
 		&.mobile {
@@ -431,7 +425,7 @@ span.logo {
 	&.load-icon-instantly {
 		visibility: visible;
 		opacity: 1;
-		bottom: 10px;
+		bottom: 20px;
 		@include prefixed(transition, 0.35s all ease-out 0.35s);
 	}
 
@@ -467,14 +461,14 @@ span.logo {
 	}	
 
 	span.icon {
-		width: 67px;
-		height: 67px;
+		width: 69px;
+		height: 50px;
 		display: inline-block;
 		margin-top: 20px;
 
 		@include mobile {
 			width: 56px;
-			height: 56px;
+			height: 41px;
 		}
 
 		svg {
@@ -490,7 +484,7 @@ span.logo {
 	@include mobile {
 		font: 16px $font-light;
 		&.show {
-			bottom: 10px;
+			bottom: 20px;
 			visibility: visible;
 			opacity: 1;
 			transform: scale(1,1);
@@ -615,7 +609,6 @@ span.logo {
 
 	&:before {
 		content: '';
-		// background: url(../assets/images/portfolio/plus.svg);
 		width: 0px;
 		height: 0px;
 		display: inline-block;
@@ -654,7 +647,6 @@ span.logo {
 
 	p {
 		color: #fff;
-		//font-weight: normal;
 		margin: 12px 30px 12px 0px;
 		transition: 0.15s all linear 0s;
 		padding-left: 0;

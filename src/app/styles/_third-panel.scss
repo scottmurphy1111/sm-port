@@ -99,7 +99,6 @@
 
 				    p {
 				    	color: #fff;
-				    	//font-weight: normal;
 				    	margin: 12px 30px 12px 0px;
 				    	transition: 0.15s all linear 0s;
 				    	padding-left: 0;
@@ -126,7 +125,6 @@
 
 				    &.show {
 				    	height: 420px;
-				    	//padding-bottom: 20px;
 				    	top: 0;
 
 				    	@include mobile {

@@ -29,11 +29,11 @@
   	}
 
   	&.left {
-  		float: left;
+  		
   	}
 
   	&.right {
-  		float: right;
+  		
 
       .social {
         li {
@@ -55,7 +55,8 @@
   }
 
   .special-note {
-  	min-height: 180px;
+  	display: inline-block;
+    padding-bottom: 24px;
 
   	p {
     	color: $blueThin;
@@ -93,7 +94,8 @@
  			padding: 0;
  			display: inline-block;
  			width: 100%;
- 			margin-top: 10px;
+ 			margin-top: 0px;
+      margin-bottom: 10px;
  		}
 
  		li {
