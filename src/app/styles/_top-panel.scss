@@ -20,6 +20,7 @@
 		visibility: hidden;
 		@include prefixed(transition, all 0.25s ease-out 2.25s);
 		margin-right: 6px;
+		position: relative;
 		@include hacks();
 
 		&.show {
@@ -29,6 +30,10 @@
 
 		@include mobile {
 			@include prefixed(transition, all 0.25s ease-out 2.25s);
+
+			&.show {
+				left: -16px;
+			}
 		}
 	}
 

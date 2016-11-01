@@ -216,11 +216,15 @@ span.logo {
   }
 
   @include mobile {
-  	top: 10px;
-	width: 34px;
-	height: 34px;
+  	top: 6px;
+	width: 29px;
+	height: 29px;
 	margin-right: 4px;
   	left: 45%;
+
+  	&.show {
+  		left: -16px;
+  	}
   }
 }
 
@@ -235,10 +239,7 @@ span.logo {
 	animation: drawCircle 1.5s ease-out forwards;
 	animation-delay: 1s;
 	@include prefixed(transform, rotateZ(-90deg));
-	-moz-transform-origin: 8.4px 15.5px;
-	-webkit-transform-origin: 8.4px 15.5px;
-	-ms-transform-origin: 8.4px 15.5px;
-	transform-origin: 8.4px 15.5px;
+	@include prefixed(transform-origin, 8.4px 15.5px);
 }
 
 .logo-lines {
