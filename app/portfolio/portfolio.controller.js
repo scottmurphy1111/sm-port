@@ -5,7 +5,7 @@
 
   angular
     .module('website')
-    .controller('PortfolioController', function($timeout, $state, $window, $document) {
+    .controller('PortfolioController', function($timeout, $state, $window, $document, $http, $scope) {
 
       var portfolio = this;
         
@@ -52,6 +52,7 @@
         calcDate = new Date().getFullYear() - 2009;
 
         setDate[0].innerHTML = calcDate;
+
       };
 
       portfolio.reloadPage = function() {
@@ -66,6 +67,32 @@
       };
 
       portfolio.chosenTemplate = "app/portfolio/modal-templates/creditwise.html";
+
+      
+      //get SO rep number
+      $scope.totalSo = 0;
+      
+
+      $http({
+        method: 'GET',
+        url: 'http://api.stackexchange.com/2.2/users/5711949/reputation?site=stackoverflow'
+        
+        
+      }).then(function successCallback(response) {
+        var allItems = response.data.items,
+        totalRep = 0;
+
+        allItems.forEach(function(rep) {
+          totalRep += rep.reputation_change;
+        });
+
+        $scope.totalSo = totalRep;
+        
+      }, function errorCallback(response) {
+        throw new Error("Error" + response);
+      });
+
+
 
     })
 
