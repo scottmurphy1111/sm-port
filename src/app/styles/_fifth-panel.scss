@@ -48,6 +48,23 @@
 
           a {
             cursor: pointer;
+            position: relative;
+
+            .so-rep {
+              position: absolute;
+              background: #ff9c00;
+              border-radius: 50%;
+              width: 18px;
+              height: 18px;
+              color: #fff;
+              font-size: 12px;
+              display: block;
+              padding: 1px 4px;
+              box-sizing: border-box;
+              bottom: 0;
+              left: 50%;
+              font-weight: bold;
+            }
           }
         }
       }

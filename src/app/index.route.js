@@ -19,6 +19,12 @@
         templateUrl: 'app/portfolio/portfolio.html',
         controller: 'PortfolioController',
         controllerAs: 'portfolio'
+      })
+      .state('blank', {
+        url: '/blank',
+        templateUrl: 'app/blank/blank.html',
+        controller: 'BlankController',
+        controllerAs: 'blank'
       });
 
     $urlRouterProvider.otherwise('/portfolio');
