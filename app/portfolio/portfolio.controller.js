@@ -14,6 +14,7 @@
 
       //dynamic content animations and data loads
       portfolio.setUpPage = function() {
+        
         //trigger content load
         $timeout(function() {
           portfolio.loadMainContent = true;
@@ -73,27 +74,29 @@
       portfolio.chosenTemplate = "app/portfolio/modal-templates/creditwise.html";
 
       
-      //get Stack Overflow reputation count
-      $scope.totalSo = 0;
+      //get Stack Overflow reputation/badge count using API
+      $scope.totalSoRep = 0;
+      $scope.totalSoBadges = 0;
       
       $http({
         method: 'GET',
-        url: 'http://api.stackexchange.com/2.2/users/5711949/reputation?site=stackoverflow'
+        url: 'http://api.stackexchange.com/2.2/users/5711949/?site=stackoverflow'
+      })
+      .then(function successCallback(response) {
+        var allItems = response.data.items[0],
+        badgeCounts = allItems.badge_counts;
         
-        
-      }).then(function successCallback(response) {
-        var allItems = response.data.items,
-        totalRep = 0;
+        $scope.totalSoRep = allItems.reputation;
 
-        allItems.forEach(function(rep) {
-          totalRep += rep.reputation_change;
-        });
-
-        $scope.totalSo = totalRep;
+        //loop through badge_counts object
+        Object.keys(badgeCounts).forEach(function(badge) {
+          $scope.totalSoBadges += badgeCounts[badge];
+        });   
         
       }, function errorCallback(response) {
         throw new Error("Error" + response);
       });
+
     })
 
     //right side vertical navigation
