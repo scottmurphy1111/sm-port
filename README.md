@@ -5,4 +5,4 @@ Welcome to my Portfolio!  This app was built using Angular 1.5, this portfolio i
 
 [View on Github Pages](http://scottmurphy1111.github.io/sm-port/#/portfolio)
 
-*Design & Developed by Scott Murphy*
+*Designed & Developed by Scott Murphy*
