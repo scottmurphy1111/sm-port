@@ -134,7 +134,7 @@
 	}
 }
 
-@keyframes showHide {
+@include keyframes(showHide) {
   0% {
   	width:100%
   }
