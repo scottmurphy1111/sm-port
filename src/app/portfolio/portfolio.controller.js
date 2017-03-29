@@ -146,7 +146,7 @@
     })
 
     //scroll through sections
-    .directive('onScroll', function($window, $document, $timeout, $log) {
+    .directive('onScroll', function($window, $document, $timeout) {
         var isWheel = false,//detect scroll wheel (PC)/swipe (Mac)
         movingPanel = false;//detects if animation is in progress
 
@@ -169,10 +169,7 @@
               if(e.deltaMode === 1) {
                 movement = movement * 8;
               }
-
-              $log.log(element);
-              $log.log(nextPanel);
-                     
+                                   
               //swap panels down     
               if(movement > 100 && nextNav) {
                                 
