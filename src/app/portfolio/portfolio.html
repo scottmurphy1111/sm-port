@@ -21,7 +21,7 @@
       </ul>
     </div>
 
-    <section class="top-panel sliding-panel fade-in" on-scroll>
+    <on-scroll class="top-panel sliding-panel fade-in">
       <div class="panel-static">
         <div class="static-inner" ng-class="{'load-content': portfolio.loadMainContent}">
           <h1>
@@ -35,9 +35,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </on-scroll>
 
-    <section class="second-panel sliding-panel fade-out" on-scroll>
+    <on-scroll class="second-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap projects-list">
           <h2 class="category-title">Projects</h2>
@@ -69,9 +69,9 @@
           </ul>
         </div>
       </div>
-    </section>
+    </on-scroll>
 
-    <section class="third-panel sliding-panel fade-out" on-scroll>
+    <on-scroll class="third-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
           <h2 class="category-title">Coding</h2>
@@ -95,9 +95,9 @@
           <p>"Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent. His collaboration was very much appreciated." ~ Lance Rogers - Creative Manager</p>
         </div>
       </div>
-    </section>
+    </on-scroll>
 
-    <section class="fourth-panel sliding-panel fade-out" on-scroll>
+    <on-scroll class="fourth-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
           <h2 class="category-title">About Scott</h2>
@@ -154,9 +154,9 @@
           </ul>
         </div>
       </div>
-    </section>
+    </on-scroll>
 
-    <section class="fifth-panel sliding-panel fade-out" on-scroll>
+    <on-scroll class="fifth-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap">
           <div class="special-note">
@@ -193,16 +193,18 @@
           </div>
         </div>
       </div>
-    </section>
+    </on-scroll>
     
-    <div class="bg-image load-image"></div>
+   
+
+  </div>
+
+   <div class="bg-image load-image"></div>
 
     <p class="enter" ng-class="{'load-icon': portfolio.loadMainContent}">
       <span class="text"><span class="mobile-only">SWIPE&nbsp;</span><span class="desktop-only">SCROLL&nbsp;</span>UP / DOWN</span><br />
       <span class="icon" ng-include="'assets/images/finger-swipe.svg'"></span>
     </p>
-
-  </div>
   <div class="hide">Two Finger Swipe Down by Jeff Portaro from the Noun Project</div>
   <div class="modal-overlay" ng-click="portfolio.closeModal()"></div>
     <div class="modal-window">
