@@ -8,7 +8,7 @@
     .module('website')
     .controller('PortfolioController', function($timeout, $state, $window, $document, $http, $scope) {
 
-      var portfolio = this;//scope to portfolio
+      var portfolio = this;//scope portfolio
         
       portfolio.loadMainContent = false;//flag page load timer
 
@@ -97,6 +97,14 @@
         throw new Error("Error" + response);
       });
 
+      portfolio.data;
+
+      $http({
+        method: 'GET',
+        url: 'data/data.json'
+      }).then(function successCallback(response) {
+        portfolio.data = response.data;
+      });
     })
 
     //right side vertical navigation
