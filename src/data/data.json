@@ -102,6 +102,7 @@
       ],
       "about": [
         {
+          "panelTitle": "About Scott",
           "heading": "Nickname",
           "icon": "",
           "description": "Friends call me Murph"
@@ -119,7 +120,7 @@
         {
           "heading": "Experience",
           "icon": "",
-          "description": "I have been coding for 8 years+"
+          "description": "I have been coding for <span class=\"experience-time\">7</span> years+"
         },
         {
           "heading": "Work Style",
@@ -132,7 +133,7 @@
           "description": "I prefer Sublime Text"
         },
         {
-          "heading": "Favorite Coding Languages",
+          "heading": "Favorite Languages",
           "icon": "",
           "description": "I love Sass and AngularJs"
         },
@@ -144,13 +145,13 @@
       ],
       "contact": [
         {
-          "special note": [
+          "panelTitle": "A Special Note",
+          "specialNote": [
             {
-              "title": "A special note",
               "description": "Thank you for visiting! To put it simply, I love bringing web pages to life.  Whether I'm doing freelance work or embedded into a production team, my strong passion for code keeps me constantly wanting to conquer the daily challenges of front-end development"
             }
           ],
-          "contact": [
+          "contactInfo": [
             {
               "title": "Contact",
               "phone": "336-602-3121",

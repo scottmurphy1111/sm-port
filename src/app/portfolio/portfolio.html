@@ -98,55 +98,55 @@
     <on-scroll class="fourth-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
-          <h2 class="category-title">About Scott</h2>
+          <h2 class="category-title">{{portfolio.data[0].about[0].panelTitle}}</h2>
           <ul>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/person.svg'"></span>Nickname</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/person.svg'"></span>{{portfolio.data[0].about[0].heading}}</div> 
               <div class="content">
-                <p>Friends call me Murph</p>
+                <p>{{portfolio.data[0].about[0].description}}</p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/location.svg'"></span>Location</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/location.svg'"></span>{{portfolio.data[0].about[1].heading}}</div> 
               <div class="content">
-                <p>I live in Richmond, VA</p>
+                <p>{{portfolio.data[0].about[1].description}}</p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/education.svg'"></span>School</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/education.svg'"></span>{{portfolio.data[0].about[2].heading}}</div> 
               <div class="content">
-                <p>I studied Music at App State</p>
+                <p>{{portfolio.data[0].about[2].description}}</p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/exp.svg'"></span>Experience</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/exp.svg'"></span>{{portfolio.data[0].about[3].heading}}</div> 
               <div class="content">
-                <p>I have been coding for <span class="experience-time">7</span>&nbsp;years+</p>
+                <p ng-bind-html="portfolio.data[0].about[3].description"></p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/work-style.svg'"></span>Work Style</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/work-style.svg'"></span>{{portfolio.data[0].about[4].heading}}</div> 
               <div class="content">
-                <p>I'm known to get my hands dirty</p>
+                <p>{{portfolio.data[0].about[4].description}}</p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/tools.svg'"></span>Code Editor</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/tools.svg'"></span>{{portfolio.data[0].about[5].heading}}</div> 
               <div class="content">
-                <p>I prefer Sublime Text</p>
+                <p>{{portfolio.data[0].about[5].description}}</p>
               </div>
             </li>
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/langs.svg'"></span>Favorite Code Languages</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/langs.svg'"></span>{{portfolio.data[0].about[6].heading}}</div> 
               <div class="content">
-                <p>I love SASS and Angular</p>
+                <p>{{portfolio.data[0].about[6].description}}</p>
               </div>
             </li>
             
             <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/golf.svg'"></span>Hobbies</div> 
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/golf.svg'"></span>{{portfolio.data[0].about[7].heading}}</div> 
               <div class="content">
-                <p>Bass/Guitar, golf</p>
+                <p>{{portfolio.data[0].about[7].description}}</p>
               </div>
             </li>            
           </ul>
@@ -158,12 +158,12 @@
       <div class="panel-wrapper">
         <div class="inner-wrap">
           <div class="special-note">
-            <h2 class="category-title">A Special Note</h2>
-            <p>Thank you for visiting! To put it simply, I love bringing web pages to life.  Whether I'm doing freelance work or embedded into a production team, my strong passion for code keeps me constantly wanting to conquer the daily challenges of front-end development.</p>
+            <h2 class="category-title">{{portfolio.data[0].contact[0].panelTitle}}</h2>
+            <p>{{portfolio.data[0].contact[0].specialNote[0].description}}</p>
           </div>
         
           <div class="block left">
-            <h2 class="category-title">Contact</h2>
+            <h2 class="category-title">{{portfolio.data[0].contact[0].contactInfo[0].title}}</h2>
            
             <div class="social">
               <ul>
@@ -175,7 +175,7 @@
            
           </div>
           <div class="block right">
-            <h2 class="category-title">Social</h2>
+            <h2 class="category-title">{{portfolio.data[0].contact[0].social[0].title}}</h2>
             <div class="inner-wrap">
               <div class="social">
                 <ul>
