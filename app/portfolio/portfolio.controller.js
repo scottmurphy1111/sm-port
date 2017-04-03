@@ -55,10 +55,13 @@
         loadContact();
 
         //updates my experience year amount
-        var setDate = $document[0].querySelectorAll('.experience-time'),
-        calcDate = new Date().getFullYear() - 2009;
+        $timeout(function() {
+          var setDate = $document[0].querySelectorAll('.experience-time'),
+          calcDate = new Date().getFullYear() - 2009;
 
-        setDate[0].innerHTML = calcDate;
+          setDate[0].innerHTML = calcDate;
+        }, 1000);
+        
 
       };
 
