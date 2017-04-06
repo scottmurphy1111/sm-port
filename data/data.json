@@ -2,16 +2,16 @@
     {
       "name": "Scott Murphy",
       "title": "Web Developer",
-      "subHeading": "Front-End Development <span class=\"desktop-only\">and&nbsp;</span><br class=\"mobile-only\" />User Interface&nbsp;Design Execution",
+      "subHeading": "Front-End and User Interface <br class=\"mobile-only\" />Development / Design Execution",
       "skills": [
         "html",
         "css",
         "javascript",
-        "responsive",
         "angular",
         "react",
         "node",
-        "sass",
+        "sass/less",
+        "responsive",
         "adobe",
         "version control"
       ],
