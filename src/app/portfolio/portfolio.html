@@ -1,4 +1,4 @@
-<div class="container" ng-init="portfolio.setUpPage()">
+<div class="container" ng-controller="PortfolioCtrl as portfolio" ng-init="portfolio.setUpPage()">
   <div class="panel">
 
     <div class="vert-nav" ng-class="{'show': portfolio.loadMainContent}">
@@ -29,7 +29,7 @@
           </h1>         
           <p class="tagline" ng-class="{'show': portfolio.loadMainContent}" ng-bind-html="portfolio.data[0].subHeading"></p>
           <div class="skills" ng-class="{'show': portfolio.loadMainContent}">
-            <span class="to-reveal">{{portfolio.data[0].skills[0]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[1]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[2]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{portfolio.data[0].skills[3]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[4]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[5]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[6]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{portfolio.data[0].skills[7]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[8]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[9]}}</span>
+            <span class="to-reveal">{{portfolio.data[0].skills[0]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[1]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[2]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{portfolio.data[0].skills[3]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[4]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[5]}}</span>
           </div>
         </div>
       </div>
@@ -59,9 +59,8 @@
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/c9.svg'"></span>{{portfolio.data[0].projects[2].companyName}} - {{portfolio.data[0].projects[2].role}}</p>
               <ul>
-                <li><a class="proj-link" href="http://cloud9webdesigns.com/" target="_blank">{{portfolio.data[0].projects[2].sites[0].name}}</a></li>
-                <li><a class="proj-link" href="http://1stopministorage.com/" target="_blank">{{portfolio.data[0].projects[2].sites[1].name}}</a></li>
-                <li><a class="proj-link" href="http://katieadcock.com/" target="_blank">{{portfolio.data[0].projects[2].sites[2].name}}</a></li>
+                <li><a class="proj-link" href="http://1stopministorage.com/" target="_blank">{{portfolio.data[0].projects[2].sites[0].name}}</a></li>
+                <li><a class="proj-link" href="http://katieadcock.com/" target="_blank">{{portfolio.data[0].projects[2].sites[1].name}}</a></li>
               </ul>
             </li>
           </ul>
