@@ -1,24 +1,20 @@
 [
     {
       "name": "Scott Murphy",
-      "title": "Web Developer",
-      "subHeading": "Front-End and User Interface <br class=\"mobile-only\" />Development / Design Execution",
+      "title": "Front-End Engineer",
+      "subHeading": "Front-End / User Interface Development",
       "skills": [
-        "html",
-        "css",
-        "javascript",
         "angular",
-        "react",
-        "node",
-        "sass/less",
-        "responsive",
-        "adobe",
+        "javascript",
+        "sass/less/css",
+        "svg animation",
+        "gulp",
         "version control"
       ],
       "projects": [
         {
           "panelTitle": "Projects",
-          "companyName": "Capital One",
+          "companyName": "Celerity IT",
           "icon": "",
           "role": "Front-end Developer",
           "sites": [
@@ -56,14 +52,10 @@
           ]
         },
         {
-          "companyName": "Cloud 9",
+          "companyName": "Freelance",
           "icon": "",
           "role": "Web Developer",
           "sites": [
-            {
-              "name": "Cloud 9 Web Designs",
-              "link": ""
-            },
             {
               "name": "1 Stop Mini Storage",
               "link": ""
@@ -130,7 +122,7 @@
         {
           "heading": "Code Editor",
           "icon": "",
-          "description": "I prefer Sublime Text"
+          "description": "I prefer Visual Studio Code"
         },
         {
           "heading": "Favorite Languages",
@@ -148,7 +140,7 @@
           "panelTitle": "A Special Note",
           "specialNote": [
             {
-              "description": "Thank you for visiting! To put it simply, I love bringing web pages to life.  Whether I'm doing freelance work or embedded into a production team, my strong passion for code keeps me constantly wanting to conquer the daily challenges of front-end development"
+              "description": "THANK YOU FOR VISITING! TO PUT IT SIMPLY, I LOVE BRINGING WEB PAGES TO LIFE. WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, MY STRONG PASSION FOR CODE KEEPS ME CONSTANTLY WANTING TO CONQUER THE DAILY CHALLENGES OF FRONT-END AND USER INTERFACE DEVELOPMENT"
             }
           ],
           "contactInfo": [

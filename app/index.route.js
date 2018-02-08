@@ -8,23 +8,11 @@
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
       .state('portfolio', {
         url: '/portfolio',
         templateUrl: 'app/portfolio/portfolio.html',
-        controller: 'PortfolioController',
+        controller: 'PortfolioCtrl',
         controllerAs: 'portfolio'
-      })
-      .state('blank', {
-        url: '/blank',
-        templateUrl: 'app/blank/blank.html',
-        controller: 'BlankController',
-        controllerAs: 'blank'
       });
 
     $urlRouterProvider.otherwise('/portfolio');
