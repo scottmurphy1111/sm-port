@@ -10,7 +10,7 @@
     $stateProvider
       .state('portfolio', {
         url: '/portfolio',
-        templateUrl: 'app/portfolio/portfolio.html',
+        templateUrl: 'app/components/portfolio/portfolio.html',
         controller: 'PortfolioCtrl',
         controllerAs: 'portfolio'
       });

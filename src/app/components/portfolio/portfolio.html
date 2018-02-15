@@ -29,7 +29,7 @@
           </h1>         
           <p class="tagline" ng-class="{'show': portfolio.loadMainContent}" ng-bind-html="portfolio.data[0].subHeading"></p>
           <div class="skills" ng-class="{'show': portfolio.loadMainContent}">
-            <span class="to-reveal">{{portfolio.data[0].skills[0]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[1]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[2]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{portfolio.data[0].skills[3]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[4]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[5]}}</span>
+            <span class="to-reveal">{{portfolio.data[0].skills[0]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[1]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[2]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{portfolio.data[0].skills[3]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[4]}}</span><span class="to-reveal desktop-only pipe">|</span><span class="to-reveal">{{portfolio.data[0].skills[5]}}</span>
           </div>
         </div>
       </div>
@@ -43,9 +43,9 @@
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>{{portfolio.data[0].projects[0].companyName}} - {{portfolio.data[0].projects[0].role}}</p>
               <ul>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/personal-loans.html'" href="#">{{portfolio.data[0].projects[0].sites[0].name}}</a></li>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/creditwise.html'" href="#">{{portfolio.data[0].projects[0].sites[1].name}}</a></li>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/portfolio/modal-templates/income-calc.html'" href="#">{{portfolio.data[0].projects[0].sites[2].name}}</a></li>
+                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/personal-loans.html'" href="#">{{portfolio.data[0].projects[0].sites[0].name}}</a></li>
+                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/creditwise.html'" href="#">{{portfolio.data[0].projects[0].sites[1].name}}</a></li>
+                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/income-calc.html'" href="#">{{portfolio.data[0].projects[0].sites[2].name}}</a></li>
               </ul>
             </li>
             <li>
