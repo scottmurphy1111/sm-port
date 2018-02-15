@@ -1,14 +1,14 @@
 [
     {
       "name": "Scott Murphy",
-      "title": "Front-End Engineer",
-      "subHeading": "Front-End / User Interface Development",
+      "title": "Software Engineer",
+      "subHeading": "Front-End & User Interface <br class='mobile-only' />Web Development",
       "skills": [
         "angular",
         "javascript",
         "sass/less/css",
         "svg animation",
-        "gulp",
+        "task/test automation",
         "version control"
       ],
       "projects": [
