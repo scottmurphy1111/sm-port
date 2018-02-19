@@ -5,9 +5,9 @@
 	.module('website')
 	.controller('PortfolioCtrl', PortfolioCtrl);
 
-	PortfolioCtrl.$inject =['$timeout', '$state', '$window', '$document', '$http', '$scope'];
+	PortfolioCtrl.$inject =['$timeout', '$state', '$window', '$document', '$http', '$scope', 'contentFactory'];
 
-	function PortfolioCtrl($timeout, $state, $window, $document, $http, $scope) {
+	function PortfolioCtrl($timeout, $state, $window, $document, $http, $scope, contentFactory) {		
 		var portfolio = this;//scope portfolio
 	
 		portfolio.loadMainContent = false;//flag page load timer
@@ -100,13 +100,12 @@
 			throw new Error("Error" + response);
 		});
 
-		//portfolio.data;
+		$scope.content = [];
+		$scope.coding = [];
 
-		$http({
-			method: 'GET',
-			url: 'data/data.json'
-		}).then(function successCallback(response) {
-			portfolio.data = response.data;
+		contentFactory.then(function(response) {
+			$scope.content = response.data[0].content[0];
+			$scope.coding = response.data[0].content[0].coding;
 		});
 	}
 })();

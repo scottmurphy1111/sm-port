@@ -1,186 +1,190 @@
 [
     {
-      "name": "Scott Murphy",
-      "title": "Software Engineer",
-      "subHeading": "Front-End & User Interface <br class='mobile-only' />Web Development",
-      "skills": [
-        "angular",
-        "javascript",
-        "sass/less/css",
-        "svg animation",
-        "task/test automation",
-        "version control"
-      ],
-      "projects": [
-        {
-          "panelTitle": "Projects",
-          "companyName": "Celerity IT",
-          "icon": "",
-          "role": "Front-end Developer",
-          "sites": [
-            {
-              "name": "Personal Loans",
-              "link": ""
-            },
-            {
-              "name": "Creditwise",
-              "link": ""
-            },
-            {
-              "name": "Income Calculator",
-              "link": ""
-            }
-          ]
-        },
-        {
-          "companyName": "Rocket Pop Media",
-          "icon": "",
-          "role": "Web Developer",
-          "sites": [
-            {
-              "name": "VCU Ramtech",
-              "link": ""
-            },
-            {
-              "name": "Willow Lawn Mall",
-              "link": ""
-            },
-            {
-              "name": "Olli Salumeria",
-              "link": ""
-            }
-          ]
-        },
-        {
-          "companyName": "Freelance",
-          "icon": "",
-          "role": "Web Developer",
-          "sites": [
-            {
-              "name": "1 Stop Mini Storage",
-              "link": ""
-            },
-            {
-              "name": "Katie Adcock - Designer",
-              "link": ""
-            }
-          ]
-        }
-      ],
-      "coding": [
-        {
-          "panelTitle": "Coding",
-          "title": "Design Execution",
-          "description": "I utilize HTML/CSS/JAVASCRIPT to implement smooth animations and optimized visual elements into web user interfaces",
-          "image": ""
-        },
-        {
-          "title": "Efficient Coding",
-          "description": "I deliver lean, mean and clean front-end code that is ready for use in production environments and custom websites",
-          "image": ""
-        }
-      ],
-      "testimonials": [
-        {
-          "person": "John Jones",
-          "role": "Designer",
-          "review": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye."
-        },
-        {
-          "person": "Lance Rogers",
-          "role": "Creative Manager",
-          "review": "Scott was easy to work with, very open to trying alternate ideas and developing creative code option for, sometimes challenging, UI intent.  His collaboration was very much appreciated."
-        }
-      ],
-      "about": [
-        {
-          "panelTitle": "About Scott",
-          "heading": "Nickname",
-          "icon": "",
-          "description": "Friends call me Murph"
-        },
-        {
-          "heading": "Location",
-          "icon": "",
-          "description": "I live in Richmond, VA"
-        },
-        {
-          "heading": "School",
-          "icon": "",
-          "description": "I studied Music at Appalachian State"
-        },
-        {
-          "heading": "Experience",
-          "icon": "",
-          "description": "I have been coding for <span class=\"experience-time\">7</span> years+"
-        },
-        {
-          "heading": "Work Style",
-          "icon": "",
-          "description": "I'm known to get my hands dirty"
-        },
-        {
-          "heading": "Code Editor",
-          "icon": "",
-          "description": "I prefer Visual Studio Code"
-        },
-        {
-          "heading": "Favorite Languages",
-          "icon": "",
-          "description": "I love Sass and AngularJs"
-        },
-        {
-          "heading": "Hobbies",
-          "icon": "",
-          "description": "Bass/Guitar, Golf"
-        }
-      ],
-      "contact": [
-        {
-          "panelTitle": "A Special Note",
-          "specialNote": [
-            {
-              "description": "THANK YOU FOR VISITING! TO PUT IT SIMPLY, I LOVE BRINGING WEB PAGES TO LIFE. WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, MY STRONG PASSION FOR CODE KEEPS ME CONSTANTLY WANTING TO CONQUER THE DAILY CHALLENGES OF FRONT-END AND USER INTERFACE DEVELOPMENT"
-            }
+      "content": [
+        {        
+          "name": "Scott Murphy",
+          "title": "Software Engineer",
+          "subHeading": "Front-End & User Interface <br class='mobile-only' />Web Development",
+          "skills": [
+            "angular",
+            "javascript",
+            "sass/less",
+            "html",
+            "svg animation",
+            "build tools",
+            "version control"
           ],
-          "contactInfo": [
+          "projects": [
             {
-              "title": "Contact",
-              "phone": "336-602-3121",
-              "email": "scottmurphy1111@gmail.com"
-            }
-          ],
-          "social": [
-            {
-              "title": "Social",
+              "panelTitle": "Projects",
+              "companyName": "Celerity IT",
+              "icon": "",
+              "role": "Front-end Developer",
               "sites": [
                 {
-                  "title": "Github",
-                  "icon": "",
+                  "name": "Personal Loans",
                   "link": ""
                 },
                 {
-                  "title": "Stack Overflow",
-                  "icon": "",
+                  "name": "Creditwise",
                   "link": ""
                 },
                 {
-                  "title": "jsFiddle",
-                  "icon": "",
-                  "link": ""
-                },
-                {
-                  "title": "LinkedIn",
-                  "icon": "",
+                  "name": "Income Calculator",
                   "link": ""
                 }
               ]
-              
+            },
+            {
+              "companyName": "Rocket Pop Media",
+              "icon": "",
+              "role": "Web Developer",
+              "sites": [
+                {
+                  "name": "VCU Ramtech",
+                  "link": ""
+                },
+                {
+                  "name": "Willow Lawn Mall",
+                  "link": ""
+                },
+                {
+                  "name": "Olli Salumeria",
+                  "link": ""
+                }
+              ]
+            },
+            {
+              "companyName": "Freelance",
+              "icon": "",
+              "role": "Web Developer",
+              "sites": [
+                {
+                  "name": "1 Stop Mini Storage",
+                  "link": ""
+                },
+                {
+                  "name": "Katie Adcock - Designer",
+                  "link": ""
+                }
+              ]
+            }
+          ],
+          "coding": [
+            {
+              "panelTitle": "Coding",
+              "title": "Design Execution",
+              "description": "I utilize HTML/CSS/JAVASCRIPT to implement smooth animations and optimized visual elements into web user interfaces",
+              "image": "assets/images/portfolio/design-execution.png"
+            },
+            {
+              "title": "Efficient Coding",
+              "description": "I deliver lean, mean and clean front-end code that is ready for use in production environments and custom websites",
+              "image": "assets/images/portfolio/prod-code.png"
+            }
+          ],
+          "testimonials": [
+            {
+              "person": "John Jones",
+              "role": "Designer",
+              "review": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye."
+            },
+            {
+              "person": "Lance Rogers",
+              "role": "Creative Manager",
+              "review": "Scott was easy to work with, very open to trying alternate ideas and developing creative code option for, sometimes challenging, UI intent.  His collaboration was very much appreciated."
+            }
+          ],
+          "about": [
+            {
+              "panelTitle": "About Scott",
+              "heading": "Nickname",
+              "icon": "",
+              "description": "Friends call me Murph"
+            },
+            {
+              "heading": "Location",
+              "icon": "",
+              "description": "I live in Richmond, VA"
+            },
+            {
+              "heading": "School",
+              "icon": "",
+              "description": "I studied Music at Appalachian State"
+            },
+            {
+              "heading": "Experience",
+              "icon": "",
+              "description": "I have been coding for <span class=\"experience-time\">7</span> years+"
+            },
+            {
+              "heading": "Work Style",
+              "icon": "",
+              "description": "I'm known to get my hands dirty"
+            },
+            {
+              "heading": "Code Editor",
+              "icon": "",
+              "description": "I prefer Visual Studio Code"
+            },
+            {
+              "heading": "Favorite Languages",
+              "icon": "",
+              "description": "I love Sass and AngularJs"
+            },
+            {
+              "heading": "Hobbies",
+              "icon": "",
+              "description": "Bass/Guitar, Golf"
+            }
+          ],
+          "contact": [
+            {
+              "panelTitle": "A Special Note",
+              "specialNote": [
+                {
+                  "description": "THANK YOU FOR VISITING! TO PUT IT SIMPLY, I LOVE BRINGING WEB PAGES TO LIFE. WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, MY STRONG PASSION FOR CODE KEEPS ME CONSTANTLY WANTING TO CONQUER THE DAILY CHALLENGES OF FRONT-END AND USER INTERFACE DEVELOPMENT"
+                }
+              ],
+              "contactInfo": [
+                {
+                  "title": "Contact",
+                  "phone": "336-602-3121",
+                  "email": "scottmurphy1111@gmail.com"
+                }
+              ],
+              "social": [
+                {
+                  "title": "Social",
+                  "sites": [
+                    {
+                      "title": "Github",
+                      "icon": "",
+                      "link": ""
+                    },
+                    {
+                      "title": "Stack Overflow",
+                      "icon": "",
+                      "link": ""
+                    },
+                    {
+                      "title": "jsFiddle",
+                      "icon": "",
+                      "link": ""
+                    },
+                    {
+                      "title": "LinkedIn",
+                      "icon": "",
+                      "link": ""
+                    }
+                  ]
+                  
+                }
+              ]
             }
           ]
         }
       ]
-
     }
     
   ]
