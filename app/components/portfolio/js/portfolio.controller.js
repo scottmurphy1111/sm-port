@@ -20,6 +20,10 @@
 				portfolio.loadMainContent = true;
 			}, 800);
 
+			$timeout(function() {
+				portfolio.removeDelays = true;
+			}, 5000);
+
 			//add animation class to home section skills
 			var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
 		
