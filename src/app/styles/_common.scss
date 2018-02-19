@@ -163,6 +163,10 @@
 			@include prefixed(transition, all 0.5s ease-out 0.5s);
 			@include hacks();
 		}
+
+		&.remove-delay {
+			@include prefixed(transition, 0s all ease-out 0s);
+		}
 	}
 }
 
@@ -212,8 +216,12 @@ span.logo {
 	left: 25%;
 
   &.show {
-  	@include prefixed(transition, 0.4s all ease-out 2s);
+	  @include prefixed(transition, 0.4s all ease-out 2s);
   	left: 0%;
+  }
+
+  &.remove-delay {
+	@include prefixed(transition, 0s all ease-out 0s);
   }
 
   @include mobile {
@@ -432,6 +440,14 @@ span.logo {
 		opacity: 1;
 		bottom: 20px;
 		@include prefixed(transition, 0.35s all ease-out 0.35s);
+	}
+
+	&.remove-delay {
+		@include prefixed(transition, 0s all ease-out 0s);
+
+		span.text {
+			@include prefixed(transition, 0s all ease-out 0s !important);
+		}
 	}
 
 	&:hover {
