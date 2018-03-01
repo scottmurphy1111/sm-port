@@ -11,8 +11,6 @@
       .state('portfolio', {
         url: '/portfolio',
         templateUrl: 'app/components/portfolio/portfolio.html'
-        // controller: 'PortfolioCtrl',
-        // controllerAs: 'portfolio'
       });
 
     $urlRouterProvider.otherwise('/portfolio');

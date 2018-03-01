@@ -75,66 +75,56 @@
               "panelTitle": "Coding",
               "title": "Design Execution",
               "description": "I utilize HTML/CSS/JAVASCRIPT to implement smooth animations and optimized visual elements into web user interfaces",
-              "image": "assets/images/portfolio/design-execution.png"
+              "image": "assets/images/portfolio/design-execution.png",
+              "testimonial": "\"Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye.\" ~ John Jones - Designer"
             },
             {
               "title": "Efficient Coding",
               "description": "I deliver lean, mean and clean front-end code that is ready for use in production environments and custom websites",
-              "image": "assets/images/portfolio/prod-code.png"
-            }
-          ],
-          "testimonials": [
-            {
-              "person": "John Jones",
-              "role": "Designer",
-              "review": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye."
-            },
-            {
-              "person": "Lance Rogers",
-              "role": "Creative Manager",
-              "review": "Scott was easy to work with, very open to trying alternate ideas and developing creative code option for, sometimes challenging, UI intent.  His collaboration was very much appreciated."
+              "image": "assets/images/portfolio/prod-code.png",
+              "testimonial": "\"Scott was easy to work with, very open to trying alternate ideas and developing creative code option for, sometimes challenging, UI intent.  His collaboration was very much appreciated.\" ~ Lance Rogers - Creative Manager"
             }
           ],
           "about": [
             {
               "panelTitle": "About Scott",
               "heading": "Nickname",
-              "icon": "",
+              "icon": "assets/images/portfolio/person.svg",
               "description": "Friends call me Murph"
             },
             {
               "heading": "Location",
-              "icon": "",
+              "icon": "assets/images/portfolio/location.svg",
               "description": "I live in Richmond, VA"
             },
             {
               "heading": "School",
-              "icon": "",
+              "icon": "assets/images/portfolio/education.svg",
               "description": "I studied Music at Appalachian State"
             },
             {
               "heading": "Experience",
-              "icon": "",
+              "icon": "assets/images/portfolio/exp.svg",
               "description": "I have been coding for <span class=\"experience-time\">7</span> years+"
             },
             {
               "heading": "Work Style",
-              "icon": "",
+              "icon": "assets/images/portfolio/work-style.svg",
               "description": "I'm known to get my hands dirty"
             },
             {
               "heading": "Code Editor",
-              "icon": "",
+              "icon": "assets/images/portfolio/tools.svg",
               "description": "I prefer Visual Studio Code"
             },
             {
               "heading": "Favorite Languages",
-              "icon": "",
+              "icon": "assets/images/portfolio/langs.svg",
               "description": "I love Sass and AngularJs"
             },
             {
               "heading": "Hobbies",
-              "icon": "",
+              "icon": "assets/images/portfolio/golf.svg",
               "description": "Bass/Guitar, Golf"
             }
           ],

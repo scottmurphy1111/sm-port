@@ -77,8 +77,33 @@
 			}, 100);
 		};
 
+		portfolio.showContent = function(index) {
+			var codeLinks = $document[0].querySelectorAll('.third-panel .code-link'),
+			clicked = codeLinks[index],
+			contentAll = $document[0].querySelectorAll('.third-panel .content'),
+			clickedContent = clicked.nextElementSibling;
+
+			if(clickedContent.classList.contains('show')) {
+				for(var i = 0; i < contentAll.length; i++) {
+					contentAll[i].classList.remove('show');
+					codeLinks[i].classList.remove('is-open');
+				}
+
+				clickedContent.classList.remove('show');
+			} else {
+				for(var n = 0; n < contentAll.length; n++) {
+					codeLinks[n].classList.remove('is-open');
+					contentAll[n].classList.remove('show');
+				}
+
+				clicked.classList.add('is-open');
+				clickedContent.classList.add('show');
+			}
+			
+		};
+
 		//set project jsfiddle var
-		portfolio.chosenTemplate = "app/portfolio/modal-templates/creditwise.html";
+		portfolio.chosenTemplate = "app/components/portfolio/modal-templates/creditwise.html";
 
 	
 		//get Stack Overflow reputation/badge count using API
@@ -106,10 +131,12 @@
 
 		$scope.content = [];
 		$scope.coding = [];
+		$scope.about = [];
 
 		contentFactory.then(function(response) {
 			$scope.content = response.data[0].content[0];
 			$scope.coding = response.data[0].content[0].coding;
+			$scope.about = response.data[0].content[0].about;
 		});
 	}
 })();
