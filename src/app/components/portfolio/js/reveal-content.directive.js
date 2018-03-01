@@ -8,7 +8,7 @@
         var linkFunction = function(scope, element) {
             element.bind('click', function() {
                 var content = element.next(),
-                allContent = $document[0].querySelectorAll('.snippets li .content');
+                allContent = $document[0].querySelectorAll('.fourth-panel .snippets li .content');
                 
                 //hide content divs
                 if(content.hasClass('show')){
@@ -29,8 +29,8 @@
                     content.addClass('show');
 
                     //reveal letters one at a time
-                    var contentText = $document[0].querySelectorAll('.content.show p')[0].textContent,
-                    updatePlace = $document[0].querySelectorAll('.content.show p')[0],
+                    var contentText = $document[0].querySelectorAll('.fourth-panel .content.show p')[0].textContent,
+                    updatePlace = $document[0].querySelectorAll('.fourth-panel .content.show p')[0],
                     current = 0,
                     height = content.children()[0].clientHeight;
                     
