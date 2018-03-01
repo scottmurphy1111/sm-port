@@ -444,7 +444,6 @@ span.logo {
 	}
 
 	&.remove-delay {
-		//@include prefixed(transition, 0s all ease-out 0s);
 
 		span.text {
 			@include prefixed(transition, 0s all ease-out 0s !important);
@@ -669,7 +668,7 @@ span.logo {
 
 	p {
 		color: #fff;
-		margin: 12px 30px 12px 0px;
+		margin: 12px 0px 12px 0px;
 		transition: 0.15s all linear 0s;
 		padding-left: 0;
 		opacity: 0;

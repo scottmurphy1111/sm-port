@@ -39,7 +39,6 @@
 							border-radius: 0;
 						}
 					}
-
 				}
 			}
 
@@ -47,7 +46,6 @@
 				@include box-sizing(border-box);
 				display: inline-block;
 				opacity: 1;
-				float: left;
 				transition: 0.1s all ease-out 0s;
 				width: 100%;
 			    margin: 0 0px 8px 0;
@@ -58,7 +56,6 @@
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
 				@include hacks();
-				//font-size: 1rem;
 				text-transform: uppercase;
 				text-align: left;
 
@@ -67,9 +64,7 @@
 
 				.code-link {
 					cursor: pointer;
-					color: $blueThin;
-
-				
+					color: $blueThin;				
 
 					.bio-icon-inner {
 					    fill: #fff;
@@ -78,12 +73,10 @@
 					.bio-icon-circle {
 					    fill: #51d4ff;
 					}
-				}
-
-			
+				}			
 
 				.bio-icon {
-					display: inline-block;
+					display: block;
 				    width: 32px;
 				    height: 32px;
 				    position: relative;
@@ -115,13 +108,6 @@
 							fill: #fff;
 						}
 					}
-					
-				
-
-				&:nth-child(odd) {
-					//text-align: center;
-					//border-right: 1px solid rgba(255,255,255,0.5);
-				}
 
 				&.show-li {
 					opacity: 1;
