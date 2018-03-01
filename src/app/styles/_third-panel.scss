@@ -1,6 +1,15 @@
 .third-panel {
 	color: $primaryColor;
 
+	&:after {
+		position:absolute; 
+		width:0; 
+		height:0; 
+		overflow:hidden; 
+		z-index:-1;
+    	content:url(../assets/images/portfolio/minus.svg) url(../assets/images/portfolio/plus.svg);
+	}
+
 	.logo-circle {
 		stroke: #fff;
 	}
@@ -39,7 +48,7 @@
 				overflow: hidden;
 				-webkit-tap-highlight-color: transparent;
 				@include hacks();
-				font-size: 1em;
+				//font-size: 1rem;
 				text-transform: uppercase;
 				float: left;
 				@include box-sizing(border-box);
@@ -60,6 +69,12 @@
 
 				.code-link {
 					cursor: pointer;
+
+					&.is-open {
+						&:before {
+							background: url(../assets/images/portfolio/minus.svg);
+						}
+					}
 
 					&:before {
 						content: '';
@@ -90,7 +105,7 @@
 				    transition: 0.15s all linear;
 				    left: 28px;
 				    position: relative;
-				    top: 0px;
+					top: 0px;
 
 				    @include mobile {
 				    	margin-left: 0px;
@@ -112,23 +127,24 @@
 				    }
 
 				    img {
-				    	transition: 0.4s all linear 0.2s;
+						transform: translateX(-30px);
+				    	transition: 0.2s all 0s ease-in;
 				    	width: 100%;
 						max-width: 600px;
 						margin-bottom: 10px;
 					    display: block;
 					    position: relative;
-					    top: 70px;
+					    top: 0px;
 						opacity: 0;
 						visibility: hidden;
 				    }
 
 				    &.show {
-				    	height: 420px;
+				    	height: 550px;
 				    	top: 0;
 
 				    	@include mobile {
-				    		height: 250px;
+				    		height: 420px;
 				    	}
 
 				    	p {
@@ -139,7 +155,7 @@
 				    	}
 
 				    	img {
-						    top: 0;
+						    transform: translateX(0);
 						    opacity: 1;
 						    visibility: visible;
 						}

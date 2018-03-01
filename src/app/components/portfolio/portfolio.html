@@ -74,22 +74,14 @@
           <h2 class="category-title">{{coding[0].panelTitle}}</h2>
           <ul>
             <li ng-repeat="code in coding">
-              <div class="code-link" reveal-content>{{code.title}}</div>
+              <div class="code-link" ng-click="portfolio.showContent($index)">{{code.title}}</div>
               <div class="content">
                 <p>{{code.description}}</p>
                 <img ng-src="{{code.image}}" />
+                <p class="testimonial-copy">{{code.testimonial}}</p>
               </div>
             </li>
-            <!-- <li>
-              <div class="code-link" reveal-content>{{content.coding[1].title}}</div>
-              <div class="content">
-                <p>{{content.coding[1].description}}</p>
-                <img src="code.image" />
-              </div>
-            </li> -->
           </ul>
-          <p>"{{content.testimonials[0].review}}" ~ {{content.testimonials[0].person}} - {{content.testimonials[0].role}}</p><br />
-          <p>"{{content.testimonials[1].review}}" ~ {{content.testimonials[1].person}} - {{content.testimonials[1].role}}</p>
         </div>
       </div>
     </on-scroll>
@@ -97,57 +89,14 @@
     <on-scroll class="fourth-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
-          <h2 class="category-title">{{content.about[0].panelTitle}}</h2>
+          <h2 class="category-title">{{about[0].panelTitle}}</h2>
           <ul>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/person.svg'"></span>{{content.about[0].heading}}</div> 
+            <li ng-repeat="bio in about">
+              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="bio.icon"></span>{{bio.heading}}</div> 
               <div class="content">
-                <p>{{content.about[0].description}}</p>
+                <p ng-bind-html="bio.description"></p>
               </div>
             </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/location.svg'"></span>{{content.about[1].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[1].description}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/education.svg'"></span>{{content.about[2].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[2].description}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/exp.svg'"></span>{{content.about[3].heading}}</div> 
-              <div class="content">
-                <p ng-bind-html="content.about[3].description"></p>
-              </div>
-            </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/work-style.svg'"></span>{{content.about[4].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[4].description}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/tools.svg'"></span>{{content.about[5].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[5].description}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/langs.svg'"></span>{{content.about[6].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[6].description}}</p>
-              </div>
-            </li>
-            
-            <li>
-              <div class="code-link" reveal-content><span class="bio-icon left" ng-include="'assets/images/portfolio/golf.svg'"></span>{{content.about[7].heading}}</div> 
-              <div class="content">
-                <p>{{content.about[7].description}}</p>
-              </div>
-            </li>            
           </ul>
         </div>
       </div>
@@ -160,18 +109,14 @@
             <h2 class="category-title">{{content.contact[0].panelTitle}}</h2>
             <p>{{content.contact[0].specialNote[0].description}}</p>
           </div>
-        
           <div class="block left">
             <h2 class="category-title">{{content.contact[0].contactInfo[0].title}}</h2>
-           
             <div class="social">
               <ul>
                 <li class="insert-phone"></li>
                 <li class="insert-email"></li>
-                
               </ul>
             </div>
-           
           </div>
           <div class="block right">
             <h2 class="category-title">{{content.contact[0].social[0].title}}</h2>
@@ -182,8 +127,6 @@
                   <li><a title="Stack Overflow" target="_blank" href="http://stackoverflow.com/users/5711949/scott-murphy"><div class="so-info rep" title="Reputation Score">{{totalSoRep}}</div><div class="so-info badges" title="Badge Count">{{totalSoBadges}}</div><img src="assets/images/portfolio/stk-o.svg" /></a></li>
                   <li><a title="jsFiddle" target="_blank" href="https://jsfiddle.net/user/scottmurphy1111/fiddles/"><img src="assets/images/portfolio/jsfiddle.svg" /></a></li>
                   <li><a title="linkedIn" target="_blank" href="https://www.linkedin.com/in/scottmurphy1111"><img src="assets/images/portfolio/linkd-in.svg" /></a></li>
-                  <!-- <li></li>
-                  <li></li> -->
                 </ul>
               </div>
             </div>

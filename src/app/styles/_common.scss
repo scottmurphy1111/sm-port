@@ -13,7 +13,6 @@
 	-webkit-font-smoothing: antialiased;
 	font-weight: bold;
 
-
 	&.dim {
 		opacity: 0.25;
 	}
@@ -152,10 +151,10 @@
 	.static-inner {
 		position: relative;
 		transform: scale(0,0);
-		font-size: 24px;
+		font-size: 1.5rem;
 
 		@include mobile {
-			font-size: 18px;
+			font-size: 1.125rem;
 		}
 
 		&.load-content {
@@ -190,7 +189,7 @@
 	text-align: left;
 	margin: 0 auto;
 	padding: 0 12px;
-	font-size: 24px;
+	font-size: 1.5rem;
 	color: #fff;
 	@include box-sizing(border-box);
 
@@ -200,7 +199,7 @@
 	}
 
 	@include mobile {
-		font-size: 18px;
+		font-size: 1.125rem;
 		width: 100%;
 		padding: 0;
 	}
@@ -316,7 +315,7 @@ span.logo {
 	line-height: 10vh !important;
 	margin: 0 auto;
 	height: 10vh;
-	font: 1.5em $font-extralight;
+	font: 1.5rem $font-extralight;
 	text-align: left;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -349,7 +348,7 @@ span.logo {
     }
 
     p {
-    	font: 1.25em $font-light;
+    	font: 1.25rem $font-light;
     	text-transform: uppercase;
     }
 
@@ -389,6 +388,8 @@ span.logo {
 	@include prefixed(transition, transform 0.3s ease-out);
 	@include prefixed(transition, top .3s ease-out .05s);
 	transform: scale(0,0);
+	background: url(../assets/images/me-trans.png) no-repeat center center;
+	background-size: cover;
 
 	&.load-image {
 		transform: scale(1,1);
@@ -396,11 +397,11 @@ span.logo {
 	}
 
 	@include mobile {
-		background-size: 100%;
+		background-size: cover;
 	}
 
 	@include landscape {
-		background-size: 60%;
+		background-size: cover;
 	}
 }
 
@@ -417,7 +418,7 @@ span.logo {
 	opacity: 0;
 	overflow: hidden;
 	@include prefixed(transition, 0.5s all ease-out);
-	font: 20px $font-light;
+	font: 1.25rem $font-light;
 	@include hacks();
 
 	&.load-icon {
@@ -443,7 +444,7 @@ span.logo {
 	}
 
 	&.remove-delay {
-		@include prefixed(transition, 0s all ease-out 0s);
+		//@include prefixed(transition, 0s all ease-out 0s);
 
 		span.text {
 			@include prefixed(transition, 0s all ease-out 0s !important);
@@ -503,7 +504,7 @@ span.logo {
 	}
 
 	@include mobile {
-		font: 16px $font-light;
+		font: 1rem $font-light;
 		&.show {
 			bottom: 20px;
 			visibility: visible;

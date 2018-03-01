@@ -20,8 +20,17 @@ body {
   color: #fff;
   -webkit-backface-visibility: hidden;
 
+  &:after {
+		position:absolute; 
+		width:0; 
+		height:0; 
+		overflow:hidden; 
+		z-index:-1;
+    	content:url(../assets/images/portfolio/minus.svg) url(../assets/images/portfolio/plus.svg) url(../assets/images/me-trans.png) url(../assets/images/digi-bg1.png);
+	}
+
   @include mobile {
-    font: 14px $font-light;    
+    //font: 14px $font-light;    
   }
 }
 
