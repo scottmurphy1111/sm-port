@@ -209,14 +209,16 @@ span.logo {
 	display: inline-block;
 	width: 48px;
 	height: 48px;
-	position: relative;
-	top: 15px;
-	margin-right: 6px;
-	left: 25%;
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+
 
   &.show {
-	  @include prefixed(transition, 0.4s all ease-out 2s);
-  	left: 0%;
+	  	@include prefixed(transition, 0.4s all ease-out 2s);
+		  transform: translateX(-60%);
+		  left:5%;
   }
 
   &.remove-delay {
@@ -224,15 +226,9 @@ span.logo {
   }
 
   @include mobile {
-  	top: 6px;
+  	top: 0px;
 	width: 29px;
 	height: 29px;
-	margin-right: 4px;
-  	left: 45%;
-
-  	&.show {
-  		left: -16px;
-  	}
   }
 }
 
@@ -324,7 +320,7 @@ span.logo {
 	span.logo {
 		width: 25px;
 		height: 25px;
-    top: 5px;	
+    	top: 5px;	
 	}
 }
 

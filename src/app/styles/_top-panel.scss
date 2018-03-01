@@ -5,7 +5,7 @@
 		font-size: 2em;
 		margin: 0 auto 4px;
 		color: $blueThin;
-		width: 100%;
+		width: 768px;
 		position: relative;
 
 		@include mobile {
@@ -37,7 +37,7 @@
 			@include prefixed(transition, all 0.25s ease-out 2.25s);
 
 			&.show {
-				left: -16px;
+				left: 10px;
 			}
 		}
 	}

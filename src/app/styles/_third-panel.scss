@@ -115,7 +115,7 @@
 
 				    p {
 				    	color: #fff;
-				    	margin: 12px 0px 12px 0px;
+				    	margin: 12px 12px 12px 0px;
 				    	transition: 0.15s all linear 0s;
 				    	padding-left: 0;
 				    	opacity: 0;
@@ -123,7 +123,8 @@
 				    	
 
 				    	@include mobile {
-				    		transition: 0.1s all linear 0.18s;
+							transition: 0.1s all linear 0.18s;
+							margin: 12px 0;
 				    	}
 				    }
 
@@ -145,7 +146,7 @@
 				    	top: 0;
 
 				    	@include mobile {
-				    		height: 480px;
+				    		height: 500px;
 				    	}
 
 				    	p {				    		
