@@ -124,29 +124,60 @@
 				@include prefixed(transition, 0s all ease-out 0s);
 			}
 		}
+
+		ul {
+			width: 100%;
+			margin: 0 auto;
+			padding: 0;
+
+			@include mobile {
+				width: 296px;
+			}
+
+			@include tablet {
+				width: 600px;
+			}
+		}
+
+		li {
+			list-style-type: none;
+			display: inline-block;
+		}
 		
 
 		.to-reveal {
-			bottom: -35px;
+			transform: translateY(35px);
 			@include prefixed(transition, all 0.15s ease-out);
-			@include hacks();
+			//@include hacks();
 			position: relative;
 			opacity: 0;
 			color: #fff;
 
 			&.pipe {
-				top: 15px;
-				bottom: 0;
+				transform: translateY(35px);
+				//transform: translateY(0);
 			}
 
 			&.show {
-				bottom: 0;
+				transform: translateY(0px);
 				opacity: 1;
+				display: inline-block;
 
 				&.pipe {
 					top: -1px;
-					bottom: 0;
+					transform: translateY(0px);
 				}
+			}
+
+			&.hide-tablet {
+
+				@include tablet {
+					display: none;
+				}
+			}
+
+			&.hide {
+				display: none;
 			}
 		}
 		

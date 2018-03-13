@@ -30,7 +30,12 @@
           </h1>         
           <p class="tagline" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}" ng-bind-html="content.subHeading"></p>
           <div class="skills" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">
-            <span class="to-reveal">{{content.skills[0]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{content.skills[1]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{content.skills[2]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{content.skills[3]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{content.skills[4]}}</span><span class="to-reveal desktop-only pipe">|</span><br class="mobile-only" /><span class="to-reveal">{{content.skills[5]}}</span><span class="to-reveal pipe">|</span><span class="to-reveal">{{content.skills[6]}}</span>
+            <ul>
+              <li ng-repeat="skill in skills">
+                  <span class="to-reveal">{{skill}}</span>
+                  <span class="to-reveal pipe" ng-class="{'desktop-only': $index === 2 || $index === 4, 'hide': $index === 6, 'hide-tablet': $index === 3}">|</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -39,29 +44,45 @@
     <on-scroll class="second-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap projects-list">
-          <h2 class="category-title">{{content.projects[0].panelTitle}}</h2>
+          <h2 class="category-title">{{panelTitles.projects}}</h2>
           <ul>
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>{{content.projects[0].companyName}} - {{content.projects[0].role}}</p>
               <ul>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/personal-loans.html'" href="#">{{content.projects[0].sites[0].name}}</a></li>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/creditwise.html'" href="#">{{content.projects[0].sites[1].name}}</a></li>
-                <li><a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/income-calc.html'" href="#">{{content.projects[0].sites[2].name}}</a></li>
+                <li>
+                  <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/personal-loans.html'" href="#">{{content.projects[0].sites[0].name}}</a>
+                </li>
+                <li>
+                  <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/creditwise.html'" href="#">{{content.projects[0].sites[1].name}}</a>
+                </li>
+                <li>
+                  <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/income-calc.html'" href="#">{{content.projects[0].sites[2].name}}</a>
+                </li>
               </ul>
             </li>
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/rp.svg'"></span>{{content.projects[1].companyName}} - {{content.projects[1].role}}</p>
               <ul>
-                <li><a class="proj-link" href="http://apps.bsv.vcu.edu/RamTech/Index.html" target="_blank">{{content.projects[1].sites[0].name}}</a></li>
-                <li><a class="proj-link" href="http://willowlawn.com/" target="_blank">{{content.projects[1].sites[1].name}}</a></li>
-                <li><a class="proj-link" href="https://olli.com/" target="_blank">{{content.projects[1].sites[2].name}}</a></li>
+                <li>
+                  <a class="proj-link" href="http://apps.bsv.vcu.edu/RamTech/Index.html" target="_blank">{{content.projects[1].sites[0].name}}</a>
+                </li>
+                <li>
+                  <a class="proj-link" href="http://willowlawn.com/" target="_blank">{{content.projects[1].sites[1].name}}</a>
+                </li>
+                <li>
+                  <a class="proj-link" href="https://olli.com/" target="_blank">{{content.projects[1].sites[2].name}}</a>
+                </li>
               </ul>
             </li>
             <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/c9.svg'"></span>{{content.projects[2].companyName}} - {{content.projects[2].role}}</p>
               <ul>
-                <li><a class="proj-link" href="http://1stopministorage.com/" target="_blank">{{content.projects[2].sites[0].name}}</a></li>
-                <li><a class="proj-link" href="http://katieadcock.com/" target="_blank">{{content.projects[2].sites[1].name}}</a></li>
+                <li>
+                  <a class="proj-link" href="http://1stopministorage.com/" target="_blank">{{content.projects[2].sites[0].name}}</a>
+                </li>
+                <li>
+                  <a class="proj-link" href="http://katieadcock.com/" target="_blank">{{content.projects[2].sites[1].name}}</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -72,7 +93,7 @@
     <on-scroll class="third-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
-          <h2 class="category-title">{{coding[0].panelTitle}}</h2>
+          <h2 class="category-title">{{panelTitles.coding}}</h2>
           <ul>
             <li ng-repeat="code in coding">
               <div class="code-link" ng-click="portfolio.showContent($index)">{{code.title}}</div>
@@ -90,7 +111,7 @@
     <on-scroll class="fourth-panel sliding-panel fade-out">
       <div class="panel-wrapper">
         <div class="inner-wrap snippets">
-          <h2 class="category-title">{{about[0].panelTitle}}</h2>
+          <h2 class="category-title">{{panelTitles.about}}</h2>
           <ul>
             <li ng-repeat="bio in about">
               <div class="code-link" reveal-content><span class="bio-icon left" ng-include="bio.icon"></span>{{bio.heading}}</div> 
@@ -107,29 +128,32 @@
       <div class="panel-wrapper">
         <div class="inner-wrap">
           <div class="special-note">
-            <h2 class="category-title">{{content.contact[0].panelTitle}}</h2>
-            <p>{{content.contact[0].specialNote[0].description}}</p>
+            <h2 class="category-title">{{panelTitles.note}}</h2>
+            <p>{{specialNote}}</p>
           </div>
-          <div class="block left">
-            <h2 class="category-title">{{content.contact[0].contactInfo[0].title}}</h2>
-            <div class="social">
+          <div class="block">
+            <h2 class="category-title">{{panelTitles.contact}}</h2>
+            <div class="contact">
               <ul>
                 <li class="insert-phone"></li>
                 <li class="insert-email"></li>
               </ul>
             </div>
           </div>
-          <div class="block right">
-            <h2 class="category-title">{{content.contact[0].social[0].title}}</h2>
-            <div class="inner-wrap">
-              <div class="social">
-                <ul>
-                  <li><a title="Github" target="_blank" href="http://github.com/scottmurphy1111"><img src="assets/images/portfolio/git.svg" /></a></li>
-                  <li><a title="Stack Overflow" target="_blank" href="http://stackoverflow.com/users/5711949/scott-murphy"><div class="so-info rep" title="Reputation Score">{{totalSoRep}}</div><div class="so-info badges" title="Badge Count">{{totalSoBadges}}</div><img src="assets/images/portfolio/stk-o.svg" /></a></li>
-                  <li><a title="jsFiddle" target="_blank" href="https://jsfiddle.net/user/scottmurphy1111/fiddles/"><img src="assets/images/portfolio/jsfiddle.svg" /></a></li>
-                  <li><a title="linkedIn" target="_blank" href="https://www.linkedin.com/in/scottmurphy1111"><img src="assets/images/portfolio/linkd-in.svg" /></a></li>
-                </ul>
-              </div>
+          <div class="block">
+            <h2 class="category-title">{{panelTitles.social}}</h2>
+            <div class="social">
+              <ul>
+                <li ng-repeat="social in socials">
+                  <a title="{{social.title}}" target="_blank" ng-href="{{social.link}}">
+                    <div ng-if="social.title === 'Stack Overflow'" class="so-info-wrap">
+                      <div class="so-info rep" title="Reputation Score">{{totalSoRep}}</div>
+                      <div class="so-info badges" title="Badge Count">{{totalSoBadges}}</div>
+                    </div>
+                    <img ng-src="{{social.icon}}" />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

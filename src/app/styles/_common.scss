@@ -311,11 +311,16 @@ span.logo {
 	line-height: 10vh !important;
 	margin: 0 auto;
 	height: 10vh;
-	font: 1.5rem $font-extralight;
+	font-size: 1.75rem;
+	font-family: $font-extralight;
 	text-align: left;
 	font-weight: bold;
 	text-transform: uppercase;
 	visibility: visible;
+
+	@include mobile {
+		font-size: 1.5rem;
+	}
 	
 	span.logo {
 		width: 25px;
@@ -594,7 +599,11 @@ span.logo {
 	top: -1px;
 	position: relative;
 	font-family: $font-regular;
-	padding: 0 8px;
+	padding: 0 8px 0 5px;
+
+	@include desktop {
+		padding: 0 8px 0 4px;
+	}
 }
 
 .mobile-only {
@@ -603,6 +612,18 @@ span.logo {
   @include mobile {
     display: inline-block !important;
   }
+}
+
+.tablet-only {
+	display: inline-block !important;
+
+	@include mobile {
+		display: none !important;
+	}
+
+	@include desktop {
+		display: none !important;
+	}
 }
 
 .desktop-only {

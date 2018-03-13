@@ -26,60 +26,115 @@
 
   	@include mobile {
   		width: 100%;
-  	}
+		}
+		
+		.contact {
+			width: 100%;
+			display: block;
+ 
+			ul {
+				padding: 0;
+				display: inline-block;
+				width: 100%;
+				margin-top: 0px;
+			 	margin-bottom: 10px;
+			}
+ 
+			li {
+				width: 100%;
+			 	padding: 0 0px;
+				@include box-sizing(border-box);
+				display: inline-block;
+				text-align: left;
+				list-style-type: none;
+				color: $blueThin;
+				text-transform: uppercase;
+				font-weight: bold;
+	
+				@include mobile {
+					margin: 0 0 5px;
+				}
+	
+				a {
+					color: $blueThin;
+				}
+					.definition {
+					color: #fff;
+				}
+			}
+		}
 
-  	&.right {
-  		
+		.social {
+			ul {
+				padding: 0;
+				display: inline-block;
+				width: 100%;
+				margin-top: 0px;
+			}
 
-      .social {
-        li {
-          padding: 0 32px 0 0;
-          max-width: 84px;
-          width: 25%;
+			li {
+				padding: 0 32px 0 0;
+				max-width: 84px;
+				width: 25%;
+				@include box-sizing(border-box);
+				display: inline-block;
+				text-align: left;
+				list-style-type: none;
+				color: $blueThin;
+				text-transform: uppercase;
+				font-weight: bold;
 
-          @include mobile {
-            padding: 0 32px 0 0;
-            max-width: 72px;
-          }
+				@include mobile {
+					padding: 0 32px 0 0;
+					max-width: 72px;
+				}
 
-          a {
-            cursor: pointer;
-            position: relative;
+				a {
+					cursor: pointer;
+					position: relative;
+					display: block;
 
-            .so-info {
-              position: absolute;
-              background: #ff7c00;
-              width: 21px;
-              height: 17px;
-              color: #fff;
-              font-size: 0.6875rem;
-              display: block;
-              padding: 0px 0px 0 0px;
-              box-sizing: border-box;
-              top: 12px;
-              right: -12px;
-              font-weight: bold;
-              text-align: center;
-              line-height: 16px;
+					.so-info-wrap {
+						position: absolute;
+						z-index: 10;
+						bottom: 0;
+						width: 50px;
+						right: -15px;
 
-              &.rep {
-                border-radius: 3px 0 0 3px;
-                left: 22px;
-                border-right: 1px solid #fff;
+						@include mobile {
+							bottom: -5px;
+							right: -22px;
+						}
+					}
 
-                @include mobile {
-                  left: 10px;
-                }
-              }
+					.so-info {
+						position: relative;
+						background: #ff7c00;
+						width: 21px;
+						height: 17px;
+						color: #fff;
+						font-size: 0.6875rem;
+						display: inline-block;
+						padding: 0px 0px 0 0px;
+						box-sizing: border-box;
+						left:-4px;
+						font-weight: bold;
+						text-align: center;
+						line-height: 16px;
 
-              &.badges {
-                border-radius: 0 3px 3px 0;
-              }
-            }
-          }
-        }
-      }
-    }
+						&.rep {
+							border-radius: 3px 0 0 3px;
+							left: 0px;
+							border-right: 1px solid #fff;
+						}
+
+						&.badges {
+							border-radius: 0 3px 3px 0;
+						}
+					}
+				}
+			}
+		}
   }
 
   .special-note {
@@ -112,43 +167,6 @@
    		}
 		}
  	}
-
- 	.social {
- 		width: 100%;
- 		display: block;
-
- 		ul {
- 			padding: 0;
- 			display: inline-block;
- 			width: 100%;
- 			margin-top: 0px;
-      margin-bottom: 10px;
- 		}
-
- 		li {
- 			width: 100%;
-      padding: 0 0px;
- 			@include box-sizing(border-box);
- 			display: inline-block;
- 			text-align: left;
- 			list-style-type: none;
- 			color: $blueThin;
-	  	text-transform: uppercase;
-	  	font-weight: bold;
-
-	  	@include mobile {
-	  		margin: 0 0 5px;
-	  	}
-
-	  	a {
-	  		color: $blueThin;
-	  	}
- 			.definition {
-	  		color: #fff;
-	  	}
- 		}
- 	}
-
 
   p {
   	padding: 0px 0px 0px;
