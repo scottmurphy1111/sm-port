@@ -14,9 +14,18 @@
             "build tools",
             "version control"
           ],
+          "panelTitles": [
+            {
+              "projects": "Projects",
+              "coding": "Coding",
+              "about": "About Scott",
+              "note": "A Special Note",
+              "contact": "Contact",
+              "social": "Social"
+            }
+          ],
           "projects": [
             {
-              "panelTitle": "Projects",
               "companyName": "Celerity IT",
               "icon": "",
               "role": "Front-end Developer",
@@ -72,7 +81,6 @@
           ],
           "coding": [
             {
-              "panelTitle": "Coding",
               "title": "Design Execution",
               "description": "I utilize HTML/CSS/JAVASCRIPT to implement smooth animations and optimized visual elements into web user interfaces",
               "image": "assets/images/portfolio/design-execution.png",
@@ -87,7 +95,6 @@
           ],
           "about": [
             {
-              "panelTitle": "About Scott",
               "heading": "Nickname",
               "icon": "assets/images/portfolio/person.svg",
               "description": "Friends call me Murph"
@@ -130,7 +137,6 @@
           ],
           "contact": [
             {
-              "panelTitle": "A Special Note",
               "specialNote": [
                 {
                   "description": "THANK YOU FOR VISITING! TO PUT IT SIMPLY, I LOVE BRINGING WEB PAGES TO LIFE. WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, MY STRONG PASSION FOR CODE KEEPS ME CONSTANTLY WANTING TO CONQUER THE DAILY CHALLENGES OF FRONT-END AND USER INTERFACE DEVELOPMENT"
@@ -143,32 +149,26 @@
                   "email": "scottmurphy1111@gmail.com"
                 }
               ],
-              "social": [
+              "socials": [    
                 {
-                  "title": "Social",
-                  "sites": [
-                    {
-                      "title": "Github",
-                      "icon": "",
-                      "link": ""
-                    },
-                    {
-                      "title": "Stack Overflow",
-                      "icon": "",
-                      "link": ""
-                    },
-                    {
-                      "title": "jsFiddle",
-                      "icon": "",
-                      "link": ""
-                    },
-                    {
-                      "title": "LinkedIn",
-                      "icon": "",
-                      "link": ""
-                    }
-                  ]
-                  
+                  "title": "Github",
+                  "icon": "assets/images/portfolio/git.svg",
+                  "link": "http://github.com/scottmurphy1111"
+                },
+                {
+                  "title": "Stack Overflow",
+                  "icon": "assets/images/portfolio/stk-o.svg",
+                  "link": "http://stackoverflow.com/users/5711949/scott-murphy"
+                },
+                {
+                  "title": "jsFiddle",
+                  "icon": "assets/images/portfolio/jsfiddle.svg",
+                  "link": "https://jsfiddle.net/user/scottmurphy1111/fiddles/"
+                },
+                {
+                  "title": "linkedIn",
+                  "icon": "assets/images/portfolio/linkd-in.svg",
+                  "link": "https://www.linkedin.com/in/scottmurphy1111"
                 }
               ]
             }
