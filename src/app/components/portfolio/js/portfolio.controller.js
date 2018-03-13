@@ -46,7 +46,7 @@
 						}
 					}, 3700);
 				});
-			})
+			});
 		
 			//prevents bots from spamming my email/phone
 			var loadContact = function() {
@@ -150,7 +150,6 @@
 			$scope.about = response.data[0].content[0].about;
 			$scope.specialNote = response.data[0].content[0].contact[0].specialNote[0].description;
 			$scope.socials = response.data[0].content[0].contact[0].socials;
-			console.log('skills from data', $scope.skills);
 		});
 	}
 })();
