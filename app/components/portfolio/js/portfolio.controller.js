@@ -33,7 +33,7 @@
 					//ripple effect on skills reveal
 					var processAll = function(els) {
 						var timer = 0;
-						timer += 20*els+(Math.random()*5);
+						timer += 30*els+(Math.random()*5);
 		
 						$timeout(function() {
 							toReveal[els].classList.add('show');
@@ -44,7 +44,7 @@
 						for (var n = 0; n < toReveal.length; n++) {
 							processAll(n);//closure
 						}
-					}, 3700);
+					}, 3400);
 				});
 			});
 		
@@ -141,6 +141,7 @@
 		$scope.about = [];
 		$scope.specialNote = '';
 		$scope.socials = [];
+		$scope.projects = [];
 		
 		contentFactory.then(function(response) {
 			$scope.panelTitles = response.data[0].content[0].panelTitles[0];
@@ -150,6 +151,7 @@
 			$scope.about = response.data[0].content[0].about;
 			$scope.specialNote = response.data[0].content[0].contact[0].specialNote[0].description;
 			$scope.socials = response.data[0].content[0].contact[0].socials;
+			$scope.projects = response.data[0].content[0].projects;
 		});
 	}
 })();

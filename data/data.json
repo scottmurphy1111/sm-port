@@ -27,54 +27,54 @@
           "projects": [
             {
               "companyName": "Celerity IT",
-              "icon": "",
+              "icon": "assets/images/portfolio/c1.svg",
               "role": "Front-end Developer",
               "sites": [
                 {
                   "name": "Personal Loans",
-                  "link": ""
+                  "link": "app/components/portfolio/modal-templates/personal-loans.html"
                 },
                 {
                   "name": "Creditwise",
-                  "link": ""
+                  "link": "app/components/portfolio/modal-templates/creditwise.html"
                 },
                 {
                   "name": "Income Calculator",
-                  "link": ""
+                  "link": "app/components/portfolio/modal-templates/income-calc.html"
                 }
               ]
             },
             {
               "companyName": "Rocket Pop Media",
-              "icon": "",
+              "icon": "assets/images/portfolio/rp.svg",
               "role": "Web Developer",
               "sites": [
                 {
                   "name": "VCU Ramtech",
-                  "link": ""
+                  "link": "http://apps.bsv.vcu.edu/RamTech/Index.html"
                 },
                 {
                   "name": "Willow Lawn Mall",
-                  "link": ""
+                  "link": "http://willowlawn.com"
                 },
                 {
                   "name": "Olli Salumeria",
-                  "link": ""
+                  "link": "https://olli.com"
                 }
               ]
             },
             {
               "companyName": "Freelance",
-              "icon": "",
+              "icon": "assets/images/portfolio/c9.svg",
               "role": "Web Developer",
               "sites": [
                 {
                   "name": "1 Stop Mini Storage",
-                  "link": ""
+                  "link": "http://1stopministorage.com"
                 },
                 {
                   "name": "Katie Adcock - Designer",
-                  "link": ""
+                  "link": "http://katieadcock.com"
                 }
               ]
             }
