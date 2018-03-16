@@ -46,21 +46,22 @@
         <div class="inner-wrap projects-list">
           <h2 class="category-title">{{panelTitles.projects}}</h2>
           <ul>
-            <li>
-              <p><span class="icon" ng-include="'assets/images/portfolio/c1.svg'"></span>{{content.projects[0].companyName}} - {{content.projects[0].role}}</p>
+            <li ng-repeat="project in projects">
+              <p><span class="icon" ng-include="project.icon"></span>{{project.companyName}} - {{project.role}}</p>
               <ul>
-                <li>
-                  <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/personal-loans.html'" href="#">{{content.projects[0].sites[0].name}}</a>
+                <li ng-repeat="site in project.sites">
+                  <a ng-if="project.companyName === 'Celerity IT'" class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/personal-loans.html'" href="#">{{site.name}}</a>
+                  <a ng-if="project.companyName !== 'Celerity IT'" class="proj-link" ng-href="{{site.link}}" target="_blank">{{site.name}}</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/creditwise.html'" href="#">{{content.projects[0].sites[1].name}}</a>
                 </li>
                 <li>
                   <a class="proj-link" sm-modal ng-click="portfolio.chosenTemplate='app/components/portfolio/modal-templates/income-calc.html'" href="#">{{content.projects[0].sites[2].name}}</a>
-                </li>
+                </li> -->
               </ul>
             </li>
-            <li>
+            <!-- <li>
               <p><span class="icon" ng-include="'assets/images/portfolio/rp.svg'"></span>{{content.projects[1].companyName}} - {{content.projects[1].role}}</p>
               <ul>
                 <li>
@@ -84,7 +85,7 @@
                   <a class="proj-link" href="http://katieadcock.com/" target="_blank">{{content.projects[2].sites[1].name}}</a>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
