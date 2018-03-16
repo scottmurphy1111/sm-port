@@ -25,9 +25,11 @@
 			}, 5000);
 
 			//add animation class to home section skills
-			
-			$scope.$watch(contentFactory, function() {
+			console.log('pre-watch', $scope.skills);
+			$scope.$watch($scope.skills, function() {
+				console.log('post-watch', $scope.skills);
 				$timeout(function() {
+					console.log('in-timeout', $scope.skills);
 					var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
 
 					//ripple effect on skills reveal
