@@ -25,7 +25,7 @@
 			}, 5000);
 
 			//add animation class to home section skills
-			$timeout(function() {
+			
 				var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
 
 				//ripple effect on skills reveal
@@ -43,7 +43,7 @@
 						processAll(n);//closure
 					}
 				}, 3400);
-			});
+			
 		
 			//prevents bots from spamming my email/phone
 			var loadContact = function() {
