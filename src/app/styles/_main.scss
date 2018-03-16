@@ -13,8 +13,10 @@ html, body {
 body {
   margin: 0;
   font: 16px $font-light;
-  background: $primaryColor;
-  background: url(../assets/images/digi-bg1.png) 50% 100% no-repeat transparent;
+  background-color: $primaryColor;
+  background-image: url(../assets/images/digi-bg1.png);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
   background-size: cover;
   @include box-sizing(border-box);
   color: #fff;

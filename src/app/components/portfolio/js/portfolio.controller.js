@@ -152,7 +152,6 @@
 			$scope.specialNote = response.data[0].content[0].contact[0].specialNote[0].description;
 			$scope.socials = response.data[0].content[0].contact[0].socials;
 			$scope.projects = response.data[0].content[0].projects;
-			console.log($scope.projects[0].sites);
 		});
 	}
 })();
