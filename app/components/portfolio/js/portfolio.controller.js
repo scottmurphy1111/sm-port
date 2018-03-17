@@ -25,38 +25,27 @@
 			}, 5000);
 
 			//add animation class to home section skills
-			console.log('pre-watch', $scope.skills);
 			$scope.fireSkills = function() {
-				
-				$scope.$watchGroup($scope.skills, function(newValue, oldValue) {
-					console.log('post-watch', $scope.skills);
-					console.log('newval', newValue);
-					console.log('oldval', oldValue);
-					$timeout(function() {
-						console.log('in-timeout', $scope.skills);
-						var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
+				$timeout(function() {
+					var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
 
-						//ripple effect on skills reveal
-						var processAll = function(els) {
-							console.log('els', els);
-							var timer = 0;
-							timer += 30*els+(Math.random()*5);
-			
-							$timeout(function() {
-								toReveal[els].classList.add('show');
-							}, timer);
-						};
-			
+					//ripple effect on skills reveal
+					var processAll = function(els) {
+						var timer = 0;
+						timer += 30*els+(Math.random()*5);
+		
 						$timeout(function() {
-							for (var n = 0; n < toReveal.length; n++) {
-								processAll(n);//closure
-							}
-						}, 3400);
-					});
+							toReveal[els].classList.add('show');
+						}, timer);
+					};
+		
+					$timeout(function() {
+						for (var n = 0; n < toReveal.length; n++) {
+							processAll(n);//closure
+						}
+					}, 3400);
 				});
 			};
-
-			$scope.fireSkills();
 		
 			//prevents bots from spamming my email/phone
 			var loadContact = function() {
@@ -162,7 +151,7 @@
 			$scope.specialNote = response.data[0].content[0].contact[0].specialNote[0].description;
 			$scope.socials = response.data[0].content[0].contact[0].socials;
 			$scope.projects = response.data[0].content[0].projects;
-			console.log('service skills', $scope.skills);
+			$scope.fireSkills();
 		});
 	}
 })();
