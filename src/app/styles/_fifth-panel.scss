@@ -101,9 +101,63 @@
 						width: 50px;
 						right: -15px;
 
+						&:hover {
+							.so-tooltip {
+								transform: scale(1) translateY(0);
+							}
+						}
+
 						@include mobile {
 							bottom: -5px;
 							right: -22px;
+						}
+
+						.so-tooltip {
+							width: 90px;
+							height: 90px;
+							background: #ff7c00;
+							color: #fff;
+							padding: 0.5rem;
+							border-radius: 12px;
+							transform: scale(0) translateY(50px);
+							transition: all 0.15s ease-out;
+							font-size: 0.75rem;
+							transform-origin: bottom left;
+
+							p {
+								font-weight: 900;
+							}
+
+							hr {
+								border-style: solid;
+							}
+
+							ul {
+								margin-left: 12px;
+							}
+
+							li {
+								list-style-type: disc;
+								font-weight: 900;
+								color: #fff;
+								width: 100%;
+								padding: 0;
+								display: inline-block;
+							}
+
+							&:after {
+								content: "";
+								width: 0; 
+								height: 0; 
+								border-left: 8px solid transparent;
+								border-right: 8px solid transparent;
+								border-top: 6px solid #ff7c00;
+								display: block;
+								margin: 0 auto;
+								position: absolute;
+								left: 20px;
+								bottom: -6px;
+							}
 						}
 					}
 
@@ -129,6 +183,7 @@
 
 						&.badges {
 							border-radius: 0 3px 3px 0;
+							left: -5px;
 						}
 					}
 				}

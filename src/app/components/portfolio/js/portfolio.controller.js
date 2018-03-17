@@ -5,9 +5,9 @@
 	.module('website')
 	.controller('PortfolioCtrl', PortfolioCtrl);
 
-	PortfolioCtrl.$inject =['$timeout', '$state', '$window', '$document', '$http', '$scope', 'contentFactory'];
+	PortfolioCtrl.$inject =['$timeout', '$state', '$window', '$document', '$http', '$scope', 'contentFactory', 'soFactory'];
 
-	function PortfolioCtrl($timeout, $state, $window, $document, $http, $scope, contentFactory) {		
+	function PortfolioCtrl($timeout, $state, $window, $document, $http, $scope, contentFactory, soFactory) {
 		var portfolio = this;//scope portfolio
 	
 		portfolio.loadMainContent = false;//flag page load timer
@@ -113,24 +113,19 @@
 		//get Stack Overflow reputation/badge count using API
 		$scope.totalSoRep = 0;
 		$scope.totalSoBadges = 0;
-	
-		$http({
-			method: 'GET',
-			url: 'http://api.stackexchange.com/2.2/users/5711949/?site=stackoverflow'
-		})
-		.then(function successCallback(response) {
+
+		soFactory.then(function(response) {
 			var allItems = response.data.items[0],
 			badgeCounts = allItems.badge_counts;
-			
 			$scope.totalSoRep = allItems.reputation;
+			$scope.bronzeBadges = badgeCounts.bronze;
+			$scope.silverBadges = badgeCounts.silver;
+			$scope.goldBadges = badgeCounts.gold;
 
 			//loop through badge_counts object
 			Object.keys(badgeCounts).forEach(function(badge) {
-			$scope.totalSoBadges += badgeCounts[badge];
-			});   
-			
-		}, function errorCallback(response) {
-			throw new Error("Error" + response);
+				$scope.totalSoBadges += badgeCounts[badge];
+			});
 		});
 
 		$scope.panelTitles = [];

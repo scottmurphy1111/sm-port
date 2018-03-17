@@ -117,8 +117,18 @@
                 <li ng-repeat="social in socials">
                   <a title="{{social.title}}" target="_blank" ng-href="{{social.link}}">
                     <div ng-if="social.title === 'Stack Overflow'" class="so-info-wrap">
-                      <div class="so-info rep" title="Reputation Score">{{totalSoRep}}</div>
-                      <div class="so-info badges" title="Badge Count">{{totalSoBadges}}</div>
+                      <div class="so-tooltip">
+                        <p>Reputation: {{totalSoRep}}</p>
+                        <hr />
+                        <p>Badges:</p>
+                        <ul>
+                          <li>Bronze: {{bronzeBadges}}</li>
+                          <li>Silver: {{silverBadges}}</li>
+                          <li>Gold: {{goldBadges}}</li>
+                        </ul>
+                      </div>
+                      <div class="so-info rep">{{totalSoRep}}</div>
+                      <div class="so-info badges">{{totalSoBadges}}</div>
                     </div>
                     <img ng-src="{{social.icon}}" />
                   </a>
