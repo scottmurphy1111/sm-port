@@ -28,8 +28,10 @@
 			console.log('pre-watch', $scope.skills);
 			$scope.fireSkills = function() {
 				
-				$scope.$watch($scope.skills, function() {
+				$scope.$watchGroup($scope.skills, function(newValue, oldValue) {
 					console.log('post-watch', $scope.skills);
+					console.log('newval', newValue);
+					console.log('oldval', oldValue);
 					$timeout(function() {
 						console.log('in-timeout', $scope.skills);
 						var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
