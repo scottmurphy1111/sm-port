@@ -23,33 +23,6 @@
 			$timeout(function() {
 				portfolio.removeDelays = true;
 			}, 5000);
-
-			//add animation class to home section skills
-			console.log('pre-watch', $scope.skills);
-			$scope.$watch($scope.skills, function() {
-				console.log('post-watch', $scope.skills);
-				$timeout(function() {
-					console.log('in-timeout', $scope.skills);
-					var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
-
-					//ripple effect on skills reveal
-					var processAll = function(els) {
-						console.log('els', els);
-						var timer = 0;
-						timer += 30*els+(Math.random()*5);
-		
-						$timeout(function() {
-							toReveal[els].classList.add('show');
-						}, timer);
-					};
-		
-					$timeout(function() {
-						for (var n = 0; n < toReveal.length; n++) {
-							processAll(n);//closure
-						}
-					}, 3400);
-				});
-			}, true);
 		
 			//prevents bots from spamming my email/phone
 			var loadContact = function() {
@@ -157,5 +130,32 @@
 			$scope.projects = response.data[0].content[0].projects;
 			console.log('service skills', $scope.skills);
 		});
+
+		//add animation class to home section skills
+		console.log('pre-watch', $scope.skills);
+		$scope.$watch($scope.skills, function() {
+			console.log('post-watch', $scope.skills);
+			$timeout(function() {
+				console.log('in-timeout', $scope.skills);
+				var toReveal = $document[0].querySelectorAll('.skills .to-reveal');
+
+				//ripple effect on skills reveal
+				var processAll = function(els) {
+					console.log('els', els);
+					var timer = 0;
+					timer += 30*els+(Math.random()*5);
+	
+					$timeout(function() {
+						toReveal[els].classList.add('show');
+					}, timer);
+				};
+	
+				$timeout(function() {
+					for (var n = 0; n < toReveal.length; n++) {
+						processAll(n);//closure
+					}
+				}, 3400);
+			});
+		}, true);
 	}
 })();
