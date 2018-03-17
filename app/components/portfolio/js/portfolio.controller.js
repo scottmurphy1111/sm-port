@@ -27,7 +27,7 @@
 			//add animation class to home section skills
 			console.log('pre-watch', $scope.skills);
 			$scope.fireSkills = function() {
-				angular.copy($scope.skills);
+				angular.copy(response.data[0].content[0].skills, $scope.skills);
 				$scope.$watch($scope.skills, function() {
 					console.log('post-watch', $scope.skills);
 					$timeout(function() {
