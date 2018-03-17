@@ -117,14 +117,13 @@
 						display: inline-block;
 						padding: 0px 0px 0 0px;
 						box-sizing: border-box;
-						left:-4px;
+						left: 0px;
 						font-weight: bold;
 						text-align: center;
 						line-height: 16px;
 
 						&.rep {
 							border-radius: 3px 0 0 3px;
-							left: 0px;
 							border-right: 1px solid #fff;
 						}
 
