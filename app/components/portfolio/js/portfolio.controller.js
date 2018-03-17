@@ -122,7 +122,7 @@
 		contentFactory.then(function(response) {
 			$scope.panelTitles = response.data[0].content[0].panelTitles[0];
 			$scope.content = response.data[0].content[0];
-			$scope.skills = $scope.content.skills;
+			$scope.skills = angular.copy($scope.content.skills);
 			$scope.coding = response.data[0].content[0].coding;
 			$scope.about = response.data[0].content[0].about;
 			$scope.specialNote = response.data[0].content[0].contact[0].specialNote[0].description;
