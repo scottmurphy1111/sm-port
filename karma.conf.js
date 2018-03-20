@@ -48,12 +48,15 @@ module.exports = function(config) {
       'karma-phantomjs-launcher',
       'karma-angular-filesort',
       'karma-jasmine',
-      'karma-ng-html2js-preprocessor'
+      'karma-ng-html2js-preprocessor',
+      'karma-spec-reporter'
     ],
 
     preprocessors: {
       'src/**/*.html': ['ng-html2js']
-    }
+    },
+
+    reporters: ['spec']
   };
 
   // This block is needed to execute Chrome on Travis

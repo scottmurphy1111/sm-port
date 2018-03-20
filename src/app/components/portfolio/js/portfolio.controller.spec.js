@@ -1,15 +1,37 @@
 (function() {
   'use strict';
 
-  describe('controllers', function(){
+  describe('controller', function(){
+    var myScope, vm;
 
     beforeEach(module('website'));
-
-    it('should define more than 5 awesome things', inject(function($controller) {
-      var vm = $controller('PortfolioController');
-
-      expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length > 5).toBeTruthy();
+    beforeEach(inject(function($controller, $rootScope) {
+      myScope = $rootScope.$new();
+      vm = $controller('PortfolioCtrl', {
+        $scope: myScope
+      });
     }));
+
+    describe('load main content setup', function() {
+      it('should load main content', function() {
+        expect(vm.loadMainContent).toBe(false);
+      });
+
+    });
+
+    describe('load main content init', function() {
+      it('should load main content', function($timeout) {
+        $timeout.flush(1000);
+        expect(vm.loadMainContent).toBe(true);
+      });
+
+    });
+
+    describe('setup page function', function() {
+      it('should show that setuppage is defined', function() {
+        expect(vm.setUpPage).toBeDefined();
+      });
+    });
+
   });
 })();

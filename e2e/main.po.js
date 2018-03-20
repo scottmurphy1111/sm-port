@@ -5,11 +5,12 @@
 
 'use strict';
 
-var MainPage = function() {
-  this.jumbEl = element(by.css('.jumbotron'));
-  this.h1El = this.jumbEl.element(by.css('h1'));
-  this.imgEl = this.jumbEl.element(by.css('img'));
-  this.thumbnailEls = element(by.css('body')).all(by.repeater('awesomeThing in main.awesomeThings'));
+var PortfolioPage = function() {
+  this.logo = element(by.css('.logo'));
+  this.name = element(by.css('.name'));
+  this.title = element(by.css('.title'));
+  this.tagline = element(by.css('.tagline'));
+  this.skills = element(by.css('.skills')).all(by.repeater('skill in skills'));
 };
 
-module.exports = new MainPage();
+module.exports = new PortfolioPage();

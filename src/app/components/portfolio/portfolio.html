@@ -26,7 +26,10 @@
       <div class="panel-static">
         <div class="static-inner" ng-class="{'load-content': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">
           <h1>
-            <span class="logo" ng-include="'assets/images/portfolio/logo.svg'" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}"></span><span class="name" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">{{content.name}}</span><br class="mobile-only" /><span class="title" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">{{content.title}}</span>
+            <span class="logo" ng-include="'assets/images/portfolio/logo.svg'" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}"></span>
+            <span class="name" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">{{content.name}}</span>
+            <br class="mobile-only" /
+            ><span class="title" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">{{content.title}}</span>
           </h1>         
           <p class="tagline" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}" ng-bind-html="content.subHeading"></p>
           <div class="skills" ng-class="{'show': portfolio.loadMainContent, 'remove-delay': portfolio.removeDelays}">

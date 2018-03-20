@@ -5,15 +5,17 @@ var gulp = require('gulp');
 var conf = require('./conf');
 
 var karma = require('karma');
+var Server = require('karma').Server;
 
 function runTests (singleRun, done) {
-  karma.server.start({
+  new Server({
+  //karma.server.start({
     configFile: path.join(__dirname, '/../karma.conf.js'),
     singleRun: singleRun,
     autoWatch: !singleRun
   }, function() {
     done();
-  });
+  }).start();
 }
 
 gulp.task('test', ['scripts'], function(done) {
